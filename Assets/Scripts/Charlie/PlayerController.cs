@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,10 @@ public class PlayerController : MonoBehaviour
     private float cameraVerticalRotation = 0f;
 
     private Camera playerCamera;
+
+    public float distance = 1.05f;
+    private bool isGrounded;
+    [SerializeField] private float gravity = -2;
 
 
     // Start is called before the first frame update
@@ -56,8 +61,18 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        CheckGround();
         HandleMovmentStates();
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+
+        if (!isGrounded)
+        {
+            movement.y = gravity;
+        }
+        if (isGrounded)
+        {
+            movement.y = 0;
+        }
 
         gameObject.transform.Translate(movement * Time.fixedDeltaTime * speed);
     }
@@ -75,6 +90,20 @@ public class PlayerController : MonoBehaviour
             case MovementType.Crawling:
                 speed = 2f;
                 break;
+        }
+    }
+
+    private void CheckGround()
+    {
+        Debug.DrawRay(transform.position, Vector3.down * distance, Color.red);
+
+        if (Physics.Raycast((transform.position), Vector3.down * distance, out RaycastHit hit, distance))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
     }
 }
