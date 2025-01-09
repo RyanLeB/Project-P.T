@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
 
+    private CharacterController characterController;
+
+    bool isCrouching = false;
+    bool isRunning = false;
+
     public enum MovementType
     {
         Walking,
@@ -17,6 +22,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public MovementType movementType;
+
+    private Vector3 velocity;
 
     [SerializeField] private float speed;
     private float sensitivity = 0.15f;
@@ -35,6 +42,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        characterController = GetComponent<CharacterController>();
         Cursor.visible = false;
         playerCamera = GetComponentInChildren<Camera>();
     }
@@ -65,13 +73,32 @@ public class PlayerController : MonoBehaviour
         HandleMovmentStates();
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
-        if (!isGrounded)
+        if (velocity.y < 0f && isGrounded)
         {
-            movement.y = gravity;
+            velocity.y = -2.0f;
         }
-        if (isGrounded)
+
+        characterController.Move(velocity * Time.deltaTime);
+        velocity.y += gravity * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.C))
         {
-            movement.y = 0;
+            isCrouching = true;
+            movementType = MovementType.Crawling;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isRunning = true;
+            movementType = MovementType.Running;
+        }
+        if (!isRunning && !isCrouching)
+        {
+            movementType = MovementType.Walking;
+        }
+        else
+        {
+            isCrouching = false;
+            isRunning = false;
         }
 
         gameObject.transform.Translate(movement * Time.fixedDeltaTime * speed);
@@ -83,12 +110,15 @@ public class PlayerController : MonoBehaviour
         {
             case MovementType.Walking:
                 speed = 5f;
+                characterController.height = 2f;
                 break;
             case MovementType.Running:
                 speed = 10f;
+                characterController.height = 2f;
                 break;
             case MovementType.Crawling:
                 speed = 2f;
+                characterController.height = 0.5f;
                 break;
         }
     }
