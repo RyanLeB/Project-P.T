@@ -20,7 +20,6 @@ public class ActiveLevelChanging : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _animator
             levels[currentLevel].SetActive(false);
             currentLevel++;
             if (currentLevel >= levels.Length)
