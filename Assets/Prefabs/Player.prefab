@@ -103,9 +103,9 @@ GameObject:
   - component: {fileID: 5043134114705551583}
   - component: {fileID: 5338172353949206465}
   - component: {fileID: 4131280361284314404}
-  - component: {fileID: 5504781202111083796}
   - component: {fileID: 7340563680267943260}
   - component: {fileID: 2180943862530277034}
+  - component: {fileID: 9088008049431559414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,29 +179,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5504781202111083796
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8662946304910526763}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7340563680267943260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementType: 0
   speed: 5
+  distance: 1.1
+  gravity: -2
 --- !u!114 &2180943862530277034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,3 +225,29 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!143 &9088008049431559414
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662946304910526763}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
