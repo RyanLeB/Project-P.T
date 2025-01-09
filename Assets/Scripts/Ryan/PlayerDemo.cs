@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Update()
@@ -36,13 +37,22 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position += movement;
         
-        if (movement.magnitude > 0 && !footstepSource.isPlaying)
+        // Adjust footstep sound volume based on movement
+        if (movement.magnitude > 0)
         {
-            footstepSource.Play();
+            if (!footstepSource.isPlaying)
+            {
+                footstepSource.Play();
+            }
+            footstepSource.volume = .5f;
         }
-        else if (movement.magnitude == 0)
+        else
         {
-            footstepSource.Stop();
+            footstepSource.volume = Mathf.Lerp(footstepSource.volume, 0.0f, Time.deltaTime * 12.0f);
+            if (footstepSource.volume <= 0.01f)
+            {
+                footstepSource.Stop();
+            }
         }
     }
 }
