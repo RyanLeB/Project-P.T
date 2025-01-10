@@ -2,31 +2,34 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity;
 
 public class ActiveLevelChanging : MonoBehaviour
 {
-    public GameObject[] levels;
-    public int currentLevel = 0;
-    
-    private Animator _animator;
+    public GameObject FirstLevel;
+    public GameObject SecondLevel;
+    public GameObject firstDoor;
+    public Collider doorCollider;
     
     void Start()
     {
-        levels[currentLevel].SetActive(true);
-        _animator = GetComponent<Animator>();
+        doorCollider = firstDoor.GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            levels[currentLevel].SetActive(false);
-            currentLevel++;
-            if (currentLevel >= levels.Length)
-            {
-                currentLevel = 0;
-            }
-            levels[currentLevel].SetActive(true);
+            FirstLevel.SetActive(false);
+            SecondLevel.SetActive(true);
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            doorCollider.isTrigger = false;
         }
     }
 }
