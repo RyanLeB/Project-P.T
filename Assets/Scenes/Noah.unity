@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &393898817 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5879241525100401105, guid: ae345280a9c59ba4c9753a1fc113ad43, type: 3}
-  m_PrefabInstance: {fileID: 183264952956637824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &692716238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616,13 +611,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 951631462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f95829aa04c646b49a1a987c82602f80, type: 3}
+  m_Script: {fileID: 11500000, guid: be52907fc1a65f746a0696ed8dfd37ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstLevel: {fileID: 393898817}
-  SecondLevel: {fileID: 1087919696}
-  firstDoor: {fileID: 951631462}
-  doorCollider: {fileID: 0}
+  nextSceneName: Testing Loading
 --- !u!1 &1087919696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5879241525100401105, guid: ae345280a9c59ba4c9753a1fc113ad43, type: 3}
@@ -850,7 +842,6 @@ MonoBehaviour:
   speed: 5
   mouseSensitivity: 2
   footstepSource: {fileID: 1980718098}
-  rb: {fileID: 1980718097}
 --- !u!136 &1980718100
 CapsuleCollider:
   m_ObjectHideFlags: 0
