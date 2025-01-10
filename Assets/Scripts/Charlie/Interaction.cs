@@ -7,10 +7,13 @@ public class Interaction : MonoBehaviour
 {
     public InteractableFinder interactableFinder;
 
+    public Lighter lighter;
+
     // Start is called before the first frame update
     void Start()
     {
         interactableFinder = GetComponentInChildren<InteractableFinder>();
+        lighter = FindObjectOfType<Lighter>();
     }
 
     // Update is called once per frame
@@ -34,10 +37,14 @@ public class Interaction : MonoBehaviour
             else if (interactableFinder.currentObject.type == InteractableObject.InteractableType.Lighter)
             {
                 Debug.Log("Lighter");
+                lighter.lighterFluid += 100;
+                interactableFinder.currentObject.gameObject.SetActive(false);
             }
             else if (interactableFinder.currentObject.type == InteractableObject.InteractableType.LighterFluid)
             {
                 Debug.Log("Lighter Fluid");
+                lighter.lighterFluid += 50;
+                interactableFinder.currentObject.gameObject.SetActive(false);
             }
         }
         else
