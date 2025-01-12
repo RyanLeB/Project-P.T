@@ -5,26 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class SeamlessLoading : MonoBehaviour
 {
-    public string nextSceneName;
+    [SerializeField] private string sceneToLoad = "Roomm";
+    [SerializeField] private Vector3 levelSpawningPoint;
+    [SerializeField] private Quaternion rotateLevel;
+    private bool isLoading = false;
+    private bool isLoaded = false;
+    private AsyncOperation loadingOperation;
     
-    // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isLoading && !isLoaded)
         {
-            StartCoroutine(LoadScene());
+            StartCoroutine(LoadNextRoom());
         }
     }
 
-    private IEnumerator LoadScene()
+    private bool PlayerHitsTrigger()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+    
+    private IEnumerator LoadNextRoom()
+    {
+        isLoading = true;
         
-        while (!asyncLoad.isDone)
+        loadingOperation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+        loadingOperation.allowSceneActivation = false;
+        
+        yield return new WaitForSeconds(3);
+        
+        loadingOperation.allowSceneActivation = true;
+        while (!loadingOperation.isDone)
         {
             yield return null;
         }
         
-        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+        Scene loadedScene = SceneManager.GetSceneByName(sceneToLoad);
+        GameObject[] rootObjects = loadedScene.GetRootGameObjects();
+        if (rootObjects.Length > 0)
+        {
+            rootObjects[0].transform.position = levelSpawningPoint;
+            rootObjects[0].transform.rotation = rotateLevel;
+        }
+        
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); Need this when the animations are done for the door
+        isLoading = false;
+        isLoaded = true;
     }
 }
