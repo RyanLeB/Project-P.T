@@ -16,6 +16,8 @@ public class CodeLock : MonoBehaviour
     
     public TextMeshProUGUI inputField;
 
+    public Door doorToOpen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,7 @@ public class CodeLock : MonoBehaviour
         if (input == password)
         {
             Debug.Log("Unlocked");
+            doorToOpen.Open();
         }
 
     }
