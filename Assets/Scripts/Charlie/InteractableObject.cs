@@ -10,7 +10,8 @@ public class InteractableObject : MonoBehaviour
         Key,
         Lighter,
         LighterFluid,
-        Door
+        Door,
+        KeyPad
     }
 
     public InteractableType type;

@@ -9,10 +9,12 @@ public class Interaction : MonoBehaviour
     public InteractableObject currentObject;
     public Inventory inventory;
     public Lighter lighter;
+    public GameObject keypadUI;
 
     // Start is called before the first frame update
     void Start()
     {
+        keypadUI.SetActive(false);
         interactableFinder = GetComponentInChildren<InteractableFinder>();
         inventory = FindObjectOfType<Inventory>();
         lighter = FindObjectOfType<Lighter>();
@@ -58,9 +60,14 @@ public class Interaction : MonoBehaviour
             }
             else if (currentObject.type == InteractableObject.InteractableType.Door)
             {
-                Debug.Log("Door");
+                //Debug.Log("Door");
                 Door door = currentObject.GetComponent<Door>();
-                door.Open();
+                door.TryOpen();
+            }
+            else if (currentObject.type == InteractableObject.InteractableType.KeyPad)
+            {
+                Debug.Log("KeyPad");
+                keypadUI.SetActive(true);
             }
         }
         else

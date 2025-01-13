@@ -49,8 +49,14 @@ public class CodeLock : MonoBehaviour
         if (input == password)
         {
             Debug.Log("Unlocked");
-            doorToOpen.Open();
+            ClearInput();
+            doorToOpen.isLocked = false;
+            gameObject.SetActive(false);
         }
-
+        else
+        {
+            Debug.Log("Wrong password");
+            ClearInput();
+        }
     }
 }

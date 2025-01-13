@@ -12,15 +12,36 @@ public class Door : MonoBehaviour
     }
 
     public DoorType doorType;
-
+    public bool isLocked = true;
     public int requiredKeyID;
     public Inventory inventory;
 
-    public void Open()
+    public void TryOpen()
+    {
+        if (isLocked)
+        {
+            if (doorType == DoorType.Lock)
+            {
+                OpenLock();
+            }
+            else
+            {
+                Debug.Log("This door is locked");
+            }
+        }
+        else if (!isLocked)
+        {
+            Debug.Log("Door opens");
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void OpenLock()
     {
         if (inventory.HasKey(requiredKeyID))
         {
-            gameObject.SetActive(false);
+            isLocked = false;
+            Debug.Log("Door is unlocked");
         }
         else
         {
