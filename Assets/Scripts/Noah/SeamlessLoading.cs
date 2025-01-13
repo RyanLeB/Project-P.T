@@ -48,7 +48,7 @@ public class SeamlessLoading : MonoBehaviour
             rootObjects[0].transform.rotation = rotateLevel;
         }
         
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         isLoading = false;
         isLoaded = true;
     }
