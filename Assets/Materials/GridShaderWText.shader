@@ -10,6 +10,7 @@ Shader "Custom/GridShader"
     SubShader
     {
         Tags { "RenderType"="Opaque" }
+        Tags { "Shader" = "Lit"}
         LOD 100
 
         Pass
