@@ -69,6 +69,16 @@ public class Interaction : MonoBehaviour
                 Debug.Log("KeyPad");
                 keypadUI.SetActive(true);
             }
+            else if (currentObject.type == InteractableObject.InteractableType.Lightswitch)
+            {
+                Debug.Log("Lightswitch flicked");
+                Lightswitch lightswitch = currentObject.GetComponent<Lightswitch>();
+                lightswitch.ToggleSwitch();
+            }
+            else
+            {
+                Debug.Log("Nothing here");
+            }
         }
         else
         {
