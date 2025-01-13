@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+
+    public enum DoorType
+    {
+        Lock,
+        Code
+    }
+
+    public DoorType doorType;
+
     public int requiredKeyID;
     public Inventory inventory;
 
