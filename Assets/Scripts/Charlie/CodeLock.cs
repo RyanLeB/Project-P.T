@@ -16,17 +16,18 @@ public class CodeLock : MonoBehaviour
     
     public TextMeshProUGUI inputField;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void AddDigit()
     {
-        clickedButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        input += clickedButton.GetComponentInChildren<TextMeshProUGUI>().text.Trim();
-        inputField.text = input;
+        if (input.Length < passwordLength)
+        {
+            clickedButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+            input += clickedButton.GetComponentInChildren<TextMeshProUGUI>().text.Trim();
+            inputField.text = input;
+        }
+        else
+        {
+            Debug.Log("Password cannot be longer than 4 digits");
+        }
     }
 
     public void ClearInput()
