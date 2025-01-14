@@ -60,7 +60,7 @@ public class CodeLock : MonoBehaviour
             Debug.Log("Unlocked");
             ClearInput();
             doorToOpen.isLocked = false;
-            gameObject.SetActive(false);
+            ExitKeyPad();
         }
         else
         {
