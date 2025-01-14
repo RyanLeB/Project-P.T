@@ -40,15 +40,21 @@ public class SeamlessLoading : MonoBehaviour
             yield return null;
         }
         
-        Scene loadedScene = SceneManager.GetSceneByName(sceneToLoad);
-        GameObject[] rootObjects = loadedScene.GetRootGameObjects();
+        Scene loadedScene = SceneManager.GetSceneByName(sceneToLoad); // Get the loaded scene
+        GameObject[] rootObjects = loadedScene.GetRootGameObjects(); // Get all root objects in the scene
         if (rootObjects.Length > 0)
         {
-            rootObjects[0].transform.position = levelSpawningPoint;
-            rootObjects[0].transform.rotation = rotateLevel;
+            GameObject rootObject = rootObjects[0]; // Get the first root object
+            rootObject.transform.position = levelSpawningPoint; // Move the level
+            rootObject.transform.rotation = rotateLevel; // Rotate the level
+            
+            for (int i = 1; i < rootObjects.Length; i++) // Start at 1 to skip the level
+            {
+                Destroy(rootObjects[i]); // Destroy all other root objects, expect the level
+            }
         }
         
-        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); // Unload the current scene
         isLoading = false;
         isLoaded = true;
     }
