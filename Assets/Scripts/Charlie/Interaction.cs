@@ -40,7 +40,7 @@ public class Interaction : MonoBehaviour
             {
                 Debug.Log("Key");
                 Key key = currentObject.GetComponent<Key>();
-                inventory.keys.Add(key.keyID);
+                inventory.GetKeys().Add(key.keyID);
                 currentObject.gameObject.SetActive(false);
                 // tp key to spot in hotbar
                 // do something to let game know player has key
@@ -48,8 +48,16 @@ public class Interaction : MonoBehaviour
             }
             else if (currentObject.type == InteractableObject.InteractableType.Lighter)
             {
-                Debug.Log("Lighter");
-                lighter.lighterFluid += 100;
+                if (lighter.hasLighter == false)
+                {
+                    Debug.Log("Lighter");
+                    lighter.hasLighter = true;
+                }
+                else if (lighter.hasLighter == true)
+                {
+                    lighter.lighterFluid += 100;
+                    Debug.Log("Lighter; Add lighter fluid");
+                }
                 currentObject.gameObject.SetActive(false);
             }
             else if (currentObject.type == InteractableObject.InteractableType.LighterFluid)

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<int> keys = new List<int>();
+    [SerializeField] private List<int> keys = new List<int>();
+    private Lighter lighter;
 
     public void AddKey(int keyID)
     {
@@ -14,5 +15,20 @@ public class Inventory : MonoBehaviour
     public bool HasKey(int keyID)
     {
         return keys.Contains(keyID);
+    }
+
+    public List<int> GetKeys()
+    {
+        return keys;
+    }
+
+    private void Start()
+    {
+        lighter = FindObjectOfType<Lighter>();
+    }
+
+    private void Update()
+    {
+        lighter.CheckLighter();
     }
 }

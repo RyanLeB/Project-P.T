@@ -2122,6 +2122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightObjects:
   - {fileID: 1809187156}
+  lastStatesToRemember: 5
+  lastStates: 
+  stateToActivate: 1
 --- !u!65 &1018367467
 BoxCollider:
   m_ObjectHideFlags: 0

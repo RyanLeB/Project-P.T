@@ -8,6 +8,8 @@ public class Lighter : MonoBehaviour
 
     public float lighterFluid = 100f; // 100% full
 
+    public bool hasLighter = false;
+
     [SerializeField] private Light lighterLight;
 
     public void Start()
@@ -26,7 +28,19 @@ public class Lighter : MonoBehaviour
         {
             lighterLight.intensity = lighterFluid / 100;
         }
+    }
 
-        lighterFluid -= Time.deltaTime;
+    public void CheckLighter()
+    {
+        switch (hasLighter)
+        {
+            case true:
+                gameObject.SetActive(true);
+                lighterFluid -= Time.deltaTime;
+                break;
+            case false:
+                gameObject.SetActive(false);
+                break;
+        }
     }
 }
