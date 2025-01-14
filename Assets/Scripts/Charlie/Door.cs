@@ -16,6 +16,9 @@ public class Door : MonoBehaviour
     public int requiredKeyID;
     public Inventory inventory;
 
+    /// <summary>
+    /// Tries to open the door. If the door is locked, it will check if the player has the required key.
+    /// </summary>
     public void TryOpen()
     {
         if (isLocked)
@@ -36,11 +39,17 @@ public class Door : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Manually unlocks a door.
+    /// </summary>
     public void UnlockDoor()
     {
         isLocked = false;
     }
 
+    /// <summary>
+    /// Opens a locked door if the player has the required key.
+    /// </summary>
     public void OpenLock()
     {
         if (inventory.HasKey(requiredKeyID))

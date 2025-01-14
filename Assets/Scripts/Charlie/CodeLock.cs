@@ -13,7 +13,7 @@ public class CodeLock : MonoBehaviour
     public string input;
 
     private Button clickedButton;
-    
+
     public TextMeshProUGUI inputField;
 
     public Door doorToOpen;
@@ -24,6 +24,9 @@ public class CodeLock : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Adds a digit to the input field depending on which button was clicked.
+    /// </summary>
     public void AddDigit()
     {
         if (input.Length < passwordLength)
@@ -38,12 +41,18 @@ public class CodeLock : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Clears the input field.
+    /// </summary>
     public void ClearInput()
     {
         input = "";
         inputField.text = input;
     }
 
+    /// <summary>
+    /// Checks if the input matches the password.
+    /// </summary>
     public void CheckInput()
     {
         if (input == password)
@@ -58,5 +67,14 @@ public class CodeLock : MonoBehaviour
             Debug.Log("Wrong password");
             ClearInput();
         }
+    }
+
+    /// <summary>
+    /// Closes the keypadUI.
+    /// </summary>
+    public void ExitKeyPad()
+    {
+        ClearInput();
+        gameObject.SetActive(false);
     }
 }

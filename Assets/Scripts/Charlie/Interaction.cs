@@ -32,6 +32,9 @@ public class Interaction : MonoBehaviour
     // the lighter can go in the other corner of the hotbar.
     // lighter fluid can just fill a bar or increase a number % style in the UI somewhere.
 
+    /// <summary>
+    /// Gets called when the player interacts with an object by pressing the interact key [e] while looking at it.
+    /// </summary>
     public void OnInteract()
     {
         if (currentObject != null)

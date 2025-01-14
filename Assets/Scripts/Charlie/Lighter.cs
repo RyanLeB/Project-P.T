@@ -20,16 +20,12 @@ public class Lighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lighterFluid >= 110)
-        {
-            lighterLight.intensity = maxIntensity;
-        }
-        else
-        {
-            lighterLight.intensity = lighterFluid / 100;
-        }
+        UpdateIntensity();
     }
 
+    /// <summary>
+    /// Checks if the player has the lighter in their inventory.
+    /// </summary>
     public void CheckLighter()
     {
         switch (hasLighter)
@@ -41,6 +37,21 @@ public class Lighter : MonoBehaviour
             case false:
                 gameObject.SetActive(false);
                 break;
+        }
+    }
+
+    /// <summary>
+    /// Updates the intensity of the lighter's light based on the amount of lighter fluid remaining.
+    /// </summary>
+    public void UpdateIntensity()
+    {
+        if (lighterFluid >= 110)
+        {
+            lighterLight.intensity = maxIntensity;
+        }
+        else
+        {
+            lighterLight.intensity = lighterFluid / 100;
         }
     }
 }

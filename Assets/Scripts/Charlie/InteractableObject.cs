@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-
+    /// <summary>
+    /// The type of interactable object.
+    /// </summary>
     public enum InteractableType
     {
         Key,

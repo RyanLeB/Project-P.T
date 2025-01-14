@@ -47,6 +47,10 @@ public class PlayerController : MonoBehaviour
         playerCamera = GetComponentInChildren<Camera>();
     }
 
+    /// <summary>
+    /// Gets called when the player moves using the movement keys.
+    /// </summary>
+    /// <param name="movementValue">Input value used to represent and manage input data related to movement controls</param>
     public void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
@@ -55,6 +59,10 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
+    /// <summary>
+    /// Gets called when the player looks around using the mouse.
+    /// </summary>
+    /// <param name="lookValue">Input value used to represent and manage input data related to camera controls</param>
     public void OnLook(InputValue lookValue)
     {
         float lookX = lookValue.Get<Vector2>()[0] * sensitivity;
@@ -104,6 +112,9 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.Translate(movement * Time.fixedDeltaTime * speed);
     }
 
+    /// <summary>
+    /// Handles the player's movement states based on the type of movement the player is performing.
+    /// </summary>
     public void HandleMovmentStates()
     {
         switch (movementType)
@@ -123,6 +134,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the player is grounded.
+    /// </summary>
     private void CheckGround()
     {
         Debug.DrawRay(transform.position, Vector3.down * distance, Color.red);
