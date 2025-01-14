@@ -36,6 +36,11 @@ public class Door : MonoBehaviour
         }
     }
 
+    public void UnlockDoor()
+    {
+        isLocked = false;
+    }
+
     public void OpenLock()
     {
         if (inventory.HasKey(requiredKeyID))

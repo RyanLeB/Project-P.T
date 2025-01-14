@@ -83,9 +83,9 @@ public class Interaction : MonoBehaviour
                 Lightswitch lightswitch = currentObject.GetComponent<Lightswitch>();
                 lightswitch.ToggleSwitch();
             }
-            else
+            else if (currentObject.type == InteractableObject.InteractableType.TVRemote)
             {
-                Debug.Log("Nothing here");
+                 Debug.Log("TV Remote flicked");
             }
         }
         else

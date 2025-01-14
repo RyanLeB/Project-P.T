@@ -12,7 +12,8 @@ public class InteractableObject : MonoBehaviour
         LighterFluid,
         Door,
         KeyPad,
-        Lightswitch
+        Lightswitch,
+        TVRemote
     }
 
     public InteractableType type;
