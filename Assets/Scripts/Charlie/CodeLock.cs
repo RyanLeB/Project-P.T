@@ -87,5 +87,6 @@ public class CodeLock : MonoBehaviour
         ClearInput();
         player.cameraLocked = false;
         gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

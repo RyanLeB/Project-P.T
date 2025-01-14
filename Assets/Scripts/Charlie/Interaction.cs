@@ -79,6 +79,7 @@ public class Interaction : MonoBehaviour
             {
                 Debug.Log("KeyPad");
                 keypadUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
             }
             else if (currentObject.type == InteractableObject.InteractableType.Lightswitch)
             {
@@ -96,5 +97,4 @@ public class Interaction : MonoBehaviour
             Debug.Log("Nothing here");
         }
     }
-
 }
