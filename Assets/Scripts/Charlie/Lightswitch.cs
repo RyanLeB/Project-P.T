@@ -6,6 +6,9 @@ using UnityEngine;
 public class Lightswitch : MonoBehaviour
 {
 
+    /// <summary>
+    /// The type of lightswitch.
+    /// </summary>
     public enum LightswitchType
     {
         LightswitchPuzzle,
