@@ -25,6 +25,9 @@ public class Lightswitch : MonoBehaviour
 
     public bool stateToActivate = true; // this will be the state the lightswitch will have to be for something else to happen
 
+    /// <summary>
+    /// Toggles the lightswitch on or off.
+    /// </summary>
     public void ToggleSwitch()
     {
         lightOn = !lightOn;
@@ -35,6 +38,9 @@ public class Lightswitch : MonoBehaviour
         lastStates.Add(lightOn);
     }
 
+    /// <summary>
+    /// Something happens when the lightswitch is activated.
+    /// </summary>
     public void ThingHappens()
     {
         Debug.Log("Something happens");
@@ -63,6 +69,9 @@ public class Lightswitch : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the lightswitch puzzle has been solved.
+    /// </summary>
     public void CheckLightswitchPuzzle()
     {
         if (lastStates.SequenceEqual(requiredLastStates) && !triggerActivated)
@@ -72,6 +81,9 @@ public class Lightswitch : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the lightswitch has been activated.
+    /// </summary>
     public void CheckTrigger()
     {
         if (lightOn == stateToActivate && !triggerActivated)
