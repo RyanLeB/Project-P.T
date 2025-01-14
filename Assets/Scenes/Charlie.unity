@@ -2120,10 +2120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962d0a0c6015e184eb965fb33fd8c2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightswitchType: 0
   lightObjects:
   - {fileID: 1809187156}
   lastStatesToRemember: 5
   lastStates: 
+  requiredLastStates: 0001000100
+  triggerActivated: 0
   stateToActivate: 1
 --- !u!65 &1018367467
 BoxCollider:
