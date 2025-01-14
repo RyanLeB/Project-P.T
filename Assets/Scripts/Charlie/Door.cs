@@ -16,6 +16,9 @@ public class Door : MonoBehaviour
     public int requiredKeyID;
     public Inventory inventory;
 
+    public Animator doorAnimator; 
+    public AudioSource doorOpenSound;
+    
     /// <summary>
     /// Tries to open the door. If the door is locked, it will check if the player has the required key.
     /// </summary>
@@ -35,7 +38,8 @@ public class Door : MonoBehaviour
         else if (!isLocked)
         {
             Debug.Log("Door opens");
-            gameObject.SetActive(false);
+            doorAnimator.Play("DoorOpen");
+            doorOpenSound.Play();
         }
     }
 
