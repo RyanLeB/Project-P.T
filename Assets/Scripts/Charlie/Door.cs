@@ -68,10 +68,4 @@ public class Door : MonoBehaviour
     {
         inventory = FindObjectOfType<Inventory>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
 
+    public bool cameraLocked = false;
+
     bool isCrouching = false;
     bool isRunning = false;
 
@@ -65,6 +67,11 @@ public class PlayerController : MonoBehaviour
     /// <param name="lookValue">Input value used to represent and manage input data related to camera controls</param>
     public void OnLook(InputValue lookValue)
     {
+        if (cameraLocked)
+        {
+            return;
+        }
+
         float lookX = lookValue.Get<Vector2>()[0] * sensitivity;
         float lookY = lookValue.Get<Vector2>()[1] * sensitivity;
 

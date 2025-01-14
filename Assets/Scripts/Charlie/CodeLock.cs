@@ -12,6 +12,7 @@ public class CodeLock : MonoBehaviour
     public string password;
     public string input;
 
+    private PlayerController player;
     private Button clickedButton;
 
     public TextMeshProUGUI inputField;
@@ -19,9 +20,18 @@ public class CodeLock : MonoBehaviour
     public Door doorToOpen;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        player = FindObjectOfType<PlayerController>();
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (this.gameObject.activeSelf)
+        {
+            player.cameraLocked = true;
+        }
     }
 
     /// <summary>
@@ -75,6 +85,7 @@ public class CodeLock : MonoBehaviour
     public void ExitKeyPad()
     {
         ClearInput();
+        player.cameraLocked = false;
         gameObject.SetActive(false);
     }
 }
