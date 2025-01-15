@@ -10,10 +10,12 @@ public class Interaction : MonoBehaviour
     public Inventory inventory;
     public Lighter lighter;
     public GameObject keypadUI;
+    public CodeLock codeLock;
 
     // Start is called before the first frame update
     void Start()
     {
+        codeLock = FindObjectOfType<CodeLock>();
         keypadUI.SetActive(false);
         interactableFinder = GetComponentInChildren<InteractableFinder>();
         inventory = FindObjectOfType<Inventory>();
@@ -80,6 +82,7 @@ public class Interaction : MonoBehaviour
                 Debug.Log("KeyPad");
                 keypadUI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
+                codeLock.currentKeypad = currentObject.GetComponent<Keypad>();
             }
             else if (currentObject.type == InteractableObject.InteractableType.Lightswitch)
             {
