@@ -121,8 +121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxIntensity: 1.1
   lighterFluid: 100
+  lighterFluidDecreaseRate: 0.5
   hasLighter: 0
-  lighterLight: {fileID: 0}
+  lighterLight: {fileID: 5795400151282344622}
 --- !u!1 &6610488834292093284
 GameObject:
   m_ObjectHideFlags: 0
