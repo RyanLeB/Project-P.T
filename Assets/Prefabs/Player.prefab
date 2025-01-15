@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 2180943862530277034}
   - component: {fileID: 9088008049431559414}
   - component: {fileID: 395520177854998576}
+  - component: {fileID: 4497911497312897128}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -317,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a802b6fcfd5034da62a104e29cfe13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraLocked: 0
   movementType: 0
   speed: 5
   distance: 1.1
@@ -394,6 +396,19 @@ MonoBehaviour:
   inventory: {fileID: 0}
   lighter: {fileID: 0}
   keypadUI: {fileID: 0}
+--- !u!114 &4497911497312897128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662946304910526763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd525908b325ab4ab9aef273d93542c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys: 
 --- !u!1 &8785466679565305023
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6118608210858839578}
   - component: {fileID: 5795400151282344622}
-  - component: {fileID: 9211367609002435139}
+  - component: {fileID: 6921879993227819393}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -638,7 +653,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &9211367609002435139
+--- !u!114 &6921879993227819393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
