@@ -25,14 +25,14 @@ public class SeamlessLoading : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Space);
     }
     
-    private IEnumerator LoadNextRoom()
+    public IEnumerator LoadNextRoom()
     {
         isLoading = true;
         
         loadingOperation = SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
         loadingOperation.allowSceneActivation = false;
         
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0);
         
         loadingOperation.allowSceneActivation = true;
         while (!loadingOperation.isDone)
