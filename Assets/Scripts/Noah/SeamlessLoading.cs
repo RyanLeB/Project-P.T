@@ -54,7 +54,7 @@ public class SeamlessLoading : MonoBehaviour
             }
         }
         
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); // Unload the current scene
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); // Unload the current scene
         isLoading = false;
         isLoaded = true;
     }

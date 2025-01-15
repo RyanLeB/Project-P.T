@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CodeLock : MonoBehaviour
@@ -19,6 +20,8 @@ public class CodeLock : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
     }
+    
+    
 
     // Update is called once per frame
     void Update()

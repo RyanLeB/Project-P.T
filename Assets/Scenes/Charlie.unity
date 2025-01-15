@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorToOpen: {fileID: 1321459375}
-  password: 6458
+  password: 1111
   input: 
   passwordLength: 4
 --- !u!1 &2095612375
