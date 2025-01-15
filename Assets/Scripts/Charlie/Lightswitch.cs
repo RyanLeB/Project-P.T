@@ -59,6 +59,7 @@ public class Lightswitch : MonoBehaviour
         foreach (GameObject lightObject in lightObjects)
         {
             lightObject.SetActive(lightOn);
+            // lightObject.GetComponent<Light>().color = new Color(-1f, -1f, -1f); if this is on the light will remove light from the area. could be used for something cool?
         }
 
         switch (lightswitchType)
