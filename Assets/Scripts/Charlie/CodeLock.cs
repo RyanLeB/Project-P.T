@@ -7,17 +7,12 @@ using UnityEngine.UI;
 
 public class CodeLock : MonoBehaviour
 {
-    public int passwordLength = 4;
-
-    public string password;
-    public string input;
-
     private PlayerController player;
     private Button clickedButton;
 
     public TextMeshProUGUI inputField;
 
-    public Door doorToOpen;
+    public Keypad currentKeypad;
 
     // Start is called before the first frame update
     private void Start()
@@ -39,11 +34,11 @@ public class CodeLock : MonoBehaviour
     /// </summary>
     public void AddDigit()
     {
-        if (input.Length < passwordLength)
+        if (currentKeypad.input.Length < currentKeypad.passwordLength)
         {
             clickedButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-            input += clickedButton.GetComponentInChildren<TextMeshProUGUI>().text.Trim();
-            inputField.text = input;
+            currentKeypad.input += clickedButton.GetComponentInChildren<TextMeshProUGUI>().text.Trim();
+            inputField.text = currentKeypad.input;
         }
         else
         {
@@ -56,8 +51,8 @@ public class CodeLock : MonoBehaviour
     /// </summary>
     public void ClearInput()
     {
-        input = "";
-        inputField.text = input;
+        currentKeypad.input = "";
+        inputField.text = currentKeypad.input;
     }
 
     /// <summary>
@@ -65,11 +60,11 @@ public class CodeLock : MonoBehaviour
     /// </summary>
     public void CheckInput()
     {
-        if (input == password)
+        if (currentKeypad.input == currentKeypad.password)
         {
             Debug.Log("Unlocked");
             ClearInput();
-            doorToOpen.isLocked = false;
+            currentKeypad.doorToOpen.isLocked = false;
             ExitKeyPad();
         }
         else
@@ -87,6 +82,5 @@ public class CodeLock : MonoBehaviour
         ClearInput();
         player.cameraLocked = false;
         gameObject.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
     }
 }
