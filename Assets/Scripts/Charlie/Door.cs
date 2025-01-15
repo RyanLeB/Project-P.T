@@ -18,6 +18,7 @@ public class Door : MonoBehaviour
 
     public Animator doorAnimator; 
     public AudioSource doorOpenSound;
+    public AudioSource doorLockSound;
     
     /// <summary>
     /// Tries to open the door. If the door is locked, it will check if the player has the required key.
@@ -33,6 +34,7 @@ public class Door : MonoBehaviour
             else
             {
                 Debug.Log("This door is locked");
+                doorLockSound.Play();
             }
         }
         else if (!isLocked)
@@ -64,6 +66,7 @@ public class Door : MonoBehaviour
         else
         {
             Debug.Log("You need the key to open this door!");
+            doorLockSound.Play();
         }
     }
 
