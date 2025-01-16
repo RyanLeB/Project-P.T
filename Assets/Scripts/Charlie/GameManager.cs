@@ -2,6 +2,7 @@ using Palmmedia.ReportGenerator.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameState currentGameState;
     public GameState previousGameState;
 
+    public GameObject player;
 
     void Awake()
     {
@@ -73,30 +75,35 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = true;
         uIManager.MainMenuUI();
+        player.SetActive(false);
     }
 
     void GamePlay()
     {
         Cursor.visible = false;
         uIManager.GamePlayUI();
+        player.SetActive(true);
     }
 
     void GameOver()
     {
         Cursor.visible = true;
         uIManager.GameOverUI();
+        player.SetActive(false);
     }
 
     void GamePause()
     {
         Cursor.visible = true;
         uIManager.GamePauseUI();
+        player.SetActive(true);
     }
 
     void Settings()
     {
         Cursor.visible = true;
         uIManager.SettingsUI();
+        player.SetActive(false);
     }
     #endregion
 
@@ -116,6 +123,7 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         ChangeGameState(GameState.GamePlay);
+        SceneManager.LoadScene("Level 1");
     }
 
     public void OpenSettings()

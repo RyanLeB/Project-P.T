@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Lighter : MonoBehaviour
 {
     public float maxIntensity = 1.1f;
+    public float minIntensity = 0.1f;
 
     public float lighterFluid = 100f; // 100% full
 
     public float lighterFluidDecreaseRate = 0.5f;
 
     public bool hasLighter = false;
+
+    // for testing purposes:
+    public TextMeshProUGUI lighterFluidText;
+    public TextMeshProUGUI lighterIntensityText;
 
     [SerializeField] private Light lighterLight;
 
@@ -23,6 +29,15 @@ public class Lighter : MonoBehaviour
     void Update()
     {
         UpdateIntensity();
+
+        if (lighterIntensityText != null)
+        {
+            lighterIntensityText.text = "Lighter Intensity: " + lighterLight.intensity;
+        }
+        if (lighterFluidText != null)
+        {
+            lighterFluidText.text = "Lighter Fluid: " + lighterFluid;
+        }
     }
 
     /// <summary>
@@ -47,9 +62,13 @@ public class Lighter : MonoBehaviour
     /// </summary>
     public void UpdateIntensity()
     {
-        if (lighterFluid >= 110)
+        if (lighterFluid >= maxIntensity * 100)
         {
             lighterLight.intensity = maxIntensity;
+        }
+        else if (lighterFluid <= minIntensity * 100)
+        {
+            lighterLight.intensity = minIntensity;
         }
         else
         {
