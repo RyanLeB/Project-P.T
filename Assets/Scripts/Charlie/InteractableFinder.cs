@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InteractableFinder : MonoBehaviour
 {
     [SerializeField] public InteractableObject currentObject;
 
+    public TextMeshProUGUI interactText;
 
     /// <summary>
     /// Checks if the player is looking at an interactable object.
@@ -15,7 +17,9 @@ public class InteractableFinder : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
+            interactText.gameObject.SetActive(true);
             currentObject = other.GetComponent<InteractableObject>();
+            interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
         }
     }
 
@@ -25,6 +29,7 @@ public class InteractableFinder : MonoBehaviour
     /// <param name="other"></param>
     public void OnTriggerExit(Collider other)
     {
+        interactText.gameObject.SetActive(false);
         currentObject = null;
     }
 }
