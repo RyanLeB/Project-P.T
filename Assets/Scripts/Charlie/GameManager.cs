@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         ChangeGameState(GameState.GamePlay);
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Charlie");
     }
 
     public void OpenSettings()
