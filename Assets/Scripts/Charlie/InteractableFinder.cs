@@ -19,6 +19,8 @@ public class InteractableFinder : MonoBehaviour
         {
             interactText.gameObject.SetActive(true);
             currentObject = other.GetComponent<InteractableObject>();
+
+            // This is the button prompt we can change this more if we want to.
             interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
         }
     }

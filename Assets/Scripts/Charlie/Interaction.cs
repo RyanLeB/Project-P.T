@@ -41,59 +41,7 @@ public class Interaction : MonoBehaviour
     {
         if (currentObject != null)
         {
-            if (currentObject.type == InteractableObject.InteractableType.Key)
-            {
-                Debug.Log("Key");
-                Key key = currentObject.GetComponent<Key>();
-                inventory.GetKeys().Add(key.keyID);
-                currentObject.gameObject.SetActive(false);
-                // tp key to spot in hotbar
-                // do something to let game know player has key
-                // if interacting with door with correct key in hotbar, door unlocks.
-            }
-            else if (currentObject.type == InteractableObject.InteractableType.Lighter)
-            {
-                if (lighter.hasLighter == false)
-                {
-                    Debug.Log("Lighter");
-                    lighter.hasLighter = true;
-                }
-                else if (lighter.hasLighter == true)
-                {
-                    lighter.lighterFluid += 100;
-                    Debug.Log("Lighter; Add lighter fluid");
-                }
-                currentObject.gameObject.SetActive(false);
-            }
-            else if (currentObject.type == InteractableObject.InteractableType.LighterFluid)
-            {
-                Debug.Log("Lighter Fluid");
-                lighter.lighterFluid += 50;
-                currentObject.gameObject.SetActive(false);
-            }
-            else if (currentObject.type == InteractableObject.InteractableType.Door)
-            {
-                //Debug.Log("Door");
-                Door door = currentObject.GetComponent<Door>();
-                door.TryOpen();
-            }
-            else if (currentObject.type == InteractableObject.InteractableType.KeyPad)
-            {
-                Debug.Log("KeyPad");
-                keypadUI.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                codeLock.currentKeypad = currentObject.GetComponent<Keypad>();
-            }
-            else if (currentObject.type == InteractableObject.InteractableType.Lightswitch)
-            {
-                Debug.Log("Lightswitch flicked");
-                Lightswitch lightswitch = currentObject.GetComponent<Lightswitch>();
-                lightswitch.ToggleSwitch();
-            }
-            else if (currentObject.type == InteractableObject.InteractableType.TVRemote)
-            {
-                 Debug.Log("TV Remote flicked");
-            }
+            currentObject.Interact();
         }
         else
         {
