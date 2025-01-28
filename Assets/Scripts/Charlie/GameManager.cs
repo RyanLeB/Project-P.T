@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
         GamePlay,
         GameOver,
         GamePause,
-        Settings
+        Settings,
+        KeyPad
     }
 
     public GameState currentGameState;
@@ -67,6 +68,9 @@ public class GameManager : MonoBehaviour
             case GameState.Settings:
                 Settings();
                 break;
+            case GameState.KeyPad:
+                Keypad();
+                break;
         }
     }
 
@@ -81,6 +85,7 @@ public class GameManager : MonoBehaviour
     void GamePlay()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         uIManager.GamePlayUI();
         player.SetActive(true);
     }
@@ -95,6 +100,7 @@ public class GameManager : MonoBehaviour
     void GamePause()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         uIManager.GamePauseUI();
         player.SetActive(true);
     }
@@ -104,6 +110,13 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         uIManager.SettingsUI();
         player.SetActive(false);
+    }
+
+    void Keypad()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        player.SetActive(true);
     }
     #endregion
 
@@ -118,6 +131,18 @@ public class GameManager : MonoBehaviour
         GameState temp = currentGameState;
         currentGameState = previousGameState;
         previousGameState = temp;
+    }
+
+    public void PauseGame()
+    {
+        if (currentGameState == GameState.GamePause)
+        {
+            ChangeToPreviousGameState();
+        }
+        else
+        {
+            ChangeGameState(GameState.GamePause);
+        }
     }
 
     public void PlayGame()

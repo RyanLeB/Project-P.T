@@ -131,7 +131,7 @@ public class InteractableObject : MonoBehaviour
     public void KeyPad()
     {
         interaction.keypadUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        interaction.gameManager.ChangeGameState(GameManager.GameState.KeyPad);
         interaction.codeLock.currentKeypad = GetComponent<Keypad>();
     }
 

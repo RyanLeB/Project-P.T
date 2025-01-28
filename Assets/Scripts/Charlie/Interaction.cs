@@ -11,10 +11,12 @@ public class Interaction : MonoBehaviour
     public Lighter lighter;
     public GameObject keypadUI;
     public CodeLock codeLock;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         codeLock = FindObjectOfType<CodeLock>();
         keypadUI.SetActive(false);
         interactableFinder = GetComponentInChildren<InteractableFinder>();

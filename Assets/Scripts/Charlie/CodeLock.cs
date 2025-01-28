@@ -11,6 +11,8 @@ public class CodeLock : MonoBehaviour
     private PlayerController player;
     private Button clickedButton;
 
+    public GameManager gameManager;
+
     public TextMeshProUGUI inputField;
 
     public Keypad currentKeypad;
@@ -18,15 +20,16 @@ public class CodeLock : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         player = FindObjectOfType<PlayerController>();
     }
     
     
 
     // Update is called once per frame
-    void Update()
+    public void FixedUpdate()
     {
-        if (this.gameObject.activeSelf)
+        if (gameObject.activeSelf)
         {
             player.cameraLocked = true;
         }
