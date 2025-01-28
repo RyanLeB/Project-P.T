@@ -17,11 +17,20 @@ public class InteractableFinder : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
-            interactText.gameObject.SetActive(true);
             currentObject = other.GetComponent<InteractableObject>();
 
-            // This is the button prompt we can change this more if we want to.
-            interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
+            if (currentObject != null)
+            {
+                if (currentObject.isInteractable)
+                {
+                    interactText.gameObject.SetActive(true);
+                    interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
+                }
+                else
+                {
+                    interactText.gameObject.SetActive(false);
+                }
+            }
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
 
-    public bool isInteractable;
+    public bool isInteractable = true;
 
     [SerializeField] private Interaction interaction;
 
@@ -87,7 +87,7 @@ public class InteractableObject : MonoBehaviour
     {
         Key key = GetComponent<Key>();
         interaction.inventory.GetKeys().Add(key.keyID);
-        gameObject.SetActive(false);
+        DestroyPickup();
     }
 
     /// <summary>
@@ -103,7 +103,7 @@ public class InteractableObject : MonoBehaviour
         {
             interaction.lighter.lighterFluid += 100;
         }
-        gameObject.SetActive(false);
+        DestroyPickup();
     }
 
     /// <summary>
@@ -112,7 +112,7 @@ public class InteractableObject : MonoBehaviour
     public void LighterFluid()
     {
         interaction.lighter.lighterFluid += 50;
-        gameObject.SetActive(false);
+        DestroyPickup();
     }
 
 
@@ -130,6 +130,7 @@ public class InteractableObject : MonoBehaviour
     /// </summary>
     public void KeyPad()
     {
+        this.isInteractable = false;
         interaction.keypadUI.SetActive(true);
         interaction.gameManager.ChangeGameState(GameManager.GameState.KeyPad);
         interaction.codeLock.currentKeypad = GetComponent<Keypad>();
@@ -152,4 +153,11 @@ public class InteractableObject : MonoBehaviour
         Debug.Log("TV Remote flicked");
     }
     #endregion
+
+    void DestroyPickup()
+    {
+        gameObject.SetActive(false);
+        interaction.interactableFinder.interactText.gameObject.SetActive(false);
+    }
+
 }

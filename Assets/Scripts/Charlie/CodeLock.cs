@@ -87,6 +87,7 @@ public class CodeLock : MonoBehaviour
     {
         ClearInput();
         gameManager.ChangeGameState(GameManager.GameState.GamePlay);
+        currentKeypad.GetComponent<InteractableObject>().isInteractable = true;
         player.cameraLocked = false;
         gameObject.SetActive(false);
     }
