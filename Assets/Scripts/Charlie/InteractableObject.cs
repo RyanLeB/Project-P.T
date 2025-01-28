@@ -154,6 +154,9 @@ public class InteractableObject : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// Destroys the pickup object. Disables the object and the interact text.
+    /// </summary>
     void DestroyPickup()
     {
         gameObject.SetActive(false);
