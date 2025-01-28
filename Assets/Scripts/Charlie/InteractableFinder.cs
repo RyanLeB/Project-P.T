@@ -25,6 +25,8 @@ public class InteractableFinder : MonoBehaviour
                 {
                     interactText.gameObject.SetActive(true);
                     interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
+                    // its either this or on InteractableObject i put a public string for the text that will appear here
+                    // so it would be something like interactText.text = currentObject.interactText;.
                 }
                 else
                 {
