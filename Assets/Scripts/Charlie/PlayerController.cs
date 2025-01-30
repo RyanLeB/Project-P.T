@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
 
-    private CharacterController characterController;
+    public CharacterController characterController;
 
     public bool cameraLocked = false;
 
