@@ -101,7 +101,7 @@ public class InteractableObject : MonoBehaviour
         }
         else if (interaction.lighter.hasLighter == true)
         {
-            interaction.lighter.lighterFluid += 100;
+            interaction.lighter.AddLighterFluid(100);
         }
         DestroyPickup();
     }
@@ -111,7 +111,7 @@ public class InteractableObject : MonoBehaviour
     /// </summary>
     public void LighterFluid()
     {
-        interaction.lighter.lighterFluid += 50;
+        interaction.lighter.AddLighterFluid(50);
         DestroyPickup();
     }
 

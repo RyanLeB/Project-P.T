@@ -8,7 +8,7 @@ public class Lighter : MonoBehaviour
     public float maxIntensity = 1.1f;
     public float minIntensity = 0.1f;
 
-    public float lighterFluid = 100f; // 100% full   Do we want to have the lighter fluid cap?
+    public float lighterFluid = 100f; // 100% full
 
     public float lighterFluidDecreaseRate = 0.5f;
 
@@ -74,6 +74,22 @@ public class Lighter : MonoBehaviour
         else
         {
             lighterLight.intensity = lighterFluid / 100;
+        }
+    }
+
+    /// <summary>
+    /// Adds lighter fluid to the lighter. If the lighter fluid is already full, it will not add any more.
+    /// </summary>
+    /// <param name="lf">Amount of lighter fluid to add</param>
+    public void AddLighterFluid(int lf)
+    {
+        if (lighterFluid + lf > 100)
+        {
+            lighterFluid = 100;
+        }
+        else
+        {
+            lighterFluid += lf;
         }
     }
 }
