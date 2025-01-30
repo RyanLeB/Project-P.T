@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameState previousGameState;
 
     public GameObject player;
+    public PlayerController playerController;
 
     void Awake()
     {
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        playerController.movementLocked = false;
         uIManager.GamePlayUI();
         player.SetActive(true);
     }
@@ -101,6 +103,8 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        playerController.movementLocked = true;
+        playerController.cameraLocked = true;
         uIManager.GamePauseUI();
         player.SetActive(true);
     }
@@ -109,12 +113,20 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = true;
         uIManager.SettingsUI();
-        player.SetActive(false);
+        if (previousGameState == GameState.GamePause)
+        {
+            player.SetActive(true);
+        }
+        else
+        {
+            player.SetActive(false);
+        }
     }
 
     void Keypad()
     {
         Cursor.visible = true;
+        // LINK KEYPAD UI TO THE GAME MANAGER INSTEAD OF SETTING IT ACTIVE MANUALLY, this will make able to unpause the game correctly.
         Cursor.lockState = CursorLockMode.None;
         player.SetActive(true);
     }
@@ -137,7 +149,16 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.GamePause)
         {
-            ChangeToPreviousGameState();
+            if (previousGameState == GameState.KeyPad)
+            {
+                ChangeGameState(GameState.GamePlay);
+                playerController.cameraLocked = false;
+            }
+            else
+            {
+                ChangeToPreviousGameState();
+                playerController.cameraLocked = false;
+            }
         }
         else
         {
@@ -148,12 +169,25 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         ChangeGameState(GameState.GamePlay);
+        playerController.cameraLocked = false;
         SceneManager.LoadScene("Charlie");
     }
 
     public void OpenSettings()
     {
         ChangeGameState(GameState.Settings);
+    }
+
+    public void OpenMainMenu()
+    {
+        ChangeGameState(GameState.MainMenu);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ResumeGame()
+    {
+        ChangeGameState(GameState.GamePlay);
+        playerController.cameraLocked = false;
     }
 
     public void QuitGame()

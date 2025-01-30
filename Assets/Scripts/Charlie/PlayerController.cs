@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController characterController;
 
     public bool cameraLocked = false;
+    public bool movementLocked = false;
 
     bool isCrouching = false;
     bool isRunning = false;
@@ -55,6 +56,11 @@ public class PlayerController : MonoBehaviour
     /// <param name="movementValue">Input value used to represent and manage input data related to movement controls</param>
     public void OnMove(InputValue movementValue)
     {
+        if (movementLocked)
+        {
+            return;
+        }
+
         Vector2 movementVector = movementValue.Get<Vector2>();
 
         movementX = movementVector.x;
@@ -80,6 +86,11 @@ public class PlayerController : MonoBehaviour
 
         this.transform.Rotate(0, lookX, 0);
         playerCamera.transform.localRotation = Quaternion.Euler(cameraVerticalRotation, 0, 0);
+    }
+
+    public void OnPause()
+    {
+        GameManager.manager.PauseGame();
     }
 
     void FixedUpdate()
