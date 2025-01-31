@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static GlobalVariables;
 
 public class Lightswitch : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Lightswitch : MonoBehaviour
 
     bool lightOn;
     public GameObject[] lightObjects;
-    public int lastStatesToRemember = 5;
+    public int lastStatesToRemember = defaultStatesToRemember;
     public List<bool> lastStates = new List<bool>();
     public List<bool> requiredLastStates = new List<bool>();
 

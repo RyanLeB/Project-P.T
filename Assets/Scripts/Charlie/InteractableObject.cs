@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GlobalVariables;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -101,7 +102,7 @@ public class InteractableObject : MonoBehaviour
         }
         else if (interaction.lighter.hasLighter == true)
         {
-            interaction.lighter.AddLighterFluid(100);
+            interaction.lighter.AddLighterFluid(lighterPickupIncrease);
         }
         DestroyPickup();
     }
@@ -111,7 +112,7 @@ public class InteractableObject : MonoBehaviour
     /// </summary>
     public void LighterFluid()
     {
-        interaction.lighter.AddLighterFluid(50);
+        interaction.lighter.AddLighterFluid(lighterFluidPickupIncrease);
         DestroyPickup();
     }
 

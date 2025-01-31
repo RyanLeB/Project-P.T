@@ -9,6 +9,10 @@ public class InteractableFinder : MonoBehaviour
 
     public TextMeshProUGUI interactText;
 
+
+    // THIS WILL CHANGE TO BE A GLOWING EFFECT SOON
+
+
     /// <summary>
     /// Checks if the player is looking at an interactable object.
     /// </summary>

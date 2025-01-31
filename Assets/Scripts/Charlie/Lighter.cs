@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static GlobalVariables;
 
 public class Lighter : MonoBehaviour
 {
-    public float maxIntensity = 1.1f;
-    public float minIntensity = 0.1f;
-
-    public float lighterFluid = 100f; // 100% full
-
-    public float lighterFluidDecreaseRate = 0.5f;
+    public float currentLighterFluid;
 
     public bool hasLighter = false;
 
@@ -22,6 +18,7 @@ public class Lighter : MonoBehaviour
 
     public void Start()
     {
+        currentLighterFluid = startingLighterFluid;
         lighterLight = GetComponentInChildren<Light>();
     }
 
@@ -37,7 +34,7 @@ public class Lighter : MonoBehaviour
         }
         if (lighterFluidText != null)
         {
-            lighterFluidText.text = "Lighter Fluid: " + lighterFluid;
+            lighterFluidText.text = "Lighter Fluid: " + currentLighterFluid;
         }
     }
 
@@ -50,7 +47,7 @@ public class Lighter : MonoBehaviour
         {
             case true:
                 gameObject.SetActive(true);
-                lighterFluid -= lighterFluidDecreaseRate * Time.deltaTime;
+                currentLighterFluid -= lighterFluidDecreaseRate * Time.deltaTime;
                 break;
             case false:
                 gameObject.SetActive(false);
@@ -63,17 +60,19 @@ public class Lighter : MonoBehaviour
     /// </summary>
     public void UpdateIntensity()
     {
-        if (lighterFluid >= maxIntensity * 100)
+        // These magic numbers are all % calcs(short for calculations btw) so I will not change them.
+
+        if (currentLighterFluid >= maxIntensity * 100)
         {
             lighterLight.intensity = maxIntensity;
         }
-        else if (lighterFluid <= minIntensity * 100)
+        else if (currentLighterFluid <= minIntensity * 100)
         {
             lighterLight.intensity = minIntensity;
         }
         else
         {
-            lighterLight.intensity = lighterFluid / 100;
+            lighterLight.intensity = currentLighterFluid / 100;
         }
     }
 
@@ -81,15 +80,15 @@ public class Lighter : MonoBehaviour
     /// Adds lighter fluid to the lighter. If the lighter fluid is already full, it will not add any more.
     /// </summary>
     /// <param name="lf">Amount of lighter fluid to add</param>
-    public void AddLighterFluid(int lf)
+    public void AddLighterFluid(float lf)
     {
-        if (lighterFluid + lf > 100)
+        if (currentLighterFluid + lf > maxLighterFluid)
         {
-            lighterFluid = 100;
+            currentLighterFluid = maxLighterFluid;
         }
         else
         {
-            lighterFluid += lf;
+            currentLighterFluid += lf;
         }
     }
 }

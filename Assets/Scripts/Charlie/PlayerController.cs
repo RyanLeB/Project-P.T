@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static GlobalVariables;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //Movement
     private float movementX;
     private float movementY;
 
@@ -16,30 +20,29 @@ public class PlayerController : MonoBehaviour
 
     bool isCrouching = false;
     bool isRunning = false;
+    bool isOnStairs = false;
 
     public enum MovementType
     {
         Walking,
         Running,
-        Crawling
+        Crawling,
+        Stairs
     }
 
     public MovementType movementType;
 
     private Vector3 velocity;
 
-    [SerializeField] private float speed;
-    private float sensitivity = 0.15f;
+    [SerializeField] private float currentSpeed;
 
-    private float cameraVerticalRotationLimit = 65f;
-
+    //Camera
     private float cameraVerticalRotation = 0f;
 
     private Camera playerCamera;
 
-    public float distance = 1.05f;
+    //GravityETC
     private bool isGrounded;
-    [SerializeField] private float gravity = -2;
 
 
     // Start is called before the first frame update
@@ -48,6 +51,13 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GetComponentInChildren<Camera>();
+    }
+
+    void FixedUpdate()
+    {
+        CheckGround();
+        HandleMovmentStates();
+        HandleMovement();
     }
 
     /// <summary>
@@ -78,8 +88,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        float lookX = lookValue.Get<Vector2>()[0] * sensitivity;
-        float lookY = lookValue.Get<Vector2>()[1] * sensitivity;
+        float lookX = lookValue.Get<Vector2>()[0] * cameraSensitivity;
+        float lookY = lookValue.Get<Vector2>()[1] * cameraSensitivity;
 
         cameraVerticalRotation -= lookY;
         cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -cameraVerticalRotationLimit, cameraVerticalRotationLimit);
@@ -93,10 +103,12 @@ public class PlayerController : MonoBehaviour
         GameManager.manager.PauseGame();
     }
 
-    void FixedUpdate()
+
+    /// <summary>
+    /// Handles the player's movement.
+    /// </summary>
+    private void HandleMovement()
     {
-        CheckGround();
-        HandleMovmentStates();
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         if (velocity.y < 0f && isGrounded)
@@ -107,6 +119,16 @@ public class PlayerController : MonoBehaviour
         characterController.Move(velocity * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
 
+        UpdateMovementType();
+
+        gameObject.transform.Translate(movement * Time.fixedDeltaTime * currentSpeed);
+    }
+
+    /// <summary>
+    /// This is mostly a debug function, this will not be needed really after a point.
+    /// </summary>
+    private void UpdateMovementType()
+    {
         if (Input.GetKey(KeyCode.C))
         {
             isCrouching = true;
@@ -117,7 +139,7 @@ public class PlayerController : MonoBehaviour
             isRunning = true;
             movementType = MovementType.Running;
         }
-        if (!isRunning && !isCrouching)
+        if (!isRunning && !isCrouching && !isOnStairs)
         {
             movementType = MovementType.Walking;
         }
@@ -126,8 +148,6 @@ public class PlayerController : MonoBehaviour
             isCrouching = false;
             isRunning = false;
         }
-
-        gameObject.transform.Translate(movement * Time.fixedDeltaTime * speed);
     }
 
     /// <summary>
@@ -138,16 +158,19 @@ public class PlayerController : MonoBehaviour
         switch (movementType)
         {
             case MovementType.Walking:
-                speed = 5f;
-                characterController.height = 2f;
+                currentSpeed = defaultSpeed;
+                characterController.height = defaultHeight;
                 break;
             case MovementType.Running:
-                speed = 10f;
-                characterController.height = 2f;
+                currentSpeed = defaultSpeed * runningSpeedMultiplier;
+                characterController.height = defaultHeight;
                 break;
             case MovementType.Crawling:
-                speed = 2f;
-                characterController.height = 0.5f;
+                currentSpeed = defaultSpeed * crouchingSpeedMultiplier;
+                characterController.height =  defaultHeight * crouchingHeightMultiplier;
+                break;
+            case MovementType.Stairs:
+                currentSpeed = defaultSpeed * stairsSpeedMultiplier;
                 break;
         }
     }
@@ -166,6 +189,26 @@ public class PlayerController : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Test");
+
+        if (collision.gameObject.CompareTag("Stairs"))
+        {
+            Debug.Log(collision.gameObject.name);
+            isOnStairs = true;
+            movementType = MovementType.Stairs;
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Stairs"))
+        {
+            isOnStairs = false;
         }
     }
 }
