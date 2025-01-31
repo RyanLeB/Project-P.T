@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GlobalVariables;
 
 public class Keypad : MonoBehaviour
 {
@@ -10,6 +11,6 @@ public class Keypad : MonoBehaviour
 
     public string input;
 
-    public int passwordLength = 4;
+    public int passwordLength = defaultPasswordLength;
 
 }
