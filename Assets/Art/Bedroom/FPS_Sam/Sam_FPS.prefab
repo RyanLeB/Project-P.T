@@ -191,7 +191,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.8
+  m_Height: 1.5
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -230,7 +230,7 @@ MonoBehaviour:
   jumpForce: 8
   gravity: 30
   crouchHeight: 0.5
-  standingHeight: 1.8
+  standingHeight: 1.7
   timeToCrouch: 0.15
   crouchingCenter: {x: 0, y: 0.5, z: 0}
   standingCenter: {x: 0, y: 0, z: 0}
