@@ -10,6 +10,8 @@ public class InteractableObject : MonoBehaviour
 
     [SerializeField] private Interaction interaction;
 
+    public Trigger triggerToActivate;
+
     /// <summary>
     /// The type of interactable object.
     /// </summary>
@@ -76,6 +78,11 @@ public class InteractableObject : MonoBehaviour
             case InteractableType.TVRemote:
                 TVRemote();
                 break;
+        }
+
+        if (triggerToActivate != null)
+        {
+            triggerToActivate.gameObject.SetActive(true);
         }
     }
 
