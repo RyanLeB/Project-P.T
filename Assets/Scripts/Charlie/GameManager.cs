@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static GlobalVariables;
 
 public class GameManager : MonoBehaviour
 {
@@ -170,7 +171,7 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.GamePlay);
         playerController.cameraLocked = false;
-        SceneManager.LoadScene("Charlie");
+        SceneManager.LoadScene(firstLevelSceneName);
     }
 
     public void OpenSettings()
@@ -181,7 +182,7 @@ public class GameManager : MonoBehaviour
     public void OpenMainMenu()
     {
         ChangeGameState(GameState.MainMenu);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     public void ResumeGame()

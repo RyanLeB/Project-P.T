@@ -43,4 +43,10 @@ public static class GlobalVariables
     // Lightswitch Variables
 
     public const int defaultStatesToRemember = 5;
+
+
+    // Game Manager Variables
+
+    public const string mainMenuSceneName = "MainMenu";
+    public const string firstLevelSceneName = "MapLayout";
 }
