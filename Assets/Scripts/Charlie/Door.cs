@@ -60,6 +60,7 @@ public class Door : MonoBehaviour
         if (inventory.HasKey(requiredKeyID))
         {
             isLocked = false;
+            inventory.keyGameObject.SetActive(false);
             Debug.Log("Door is unlocked");
         }
         else

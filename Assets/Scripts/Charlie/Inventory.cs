@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<int> keys = new List<int>();
     private Lighter lighter;
 
+    public GameObject keyGameObject;
+
     /// <summary>
     /// Adds a key to the player's inventory.
     /// </summary>
@@ -38,6 +40,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         lighter = FindObjectOfType<Lighter>();
+        keyGameObject.SetActive(false);
     }
 
     private void Update()

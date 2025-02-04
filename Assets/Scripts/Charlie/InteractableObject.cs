@@ -88,6 +88,7 @@ public class InteractableObject : MonoBehaviour
     {
         Key key = GetComponent<Key>();
         interaction.inventory.GetKeys().Add(key.keyID);
+        interaction.inventory.keyGameObject.SetActive(true);
         DestroyPickup();
     }
 
