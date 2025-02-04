@@ -21,7 +21,7 @@ public class InteractableFinder : MonoBehaviour
     /// Checks if the player is looking at an interactable object.
     /// </summary>
     /// <param name="other">The object the player is looking at</param>
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Interactable"))
         {
