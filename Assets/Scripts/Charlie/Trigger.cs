@@ -24,6 +24,9 @@ public class Trigger : MonoBehaviour
 
     public float volume = 1;
 
+
+    private AudioSource audioSource;
+
     [Header("Door Trigger Settings")]
 
     public Door door;
@@ -41,14 +44,19 @@ public class Trigger : MonoBehaviour
 
     public void Start()
     {
+        if (soundTrigger && soundPosition == null)
+        {
+            Debug.Assert(soundPosition != null, "Sound Position is null");
+        }
+
         if (soundTrigger)
         {
-            soundPosition.AddComponent<AudioSource>();
-            soundPosition.GetComponent<AudioSource>().clip = sound;
-            soundPosition.GetComponent<AudioSource>().playOnAwake = playOnStart;
-            soundPosition.GetComponent<AudioSource>().loop = loop;
-            soundPosition.GetComponent<AudioSource>().spatialBlend = spacialBlend;
-            soundPosition.GetComponent<AudioSource>().volume = volume;
+            audioSource = soundPosition.AddComponent<AudioSource>();
+            audioSource.clip = sound;
+            audioSource.playOnAwake = playOnStart;
+            audioSource.loop = loop;
+            audioSource.spatialBlend = spacialBlend;
+            audioSource.volume = volume;
         }
 
         if (nextTrigger != null)
@@ -61,7 +69,7 @@ public class Trigger : MonoBehaviour
     {
         if (soundTrigger)
         {
-            soundPosition.GetComponent<AudioSource>().Play();
+            audioSource.Play();
         }
         if (doorTrigger)
         {
