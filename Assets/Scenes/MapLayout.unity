@@ -6505,7 +6505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4656264840137933899, guid: 2674fb5b9701d024aad9185cd315d4e6, type: 3}
       propertyPath: m_Name
-      value: DoorParent (2)
+      value: BasementDoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6515,6 +6515,11 @@ PrefabInstance:
 --- !u!4 &427616597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1211554714875443987, guid: 2674fb5b9701d024aad9185cd315d4e6, type: 3}
+  m_PrefabInstance: {fileID: 427616596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &427616598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4656264840137933899, guid: 2674fb5b9701d024aad9185cd315d4e6, type: 3}
   m_PrefabInstance: {fileID: 427616596}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &442435294
@@ -26980,6 +26985,7 @@ GameObject:
   - component: {fileID: 1956370629}
   - component: {fileID: 1956370628}
   - component: {fileID: 1956370627}
+  - component: {fileID: 1956370631}
   m_Layer: 0
   m_Name: BasementKnockTrigger
   m_TagString: Untagged
@@ -27073,6 +27079,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 402973343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956370631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956370626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8b277c6642a9845af09987ce853356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTrigger: 1
+  doorTrigger: 0
+  nextTrigger: {fileID: 0}
+  soundPosition: {fileID: 427616598}
+  sound: {fileID: 8300000, guid: 534c11c2cc6694443aa733dec78f7821, type: 3}
+  playOnStart: 0
+  loop: 0
+  spacialBlend: 1
+  volume: 1
+  door: {fileID: 0}
+  actionType: 0
 --- !u!1001 &1956586720
 PrefabInstance:
   m_ObjectHideFlags: 0
