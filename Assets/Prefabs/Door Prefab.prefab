@@ -556,4 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac707651e4aa044982efef26b6129cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteractable: 1
+  interaction: {fileID: 0}
   type: 3
+  interactionType: 0
