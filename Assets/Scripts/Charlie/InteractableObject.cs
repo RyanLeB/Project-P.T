@@ -10,7 +10,7 @@ public class InteractableObject : MonoBehaviour
 
     [SerializeField] private Interaction interaction;
 
-    public Trigger triggerToActivate;
+    public GameObject triggerToActivate;
 
     /// <summary>
     /// The type of interactable object.
