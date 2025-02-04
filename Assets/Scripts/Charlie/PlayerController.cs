@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Test");
+        //Debug.Log("Test");
 
         if (collision.gameObject.CompareTag("Stairs"))
         {
