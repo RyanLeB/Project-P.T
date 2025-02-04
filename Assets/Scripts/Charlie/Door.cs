@@ -52,6 +52,29 @@ public class Door : MonoBehaviour
         isLocked = false;
     }
 
+    public void Open()
+    {
+        doorAnimator.Play("DoorOpen");
+        doorOpenSound.Play();
+    }
+
+    public void Close()
+    {
+        doorAnimator.Play("DoorClose");
+        doorOpenSound.Play();
+    }
+
+    public void Lock()
+    {
+        isLocked = true;
+    }
+
+    public void Crack()
+    {
+        doorAnimator.Play("DoorCrack");
+        doorOpenSound.Play();
+    }
+
     /// <summary>
     /// Opens a locked door if the player has the required key.
     /// </summary>
