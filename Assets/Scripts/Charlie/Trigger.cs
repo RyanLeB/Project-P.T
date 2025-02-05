@@ -102,33 +102,33 @@ public class Trigger : MonoBehaviour
     }
 }
 
-[CustomEditor(typeof(Trigger))]
-public class TriggerEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        Trigger trigger = (Trigger)target;
+//[CustomEditor(typeof(Trigger))]
+//public class TriggerEditor : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        Trigger trigger = (Trigger)target;
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("soundTrigger"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("doorTrigger"));
+//        EditorGUILayout.PropertyField(serializedObject.FindProperty("soundTrigger"));
+//        EditorGUILayout.PropertyField(serializedObject.FindProperty("doorTrigger"));
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("nextTrigger"));
+//        EditorGUILayout.PropertyField(serializedObject.FindProperty("nextTrigger"));
 
-        if (trigger.soundTrigger)
-        {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("soundPosition"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("sound"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("playOnStart"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("loop"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("spacialBlend"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("volume"));
-        }
-        if (trigger.doorTrigger)
-        {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("door"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("actionType"));
-        }
+//        if (trigger.soundTrigger)
+//        {
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("soundPosition"));
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("sound"));
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("playOnStart"));
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("loop"));
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("spacialBlend"));
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("volume"));
+//        }
+//        if (trigger.doorTrigger)
+//        {
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("door"));
+//            EditorGUILayout.PropertyField(serializedObject.FindProperty("actionType"));
+//        }
 
-        serializedObject.ApplyModifiedProperties();
-    }
-}
+//        serializedObject.ApplyModifiedProperties();
+//    }
+//}
