@@ -319,7 +319,7 @@ public partial class @ProjectPT: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5253570c-6ed4-4e20-8728-6e4d78027925"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
