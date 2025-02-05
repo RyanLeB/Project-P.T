@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1.unity
     guid: b05cf2312bcd06d42b2329a96e08570f
   - enabled: 0
@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level 3.unity
     guid: 485230b6180286448be2594f04db3fad
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Charlie.unity
     guid: 84cb6dc88b5267a42b995913e223f198
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 371a692a70d2c3f4ab293ed7a55325e3
   - enabled: 1
     path: Assets/Scenes/MapLayout.unity
     guid: cfe79581849843e4cb5edd89a415c781

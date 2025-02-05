@@ -59992,7 +59992,7 @@ MonoBehaviour:
   playOnStart: 0
   loop: 0
   spacialBlend: 0
-  volume: 0.3
+  volume: 0.2
   door: {fileID: 0}
   actionType: 0
 --- !u!65 &2130373435
