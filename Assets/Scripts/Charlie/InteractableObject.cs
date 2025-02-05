@@ -82,7 +82,7 @@ public class InteractableObject : MonoBehaviour
 
         if (triggerToActivate != null)
         {
-            triggerToActivate.gameObject.SetActive(true);
+            triggerToActivate.SetActive(true);
         }
     }
 
