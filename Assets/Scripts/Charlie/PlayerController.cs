@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         CheckGround();
-        HandleMovmentStates();
+        HandleMovementStates();
         HandleMovement();
     }
 
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Handles the player's movement states based on the type of movement the player is performing.
     /// </summary>
-    public void HandleMovmentStates()
+    public void HandleMovementStates()
     {
         switch (movementType)
         {

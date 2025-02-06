@@ -7,7 +7,7 @@ public class InteractableFinder : MonoBehaviour
 {
     [SerializeField] public InteractableObject currentObject;
 
-    public TextMeshProUGUI interactText;
+    //public TextMeshProUGUI interactText;
 
     private bool additionalMaterialApplied = false;
 
@@ -33,7 +33,7 @@ public class InteractableFinder : MonoBehaviour
                 {
                     //interactText.gameObject.SetActive(true);
                     //interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
-                    SetAdditionalMaterial();
+                    SetAdditionalMaterial(outlineMaterial);
                     // its either this or on InteractableObject i put a public string for the text that will appear here
                     // so it would be something like interactText.text = currentObject.interactText;.
                 }
@@ -55,7 +55,12 @@ public class InteractableFinder : MonoBehaviour
         ClearAdditionalMaterial();
         currentObject = null;
     }
-    public void SetAdditionalMaterial()
+
+    /// <summary>
+    /// Adds a material onto the current interactable
+    /// </summary>
+    /// <param name="material">The material to be added</param>
+    public void SetAdditionalMaterial(Material material)
     {
         if (additionalMaterialApplied)
         {
@@ -66,11 +71,14 @@ public class InteractableFinder : MonoBehaviour
         //Debug.Log(currentObject.GetComponent<Renderer>().materials.Length + 1); // 2
         Debug.Log("MaterialsArrayLength:" + materialsArray.Length); // 2
         currentObject.GetComponent<Renderer>().materials.CopyTo(materialsArray, 0);
-        materialsArray[materialsArray.Length - 1] = outlineMaterial;
+        materialsArray[materialsArray.Length - 1] = material;
         currentObject.GetComponent<Renderer>().materials = materialsArray;
         additionalMaterialApplied = true;
     }
 
+    /// <summary>
+    /// Removes added material to the current interactable
+    /// </summary>
     public void ClearAdditionalMaterial()
     {
         if (!additionalMaterialApplied)

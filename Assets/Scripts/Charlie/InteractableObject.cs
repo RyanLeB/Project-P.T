@@ -169,7 +169,7 @@ public class InteractableObject : MonoBehaviour
     void DestroyPickup()
     {
         gameObject.SetActive(false);
-        interaction.interactableFinder.interactText.gameObject.SetActive(false);
+        //interaction.interactableFinder.interactText.gameObject.SetActive(false);
     }
 
 }
