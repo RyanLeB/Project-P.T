@@ -688,6 +688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bookcase_left door_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 988ca7ac3811c4144b06c2534e1d0184, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -829,6 +833,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ef3ec6d9d32b70a49a42b4b1506f86a9, type: 3}
       propertyPath: m_Name
       value: Bookcase_drawer_livingroom_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef3ec6d9d32b70a49a42b4b1506f86a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1896,6 +1904,91 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e3ee0a8c3f47e4883534094d57d76b, type: 3}
+--- !u!1001 &1024138367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.778
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.607785
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.18
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9516870800b16a44192ed73a3d653283, type: 2}
+    - target: {fileID: -7511558181221131132, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
+    - target: {fileID: -5908163146266368092, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9516870800b16a44192ed73a3d653283, type: 2}
+    - target: {fileID: -3668935921752795769, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9516870800b16a44192ed73a3d653283, type: 2}
+    - target: {fileID: 919132149155446097, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Name
+      value: Island_Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509811998686577223, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9516870800b16a44192ed73a3d653283, type: 2}
+    - target: {fileID: 9140302696541037975, guid: be33089e70607d548987023ac5695c62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9516870800b16a44192ed73a3d653283, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be33089e70607d548987023ac5695c62, type: 3}
 --- !u!4 &1030523787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eaa440e7aa4272f46aac985cc819330d, type: 3}
@@ -2420,6 +2513,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eaa440e7aa4272f46aac985cc819330d, type: 3}
       propertyPath: m_Name
       value: Bookcase_right door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eaa440e7aa4272f46aac985cc819330d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3949,6 +4046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bookcase_livingroom_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ace25c761d5787c47b57c1f1080299c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4468,7 +4569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8fc2c42dfb3f3349a7c4010d514975d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4849,3 +4950,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1097643245}
+  - {fileID: 1024138367}
