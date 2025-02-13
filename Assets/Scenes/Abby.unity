@@ -433,9 +433,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6633b3cb66c3bfb45b2cbd4b9c8e2765, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6633b3cb66c3bfb45b2cbd4b9c8e2765, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dece6b1418544d34188b5922d929681e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6633b3cb66c3bfb45b2cbd4b9c8e2765, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 919132149155446097, guid: 6633b3cb66c3bfb45b2cbd4b9c8e2765, type: 3}
       propertyPath: m_Name
       value: ShowerCurtain_bathroom_01
@@ -4623,7 +4631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6baee529818c6674391da2cd313dbc5e, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6baee529818c6674391da2cd313dbc5e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5884,7 +5892,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 35059d9922597ac49b1b15c3b0bf8d92, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 35059d9922597ac49b1b15c3b0bf8d92, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a87ef6ab9ac63b44d978238f36aa1158, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 35059d9922597ac49b1b15c3b0bf8d92, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: a87ef6ab9ac63b44d978238f36aa1158, type: 2}
     - target: {fileID: 919132149155446097, guid: 35059d9922597ac49b1b15c3b0bf8d92, type: 3}
@@ -7015,6 +7031,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1891319542}
     m_Modifications:
+    - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 5808887843838929146, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_Name
       value: Key (1)
@@ -11534,9 +11558,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 33c5e4ec312a8f941ad30bdc6f2cbd3b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 33c5e4ec312a8f941ad30bdc6f2cbd3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b7f4c6a175086334e8fb94ed0afb2f02, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 33c5e4ec312a8f941ad30bdc6f2cbd3b, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 919132149155446097, guid: 33c5e4ec312a8f941ad30bdc6f2cbd3b, type: 3}
       propertyPath: m_Name
       value: ShowerRod_bathroom_01
@@ -11691,7 +11723,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 007c011eac617a648804a5d8f376d341, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 007c011eac617a648804a5d8f376d341, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f54e747d5d593c4aa8053a00cfac794, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 007c011eac617a648804a5d8f376d341, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 2f54e747d5d593c4aa8053a00cfac794, type: 2}
     - target: {fileID: 919132149155446097, guid: 007c011eac617a648804a5d8f376d341, type: 3}
@@ -11826,7 +11866,7 @@ Transform:
   m_GameObject: {fileID: 1304494443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.022, y: 1.81, z: 9.478}
+  m_LocalPosition: {x: -13.067, y: 1.81, z: 9.478}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16675,9 +16715,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 9d959a7fd93027c42adcce4a8a1b4c03, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9d959a7fd93027c42adcce4a8a1b4c03, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: feea0a981d407ba4f9eeba55ef0bf9f5, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9d959a7fd93027c42adcce4a8a1b4c03, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 919132149155446097, guid: 9d959a7fd93027c42adcce4a8a1b4c03, type: 3}
       propertyPath: m_Name
       value: mirror_bathroom_01
