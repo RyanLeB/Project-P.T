@@ -3575,63 +3575,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8538053082472352065, guid: 4bcf3ba9e0284144097aa80dedc2019e, type: 3}
---- !u!1001 &429156694
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.724528
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5001455
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.599106
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
-      propertyPath: m_Name
-      value: ToiletPaper_bathroom_01
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 54752e0092fd70f4a893270ffeacb1de, type: 3}
 --- !u!1 &431837918
 GameObject:
   m_ObjectHideFlags: 0
@@ -8414,7 +8357,7 @@ Transform:
   m_GameObject: {fileID: 905757772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.389, y: 1.921, z: 9.478}
+  m_LocalPosition: {x: -10.6, y: 1.921, z: 8.932}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20770,7 +20713,6 @@ SceneRoots:
   - {fileID: 1239884935}
   - {fileID: 1277948674}
   - {fileID: 547998352}
-  - {fileID: 429156694}
   - {fileID: 1803884614}
   - {fileID: 1994933755}
   - {fileID: 60804406}
