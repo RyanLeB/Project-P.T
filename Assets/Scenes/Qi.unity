@@ -3453,7 +3453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f5c3d04e8f32f334d9e834c025151c55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.781
+      value: -5.922
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f5c3d04e8f32f334d9e834c025151c55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3484,9 +3484,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: f5c3d04e8f32f334d9e834c025151c55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f5c3d04e8f32f334d9e834c025151c55, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d71a976d42b77fb4a99bc2c1bf8dafb9, type: 2}
+    - target: {fileID: -7511558181221131132, guid: f5c3d04e8f32f334d9e834c025151c55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 919132149155446097, guid: f5c3d04e8f32f334d9e834c025151c55, type: 3}
       propertyPath: m_Name
       value: Pilar_basement
