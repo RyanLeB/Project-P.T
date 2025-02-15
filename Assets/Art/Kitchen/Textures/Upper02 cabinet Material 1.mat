@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Upper cabinet Material 1
+  m_Name: Upper02 cabinet Material 1
   m_Shader: {fileID: -6465566751694194690, guid: 9fdeec3fc8bd23d47bedcdbedae0d917, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
