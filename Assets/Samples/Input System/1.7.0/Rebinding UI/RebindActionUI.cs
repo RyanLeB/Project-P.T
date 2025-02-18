@@ -262,6 +262,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 m_RebindOperation = null;
             }
 
+            DisableMenuInputActions();
+
             action.Disable();
 
             Debug.Log("test");
@@ -271,6 +273,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 .WithControlsExcluding("<Mouse>/rightButton")
                 .WithControlsExcluding("<Mouse>/press")
                 .WithControlsExcluding("<Pointer>/position")
+                .WithControlsExcluding("Keyboard/escape")
                 .WithCancelingThrough("<Keyboard>/escape")
                 .OnCancel(
                     operation =>
@@ -327,6 +330,24 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindStartEvent?.Invoke(this, m_RebindOperation);
 
             m_RebindOperation.Start();
+        }
+
+        private void DisableMenuInputActions()
+        {
+            if (menuActionMap == null)
+            {
+                // Assuming you have an InputActionAsset that contains your action maps
+                var inputActionAsset = m_Action?.action?.actionMap?.asset;
+                if (inputActionAsset != null)
+                {
+                    menuActionMap = inputActionAsset.FindActionMap("UI", true);
+                }
+            }
+
+            if (menuActionMap != null)
+            {
+                menuActionMap.Disable();
+            }
         }
 
         protected void OnEnable()
@@ -423,10 +444,11 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         private InputActionRebindingExtensions.RebindingOperation m_RebindOperation;
 
         private static List<RebindActionUI> s_RebindActionUIs;
+        private InputActionMap menuActionMap;
 
         // We want the label for the action name to update in edit mode, too, so
         // we kick that off from here.
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         protected void OnValidate()
         {
             UpdateActionLabel();
