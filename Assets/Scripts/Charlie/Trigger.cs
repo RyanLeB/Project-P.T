@@ -10,6 +10,8 @@ public class Trigger : MonoBehaviour
 
     public Trigger nextTrigger;
 
+    public GameObject objectToDestroy;
+
     [Header("Sound Trigger Settings")]
 
     public GameObject soundPosition;
@@ -98,6 +100,11 @@ public class Trigger : MonoBehaviour
             nextTrigger.gameObject.SetActive(true);
         }
 
+        if (objectToDestroy != null)
+        {
+            objectToDestroy.SetActive(false);
+        }
+
         Destroy(this);
     }
 }
@@ -113,6 +120,7 @@ public class TriggerEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("soundTrigger"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("doorTrigger"));
 
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("objectToDestroy"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("nextTrigger"));
 
         if (trigger.soundTrigger)
