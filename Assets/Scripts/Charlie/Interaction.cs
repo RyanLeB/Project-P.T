@@ -18,7 +18,10 @@ public class Interaction : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         codeLock = FindObjectOfType<CodeLock>();
-        keypadUI.SetActive(false);
+        if (keypadUI != null)
+        {
+            keypadUI.SetActive(false);
+        }
         interactableFinder = GetComponentInChildren<InteractableFinder>();
         inventory = FindObjectOfType<Inventory>();
         lighter = FindObjectOfType<Lighter>();

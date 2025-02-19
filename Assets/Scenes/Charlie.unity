@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   interaction: {fileID: 0}
+  triggerToActivate: {fileID: 0}
   type: 2
   interactionType: 0
 --- !u!65 &551699015
@@ -317,7 +318,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4ca8d62aabaae9740ac4ada4f8a55b6d, type: 2}
   - {fileID: 2100000, guid: 552bdb2f063a41e4d87fe04ddd639c35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -363,6 +363,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635686708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5303892661190140244, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+  m_PrefabInstance: {fileID: 1741095991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c046e53b6d26aa4b82773b3d27b5469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &760589461
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   interaction: {fileID: 0}
+  triggerToActivate: {fileID: 0}
   type: 5
   interactionType: 1
 --- !u!114 &1018367466
@@ -1077,6 +1089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 395520177854998576, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: lighter
+      value: 
+      objectReference: {fileID: 635686708}
     - target: {fileID: 5043134114705551583, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1283,6 +1299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   interaction: {fileID: 0}
+  triggerToActivate: {fileID: 0}
   type: 4
   interactionType: 1
 --- !u!65 &1990663466
@@ -1421,6 +1438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   interaction: {fileID: 0}
+  triggerToActivate: {fileID: 0}
   type: 1
   interactionType: 0
 --- !u!65 &2095612377

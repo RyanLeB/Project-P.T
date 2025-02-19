@@ -318,7 +318,7 @@ MonoBehaviour:
   interactableFinder: {fileID: 2427380543168096438}
   currentObject: {fileID: 0}
   inventory: {fileID: 4497911497312897128}
-  lighter: {fileID: 0}
+  lighter: {fileID: 5303892661190140244}
   keypadUI: {fileID: 0}
   codeLock: {fileID: 0}
   gameManager: {fileID: 0}
