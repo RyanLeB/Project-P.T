@@ -69,6 +69,10 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag != "Player")
+        {
+            return;
+        }
         if (soundTrigger)
         {
             audioSource.Play();
