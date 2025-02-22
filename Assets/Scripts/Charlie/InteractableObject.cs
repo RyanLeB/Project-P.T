@@ -23,7 +23,8 @@ public class InteractableObject : MonoBehaviour
         Door,
         KeyPad,
         Lightswitch,
-        TVRemote
+        TVRemote,
+        KeyPiece
     }
 
 
@@ -77,6 +78,9 @@ public class InteractableObject : MonoBehaviour
                 break;
             case InteractableType.TVRemote:
                 TVRemote();
+                break;
+            case InteractableType.KeyPiece:
+                KeyPiece();
                 break;
         }
 
@@ -170,6 +174,11 @@ public class InteractableObject : MonoBehaviour
     {
         gameObject.SetActive(false);
         //interaction.interactableFinder.interactText.gameObject.SetActive(false);
+    }
+
+    void KeyPiece()
+    {
+        DestroyPickup();
     }
 
 }
