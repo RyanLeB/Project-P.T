@@ -61,6 +61,7 @@ public class Inventory : MonoBehaviour
         foreach (var keyID in groupedKeyPieces)
         {
             AddKey(keyID);
+            keyGameObject.SetActive(true);
             keyPieces.RemoveAll(kp => kp.keyID == keyID);
         }
     }
