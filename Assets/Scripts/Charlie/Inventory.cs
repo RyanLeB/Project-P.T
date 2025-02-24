@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<int> keys = new List<int>();
+    [SerializeField] private List<KeyPiece> keyPieces = new List<KeyPiece>();
+
     private Lighter lighter;
 
     public GameObject keyGameObject;
@@ -37,6 +40,31 @@ public class Inventory : MonoBehaviour
         return keys;
     }
 
+    public void AddKeyPiece(KeyPiece keyPiece)
+    {
+        keyPieces.Add(keyPiece);
+    }
+
+    public List<KeyPiece> GetKeyPieces()
+    {
+        return keyPieces;
+    }
+
+
+    private void CheckKeyPieces()
+    {
+        var groupedKeyPieces = keyPieces.GroupBy(kp => kp.keyID)
+                                        .Where(g => g.Count() == 2)
+                                        .Select(g => g.Key)
+                                        .ToList();
+
+        foreach (var keyID in groupedKeyPieces)
+        {
+            AddKey(keyID);
+            keyPieces.RemoveAll(kp => kp.keyID == keyID);
+        }
+    }
+
     private void Start()
     {
         lighter = FindObjectOfType<Lighter>();
@@ -46,5 +74,6 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         lighter.CheckLighter();
+        CheckKeyPieces();
     }
 }

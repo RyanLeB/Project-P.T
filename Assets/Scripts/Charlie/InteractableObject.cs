@@ -165,6 +165,13 @@ public class InteractableObject : MonoBehaviour
     {
         Debug.Log("TV Remote flicked");
     }
+
+    void KeyPiece()
+    {
+        KeyPiece keyPiece = GetComponent<KeyPiece>();
+        interaction.inventory.AddKeyPiece(keyPiece);
+        DestroyPickup();
+    }
     #endregion
 
     /// <summary>
@@ -174,11 +181,6 @@ public class InteractableObject : MonoBehaviour
     {
         gameObject.SetActive(false);
         //interaction.interactableFinder.interactText.gameObject.SetActive(false);
-    }
-
-    void KeyPiece()
-    {
-        DestroyPickup();
     }
 
 }

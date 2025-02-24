@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
     public Inventory inventory;
 
     public Animator doorAnimator; 
-    public AudioSource doorOpenSound;
+    public AudioSource doorOpenSound; // add door close sound !!
     public AudioSource doorLockSound;
     public AudioSource doorUnlockSound;
     

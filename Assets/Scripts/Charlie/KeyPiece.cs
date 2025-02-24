@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class KeyPiece : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int keyID; // the key id that it will form if both are present.
 }
