@@ -15,8 +15,9 @@ public class Door : MonoBehaviour
     public int requiredKeyID;
     public Inventory inventory;
 
-    public Animator doorAnimator; 
-    public AudioSource doorOpenSound; // add door close sound !!
+    public Animator doorAnimator;
+    public AudioSource doorOpenSound;
+    public AudioSource doorCloseSound;
     public AudioSource doorLockSound;
     public AudioSource doorUnlockSound;
     
@@ -63,7 +64,10 @@ public class Door : MonoBehaviour
     public void Close()
     {
         doorAnimator.Play("DoorClose");
-        doorOpenSound.Play();
+        if (doorCloseSound != null)
+        {
+            doorCloseSound.Play();
+        }
     }
 
     public void Lock()
