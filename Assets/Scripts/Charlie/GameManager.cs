@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerController playerController;
 
+    public Inventory playerInventory;
+
+    public int currentLevel = 0;
+
     void Awake()
     {
         if (manager == null)
@@ -42,6 +46,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         uIManager = FindObjectOfType<UIManager>();
+        playerController = FindObjectOfType<PlayerController>();
+        playerInventory = FindObjectOfType<Inventory>();
     }
 
     // Update is called once per frame
@@ -193,5 +199,11 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ResetValues()
+    {
+        currentLevel = 0;
+        playerInventory.GetKeys().Clear();
     }
 }
