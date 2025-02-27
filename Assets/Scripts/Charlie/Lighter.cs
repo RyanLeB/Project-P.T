@@ -10,6 +10,8 @@ public class Lighter : MonoBehaviour
 
     public bool hasLighter = false;
 
+    public bool decreaseFluid;
+
     // for testing purposes:
     public TextMeshProUGUI lighterFluidText;
     public TextMeshProUGUI lighterIntensityText;
@@ -62,17 +64,20 @@ public class Lighter : MonoBehaviour
     {
         // These magic numbers are all % calcs(short for calculations btw) so I will not change them.
 
-        if (currentLighterFluid >= maxIntensity * 100)
+        if (decreaseFluid)
         {
-            lighterLight.intensity = maxIntensity;
-        }
-        else if (currentLighterFluid <= minIntensity * 100)
-        {
-            lighterLight.intensity = minIntensity;
-        }
-        else
-        {
-            lighterLight.intensity = currentLighterFluid / 100;
+            if (currentLighterFluid >= maxIntensity * 100)
+            {
+                lighterLight.intensity = maxIntensity;
+            }
+            else if (currentLighterFluid <= minIntensity * 100)
+            {
+                lighterLight.intensity = minIntensity;
+            }
+            else
+            {
+                lighterLight.intensity = currentLighterFluid / 100;
+            }
         }
     }
 

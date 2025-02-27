@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         uIManager = FindObjectOfType<UIManager>();
-        playerController = FindObjectOfType<PlayerController>();
-        playerInventory = FindObjectOfType<Inventory>();
+        //playerController = FindObjectOfType<PlayerController>();
+        //playerInventory = FindObjectOfType<Inventory>();
     }
 
     // Update is called once per frame
@@ -93,7 +93,10 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        playerController.movementLocked = false;
+        if (playerController != null)
+        {
+            playerController.cameraLocked = false;
+        }
         uIManager.GamePlayUI();
         player.SetActive(true);
     }
