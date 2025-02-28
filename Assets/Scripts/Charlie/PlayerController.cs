@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        movement = transform.TransformDirection(movement);
 
         if (velocity.y < 0f && isGrounded)
         {
@@ -121,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
         UpdateMovementType();
 
-        gameObject.transform.Translate(movement * Time.fixedDeltaTime * currentSpeed);
+        characterController.Move(movement * Time.fixedDeltaTime * currentSpeed);
     }
 
     /// <summary>
