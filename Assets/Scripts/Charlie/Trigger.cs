@@ -12,6 +12,10 @@ public class Trigger : MonoBehaviour
 
     public GameObject objectToDestroy;
 
+    public GameObject objectToSpawn; // ill probably change this to an animation later
+
+    public List<GameObject> objectsToDestroy;
+
     [Header("Sound Trigger Settings")]
 
     public GameObject soundPosition;
@@ -109,6 +113,19 @@ public class Trigger : MonoBehaviour
             objectToDestroy.SetActive(false);
         }
 
+        if (objectToSpawn != null)
+        {
+            objectToSpawn.SetActive(true);
+        }
+
+        if (objectsToDestroy.Count > 0)
+        {
+            foreach (GameObject obj in objectsToDestroy)
+            {
+                obj.SetActive(false);
+            }
+        }
+
         Destroy(this);
     }
 }
@@ -124,7 +141,10 @@ public class TriggerEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("soundTrigger"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("doorTrigger"));
 
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("objectToSpawn"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("objectToDestroy"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("objectsToDestroy"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("nextTrigger"));
 
         if (trigger.soundTrigger)
