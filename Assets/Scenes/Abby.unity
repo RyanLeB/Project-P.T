@@ -16129,9 +16129,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5be9b96e59818184d8873557c1eac3bb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 919132149155446097, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
       propertyPath: m_Name
       value: Jacket_porch_01 (1)
@@ -20335,6 +20343,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6180e4fde455bd448a1a2bcff8359c1, type: 3}
   m_PrefabInstance: {fileID: 1973853391}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1980195736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.696
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.219
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.171
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7976783
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6030832
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 74.182
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 714cac6d9ca5a444fb0b62d21bfef022, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
+    - target: {fileID: 919132149155446097, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
+      propertyPath: m_Name
+      value: Hat_porch_01 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9093fa3917e5a8c4db1fcc7b2d9fc0f5, type: 3}
 --- !u!1 &1985352878
 GameObject:
   m_ObjectHideFlags: 0
@@ -20820,9 +20897,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fa517a66c43597046aea43ae00650067, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 919132149155446097, guid: 6999684cd607211439716fdd7a18d70b, type: 3}
       propertyPath: m_Name
       value: Jacket_porch_01
@@ -22026,6 +22111,7 @@ SceneRoots:
   - {fileID: 1413762241}
   - {fileID: 1809727833}
   - {fileID: 1601210787}
+  - {fileID: 1980195736}
   - {fileID: 1811264750}
   - {fileID: 2028853260}
   - {fileID: 1691937274}
