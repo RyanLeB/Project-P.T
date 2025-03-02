@@ -1687,6 +1687,8 @@ MonoBehaviour:
   doorTrigger: 1
   nextTrigger: {fileID: 0}
   objectToDestroy: {fileID: 0}
+  objectToSpawn: {fileID: 0}
+  objectsToDestroy: []
   soundPosition: {fileID: 0}
   sound: {fileID: 0}
   playOnStart: 0
@@ -1711,6 +1713,8 @@ MonoBehaviour:
   doorTrigger: 1
   nextTrigger: {fileID: 0}
   objectToDestroy: {fileID: 0}
+  objectToSpawn: {fileID: 0}
+  objectsToDestroy: []
   soundPosition: {fileID: 0}
   sound: {fileID: 0}
   playOnStart: 0
@@ -2287,6 +2291,8 @@ MonoBehaviour:
   doorTrigger: 1
   nextTrigger: {fileID: 0}
   objectToDestroy: {fileID: 0}
+  objectToSpawn: {fileID: 0}
+  objectsToDestroy: []
   soundPosition: {fileID: 0}
   sound: {fileID: 8300000, guid: 3e16739e54d5ecb4fa155f6c16f9db66, type: 3}
   playOnStart: 0
@@ -5913,6 +5919,8 @@ MonoBehaviour:
   doorTrigger: 0
   nextTrigger: {fileID: 2778448283275359339}
   objectToDestroy: {fileID: 0}
+  objectToSpawn: {fileID: 0}
+  objectsToDestroy: []
   soundPosition: {fileID: 0}
   sound: {fileID: 8300000, guid: 3e16739e54d5ecb4fa155f6c16f9db66, type: 3}
   playOnStart: 0
@@ -12930,6 +12938,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   doorAnimator: {fileID: 4278913351471487429}
   doorOpenSound: {fileID: 3324299595195974138}
+  doorCloseSound: {fileID: 0}
   doorLockSound: {fileID: 6782424126266305538}
   doorUnlockSound: {fileID: 7739067025871059814}
 --- !u!114 &6727666450886098657
@@ -43618,7 +43627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6180e4fde455bd448a1a2bcff8359c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.59
+      value: -5.645
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6180e4fde455bd448a1a2bcff8359c1, type: 3}
       propertyPath: m_LocalPosition.y
