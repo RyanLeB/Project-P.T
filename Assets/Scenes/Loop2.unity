@@ -134,9 +134,21 @@ PrefabInstance:
       propertyPath: interaction
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 491241417264142576, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.641
+      objectReference: {fileID: 0}
+    - target: {fileID: 494767294287147311, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2126412246541437883, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
       propertyPath: m_Name
       value: Loop2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778394910217953153, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4147849689850059890, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
       propertyPath: m_LocalPosition.x
