@@ -1092,7 +1092,7 @@ MonoBehaviour:
   doorTrigger: 0
   nextTrigger: {fileID: 0}
   objectToDestroy: {fileID: 0}
-  objectToSpawn: {fileID: 0}
+  objectToSpawn: {fileID: 1538534352}
   objectsToDestroy: []
   soundPosition: {fileID: 0}
   sound: {fileID: 0}
@@ -2321,12 +2321,12 @@ GameObject:
   - component: {fileID: 1538534355}
   - component: {fileID: 1538534354}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Bedroom Key Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1538534353
 Transform:
   m_ObjectHideFlags: 0
@@ -2801,7 +2801,7 @@ GameObject:
   - component: {fileID: 1751215748}
   - component: {fileID: 1751215747}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Entity Trigger Needs Rework
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
