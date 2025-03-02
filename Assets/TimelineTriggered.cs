@@ -8,9 +8,20 @@ using UnityEngine.Timeline;
 public class TimelineTriggered : MonoBehaviour
 {
     public PlayableDirector timeline;
+    private bool trigged = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        timeline.Play();
+        if (other.CompareTag("Wall"))
+        {
+            return;
+        }
+        
+        if (!trigged)
+        {
+            timeline.Play();
+            trigged = true;
+        }
+        
     }
 }

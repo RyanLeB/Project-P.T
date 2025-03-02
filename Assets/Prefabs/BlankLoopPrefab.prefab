@@ -36717,13 +36717,47 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4281728910098208384, guid: ba5130ef229ee5e4dbc3e963c750cd4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5480161215398953682}
   m_SourcePrefab: {fileID: 100100000, guid: ba5130ef229ee5e4dbc3e963c750cd4a, type: 3}
 --- !u!4 &5856296574036128868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3467790879574248506, guid: ba5130ef229ee5e4dbc3e963c750cd4a, type: 3}
   m_PrefabInstance: {fileID: 7018208946483525726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6489245163929661150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4281728910098208384, guid: ba5130ef229ee5e4dbc3e963c750cd4a, type: 3}
+  m_PrefabInstance: {fileID: 7018208946483525726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5480161215398953682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489245163929661150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8b277c6642a9845af09987ce853356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTrigger: 0
+  doorTrigger: 0
+  nextTrigger: {fileID: 0}
+  objectToDestroy: {fileID: 0}
+  objectToSpawn: {fileID: 0}
+  objectsToDestroy: []
+  soundPosition: {fileID: 0}
+  sound: {fileID: 0}
+  playOnStart: 0
+  loop: 0
+  spacialBlend: 1
+  volume: 1
+  door: {fileID: 0}
+  actionType: 0
 --- !u!1001 &7051256471108159705
 PrefabInstance:
   m_ObjectHideFlags: 0
