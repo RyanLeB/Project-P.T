@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
     public UIManager uIManager;
 
+    bool keyPressed = false;
+
     public enum GameState
     {
         MainMenu,
@@ -16,7 +18,9 @@ public class GameManager : MonoBehaviour
         GameOver,
         GamePause,
         Settings,
-        KeyPad
+        KeyPad,
+        Credits,
+        Intro
     }
 
     public GameState currentGameState;
@@ -77,6 +81,12 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.KeyPad:
                 Keypad();
+                break;
+            case GameState.Credits:
+                Credits();
+                break;
+            case GameState.Intro:
+                Intro();
                 break;
         }
     }
@@ -139,6 +149,28 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         player.SetActive(true);
     }
+
+    void Credits()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        player.SetActive(false);
+        uIManager.CreditsUI();
+    }
+
+    void Intro()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        player.SetActive(false);
+        uIManager.IntroUI();
+
+        if (Input.anyKey && !keyPressed)
+        {
+            keyPressed = true;
+            ChangeGameState(GameState.MainMenu);
+        }
+    }
     #endregion
 
     public void ChangeGameState(GameState newGameState)
@@ -191,6 +223,17 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.MainMenu);
         SceneManager.LoadScene(mainMenuSceneName);
+    }
+
+    public void OpenCredits()
+    {
+        ChangeGameState(GameState.Credits);
+    }
+
+    public void OpenIntro()
+    {
+        ChangeGameState(GameState.Intro);
+        keyPressed = false;
     }
 
     public void ResumeGame()

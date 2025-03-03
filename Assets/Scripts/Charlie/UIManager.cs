@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject gamePauseUI;
     public GameObject settingsUI;
+    public GameObject creditsUI;
+    public GameObject keyPadUI;
+    public GameObject introUI;
 
     public void TurnOffUI()
     {
@@ -17,6 +20,18 @@ public class UIManager : MonoBehaviour
         gameOverUI.SetActive(false);
         gamePauseUI.SetActive(false);
         settingsUI.SetActive(false);
+        if (creditsUI != null)
+        {
+            creditsUI.SetActive(false);
+        }
+        if (introUI != null)
+        {
+            introUI.SetActive(false);
+        }
+        if (keyPadUI != null) 
+        {
+            keyPadUI.SetActive(false);
+        }
     }
 
     public void MainMenuUI()
@@ -46,5 +61,32 @@ public class UIManager : MonoBehaviour
     {
         TurnOffUI();
         settingsUI.SetActive(true);
+    }
+
+    public void CreditsUI()
+    {
+        TurnOffUI();
+        if (creditsUI != null)
+        {
+            creditsUI.SetActive(true);
+        }
+    }
+
+    public void KeyPadUI()
+    {
+        TurnOffUI();
+        if (keyPadUI != null) 
+        {
+            keyPadUI.SetActive(true);
+        }
+    }
+
+    public void IntroUI()
+    {
+        TurnOffUI();
+        if (introUI != null)
+        {
+            introUI.SetActive(true);
+        }
     }
 }
