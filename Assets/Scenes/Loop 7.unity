@@ -1178,6 +1178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlankLoopPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4039180345141673893, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d64f00b7498f2e847bf3e5b30c45f7d1, type: 2}
     - target: {fileID: 4184029783221107467, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_TagString
       value: Interactable
@@ -1222,6 +1226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5833121975112816956, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d64f00b7498f2e847bf3e5b30c45f7d1, type: 2}
     - target: {fileID: 7448509613101989967, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1238,6 +1246,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.231
       objectReference: {fileID: 0}
+    - target: {fileID: 8943329479924570224, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d64f00b7498f2e847bf3e5b30c45f7d1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
