@@ -2676,6 +2676,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 18.807
       objectReference: {fileID: 0}
+    - target: {fileID: 7471547137247858695, guid: 4832b062c91b85b43a1bcb35ab067f11, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471547137247858695, guid: 4832b062c91b85b43a1bcb35ab067f11, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 7868233313055054853, guid: 4832b062c91b85b43a1bcb35ab067f11, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4458,6 +4466,14 @@ PrefabInstance:
       propertyPath: soundPosition
       value: 
       objectReference: {fileID: 2076106350}
+    - target: {fileID: 6631374543721121971, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631374543721121971, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 9135685067064654015, guid: d4c5b59233d3ebe438b9dc33127237b9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16752,6 +16768,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 130589376438004704, guid: 13285f2b6f07f544bab83743a75fd365, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 130589376438004704, guid: 13285f2b6f07f544bab83743a75fd365, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 412442015071191513, guid: 13285f2b6f07f544bab83743a75fd365, type: 3}
       propertyPath: m_Name
       value: Loop3
