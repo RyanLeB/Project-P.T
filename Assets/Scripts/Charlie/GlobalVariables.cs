@@ -23,8 +23,8 @@ public static class GlobalVariables
 
     // Lighter Variables
 
-    public const float maxIntensity = 1.1f;
-    public const float minIntensity = 0.1f;
+    public const float maxIntensity = 4f;
+    public const float minIntensity = 3f;
 
     public const float maxLighterFluid = 100;
 

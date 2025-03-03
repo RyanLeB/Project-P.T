@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static GlobalVariables;
 
@@ -20,6 +21,7 @@ public class Lightswitch : MonoBehaviour
 
     bool lightOn;
     public GameObject[] lightObjects;
+    public GameObject[] lights;
     public int lastStatesToRemember = defaultStatesToRemember;
     public List<bool> lastStates = new List<bool>();
     public List<bool> requiredLastStates = new List<bool>();
@@ -59,8 +61,27 @@ public class Lightswitch : MonoBehaviour
     {
         foreach (GameObject lightObject in lightObjects)
         {
-            lightObject.SetActive(lightOn);
+            Renderer renderer = lightObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                Material material = renderer.material;
+                if (lightOn)
+                {
+                    material.EnableKeyword("_EMISSION");
+                    //material.SetColor("_EmissionColor", new Color(207, 140, 43));
+                }
+                else
+                {
+                    material.DisableKeyword("_EMISSION");
+                    //material.SetColor("_EmissionColor", Color.black);
+                }
+            }
             // lightObject.GetComponent<Light>().color = new Color(-1f, -1f, -1f); if this is on the light will remove light from the area. could be used for something cool?
+        }
+
+        foreach (GameObject light in lights)
+        {
+            light.SetActive(lightOn);
         }
 
         switch (lightswitchType)
