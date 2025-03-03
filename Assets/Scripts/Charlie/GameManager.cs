@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         if (playerController != null)
         {
             playerController.cameraLocked = false;
+            playerController.movementLocked = false;
         }
         uIManager.GamePlayUI();
         player.SetActive(true);
