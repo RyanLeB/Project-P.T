@@ -17,11 +17,13 @@ public class LightSwitchPuzzleManager : MonoBehaviour
     public void TurnOnLight(int index)
     {
         lights[index].SetActive(true);
+        numberOfLightsOn++;
     }
 
     public void TurnOffLight(int index)
     {
         lights[index].SetActive(false);
+        numberOfLightsOn--;
     }
 
     public void Update()
