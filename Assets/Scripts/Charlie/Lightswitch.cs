@@ -20,6 +20,8 @@ public class Lightswitch : MonoBehaviour
 
     public LightswitchType lightswitchType;
 
+    public LightSwitchPuzzleManager lightswitchPuzzleManager;
+
     public Animator animator;
 
     [SerializeField] private bool lightOn;
@@ -30,6 +32,7 @@ public class Lightswitch : MonoBehaviour
     public List<bool> lastStates = new List<bool>();
     public List<bool> requiredLastStates = new List<bool>();
 
+    public int index;
     public bool triggerActivated = false;
     public bool stateToActivate = true; // this will be the state the lightswitch will have to be for something else to happen
 
@@ -49,17 +52,13 @@ public class Lightswitch : MonoBehaviour
         lastStates.Add(lightOn);
     }
 
-    /// <summary>
-    /// Something happens when the lightswitch is activated.
-    /// </summary>
-    public void ThingHappens()
-    {
-        Debug.Log("Something happens");
-    }
-
     private void Start()
     {
         lastStates.Add(lightOn);
+        if (lightswitchType == LightswitchType.Trigger)
+        {
+            lightswitchPuzzleManager = FindObjectOfType<LightSwitchPuzzleManager>();
+        }
     }
 
     void Update()
@@ -107,7 +106,7 @@ public class Lightswitch : MonoBehaviour
     {
         if (lastStates.SequenceEqual(requiredLastStates) && !triggerActivated)
         {
-            ThingHappens();
+            
             triggerActivated = true;
         }
     }
@@ -119,8 +118,13 @@ public class Lightswitch : MonoBehaviour
     {
         if (lightOn == stateToActivate && !triggerActivated)
         {
-            ThingHappens();
+            lightswitchPuzzleManager.TurnOnLight(index);
             triggerActivated = true;
+        }
+        else if (lightOn != stateToActivate && triggerActivated)
+        {
+            lightswitchPuzzleManager.TurnOffLight(index);
+            triggerActivated = false;
         }
     }
 }
@@ -138,10 +142,13 @@ public class LightswitchEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("lightObjects"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("lights"));
 
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("lightswitchPuzzleManager"));
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("animator"));
 
         if (lightSwitch.lightswitchType == Lightswitch.LightswitchType.Trigger)
         {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("index"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("stateToActivate"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("triggerActivated"));
         }
