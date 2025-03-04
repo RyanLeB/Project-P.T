@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<int> keys = new List<int>();
     [SerializeField] private List<KeyPiece> keyPieces = new List<KeyPiece>();
 
-    private Lighter lighter;
+    public Lighter lighter;
 
     public GameObject keyGameObject;
 

@@ -29,6 +29,7 @@ public class SaveManager : MonoBehaviour
                 SaveData data = new SaveData();
                 data.Keys = gameManager.playerInventory.GetKeys();
                 data.savedLevel = gameManager.currentLevel;
+                data.hasLighter = gameManager.playerInventory.lighter.hasLighter;
 
                 bf.Serialize(file, data);
             }
@@ -62,6 +63,7 @@ public class SaveManager : MonoBehaviour
                 {
                     gameManager.playerInventory.AddKey(key);
                 }
+                gameManager.playerInventory.lighter.hasLighter = data.hasLighter;
             }
 
             file.Close();
