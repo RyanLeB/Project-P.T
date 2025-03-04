@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7312067444271499062}
   - component: {fileID: 4827131443290069263}
   - component: {fileID: 6433722873169279285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CandleFlameParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
