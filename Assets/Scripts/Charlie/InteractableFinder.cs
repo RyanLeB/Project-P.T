@@ -13,52 +13,64 @@ public class InteractableFinder : MonoBehaviour
 
     public Material outlineMaterial;
 
+    public float raycastDistance = 5f; // Adjust the distance as needed
+    public int raycastClusterSize = 3; // Number of rays in each direction (total rays = (2 * raycastClusterSize + 1)^2)
+    public float raycastClusterSpacing = 0.1f; // Spacing between rays in the cluster
 
-    // THIS WILL CHANGE TO BE A GLOWING EFFECT SOON
-
-
-    /// <summary>
-    /// Checks if the player is looking at an interactable object.
-    /// </summary>
-    /// <param name="other">The object the player is looking at</param>
-    public void OnTriggerStay(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("Interactable"))
-        {
-            currentObject = other.GetComponent<InteractableObject>();
-
-            if (currentObject != null)
-            {
-                if (currentObject.isInteractable)
-                {
-                    //interactText.gameObject.SetActive(true);
-                    //interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
-                    SetAdditionalMaterial(outlineMaterial);
-                    // its either this or on InteractableObject i put a public string for the text that will appear here
-                    // so it would be something like interactText.text = currentObject.interactText;.
-                }
-                else
-                {
-                    ClearAdditionalMaterial();
-                }
-            }
-            else
-            {
-                //interactText.gameObject.SetActive(false);
-                ClearAdditionalMaterial();
-            }
-        }
+        PerformClusterRaycast();
     }
 
     /// <summary>
-    /// Clears the current object when the player is no longer looking at it.
+    /// Performs a cluster of raycasts to check if the player is looking at an interactable object.
     /// </summary>
-    /// <param name="other"></param>
-    public void OnTriggerExit(Collider other)
+    private void PerformClusterRaycast()
     {
-        //interactText.gameObject.SetActive(false);
-        ClearAdditionalMaterial();
-        currentObject = null;
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward;
+
+        bool foundInteractable = false;
+
+        for (int x = -raycastClusterSize; x <= raycastClusterSize; x++)
+        {
+            for (int y = -raycastClusterSize; y <= raycastClusterSize; y++)
+            {
+                Vector3 offset = new Vector3(x * raycastClusterSpacing, y * raycastClusterSpacing, 0);
+                Ray ray = new Ray(origin + offset, direction);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, raycastDistance))
+                {
+                    if (hit.collider.CompareTag("Interactable"))
+                    {
+                        InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
+
+                        if (interactableObject != null && interactableObject.isInteractable)
+                        {
+                            if (currentObject != interactableObject)
+                            {
+                                ClearAdditionalMaterial();
+                                currentObject = interactableObject;
+                                SetAdditionalMaterial(outlineMaterial);
+                            }
+                            foundInteractable = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (foundInteractable)
+            {
+                break;
+            }
+        }
+
+        if (!foundInteractable)
+        {
+            ClearAdditionalMaterial();
+            currentObject = null;
+        }
     }
 
     /// <summary>
@@ -67,7 +79,7 @@ public class InteractableFinder : MonoBehaviour
     /// <param name="material">The material to be added</param>
     public void SetAdditionalMaterial(Material material)
     {
-        if (additionalMaterialApplied)
+        if (additionalMaterialApplied || currentObject == null)
         {
             //Debug.LogError("Tried to add additional material even though it was already added on " + name);
             return;
@@ -86,7 +98,7 @@ public class InteractableFinder : MonoBehaviour
     /// </summary>
     public void ClearAdditionalMaterial()
     {
-        if (!additionalMaterialApplied)
+        if (!additionalMaterialApplied || currentObject == null)
         {
             //Debug.LogError("Tried to delete additional material even though none was added before on " + name);
             return;
