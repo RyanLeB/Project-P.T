@@ -281,7 +281,12 @@ PrefabInstance:
       value: Loop5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1495668625535185529, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+    - {fileID: 1481720862869871893, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+    - {fileID: 4391862620547198666, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+    - {fileID: 4495027168345049687, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+    - {fileID: 1387810126388492500, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
