@@ -34532,7 +34532,7 @@ GameObject:
   - component: {fileID: 2070078831}
   - component: {fileID: 2070078830}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: InteractText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

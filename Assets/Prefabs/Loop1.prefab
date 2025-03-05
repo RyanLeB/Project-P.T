@@ -33162,6 +33162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorParent
       objectReference: {fileID: 0}
+    - target: {fileID: 9222356545394729434, guid: 2674fb5b9701d024aad9185cd315d4e6, type: 3}
+      propertyPath: m_Name
+      value: FirstDoor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

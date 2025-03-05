@@ -7,9 +7,11 @@ public class InteractableFinder : MonoBehaviour
 {
     [SerializeField] public InteractableObject currentObject;
 
-    //public TextMeshProUGUI interactText;
+    public TextMeshProUGUI interactText;
 
     private bool additionalMaterialApplied = false;
+
+    //public InteractableObject firstInteractable;
 
     public Material outlineMaterial;
 
@@ -31,8 +33,11 @@ public class InteractableFinder : MonoBehaviour
             {
                 if (currentObject.isInteractable)
                 {
-                    //interactText.gameObject.SetActive(true);
-                    //interactText.text = "Press E to " + currentObject.interactionType + " " + currentObject.type;
+                    if (currentObject.name == "FirstDoor")
+                    {
+                        interactText.gameObject.SetActive(true);
+                        interactText.text = "Press E to interact";
+                    }
                     SetAdditionalMaterial(outlineMaterial);
                     // its either this or on InteractableObject i put a public string for the text that will appear here
                     // so it would be something like interactText.text = currentObject.interactText;.
@@ -40,13 +45,14 @@ public class InteractableFinder : MonoBehaviour
                 else
                 {
                     ClearAdditionalMaterial();
+                    interactText.gameObject.SetActive(false);
                 }
             }
-            //else
-            //{
-            //    //interactText.gameObject.SetActive(false);
+            else
+            {
+                interactText.gameObject.SetActive(false);
             //    ClearAdditionalMaterial();
-            //}
+            }
         }
     }
 
@@ -56,7 +62,7 @@ public class InteractableFinder : MonoBehaviour
     /// <param name="other"></param>
     public void OnTriggerExit(Collider other)
     {
-        //interactText.gameObject.SetActive(false);
+        interactText.gameObject.SetActive(false);
         ClearAdditionalMaterial();
         currentObject = null;
     }
