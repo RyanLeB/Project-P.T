@@ -280,6 +280,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loop5
       objectReference: {fileID: 0}
+    - target: {fileID: 8020833635383301413, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020833635383301413, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.419
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020833635383301413, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.816
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1495668625535185529, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}

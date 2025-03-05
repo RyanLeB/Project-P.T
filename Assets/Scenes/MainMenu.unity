@@ -11438,6 +11438,29 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7244966762881372308, guid: 7e4ad1ce9b3d52f44be96dfebac3f332, type: 3}
+--- !u!1 &714985078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6610488834292093284, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+  m_PrefabInstance: {fileID: 1086524985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &714985080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714985078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0a631c4e4c35144bccf54e373fc603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentObject: {fileID: 0}
+  interactText: {fileID: 2070078830}
+  outlineMaterial: {fileID: 2100000, guid: 4ca8d62aabaae9740ac4ada4f8a55b6d, type: 2}
+  rayDistance: 5
+  rayRadius: 0.5
+  checkInterval: 0.2
 --- !u!1 &724778908
 GameObject:
   m_ObjectHideFlags: 0
@@ -17433,6 +17456,10 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4131280361284314404, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4497911497312897128, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: keyGameObject
       value: 
@@ -17501,6 +17528,10 @@ PrefabInstance:
       propertyPath: hasLighter
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8785466679565305023, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9088008049431559414, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_Radius
       value: 0.3
@@ -17508,7 +17539,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6610488834292093284, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 714985080}
   m_SourcePrefab: {fileID: 100100000, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
 --- !u!4 &1086524986 stripped
 Transform:
