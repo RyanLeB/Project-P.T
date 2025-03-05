@@ -135,11 +135,11 @@ public class PlayerController : MonoBehaviour
             isCrouching = true;
             movementType = MovementType.Crawling;
         }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isRunning = true;
-            movementType = MovementType.Running;
-        }
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    isRunning = true;
+        //    movementType = MovementType.Running;
+        //}
         if (!isRunning && !isCrouching && !isOnStairs)
         {
             movementType = MovementType.Walking;
