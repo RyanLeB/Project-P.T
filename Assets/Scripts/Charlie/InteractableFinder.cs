@@ -35,8 +35,11 @@ public class InteractableFinder : MonoBehaviour
                 {
                     if (currentObject.name == "FirstDoor")
                     {
-                        interactText.gameObject.SetActive(true);
-                        interactText.text = "Press E to interact";
+                        if (interactText != null)
+                        {
+                            interactText.gameObject.SetActive(true);
+                            interactText.text = "Press E to interact";
+                        }
                     }
                     SetAdditionalMaterial(outlineMaterial);
                     // its either this or on InteractableObject i put a public string for the text that will appear here
@@ -45,12 +48,18 @@ public class InteractableFinder : MonoBehaviour
                 else
                 {
                     ClearAdditionalMaterial();
-                    interactText.gameObject.SetActive(false);
+                    if (interactText != null)
+                    {
+                        interactText.gameObject.SetActive(false);
+                    }
                 }
             }
             else
             {
-                interactText.gameObject.SetActive(false);
+                if (interactText != null)
+                {
+                    interactText.gameObject.SetActive(false);
+                }
             //    ClearAdditionalMaterial();
             }
         }
@@ -62,7 +71,10 @@ public class InteractableFinder : MonoBehaviour
     /// <param name="other"></param>
     public void OnTriggerExit(Collider other)
     {
-        interactText.gameObject.SetActive(false);
+        if (interactText != null)
+        {
+            interactText.gameObject.SetActive(false);
+        }
         ClearAdditionalMaterial();
         currentObject = null;
     }
