@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,56 +16,75 @@ public class InteractableFinder : MonoBehaviour
 
     public Material outlineMaterial;
 
-
+    // Raycast to check if player is looking at an interactable object
+    public float rayDistance = 5f;
+    public float rayRadius = 0.5f;
+    public float checkInterval = 0.2f;
+    
     // THIS WILL CHANGE TO BE A GLOWING EFFECT SOON
 
-
+    private void Start()
+    {
+        StartCoroutine(CheckForInteractable());
+    }
+    
     /// <summary>
     /// Checks if the player is looking at an interactable object.
     /// </summary>
     /// <param name="other">The object the player is looking at</param>
-    public void OnTriggerStay(Collider other)
+    private IEnumerator CheckForInteractable()
     {
-        if (other.CompareTag("Interactable"))
+        while (true)
         {
-            currentObject = other.GetComponent<InteractableObject>();
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
 
-            if (currentObject != null)
+            Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, rayDistance))
             {
-                if (currentObject.isInteractable)
+                if (hit.collider.CompareTag("Interactable"))
                 {
-                    if (currentObject.name == "FirstDoor")
+                    InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
+
+                    if (interactableObject != null && interactableObject.isInteractable)
                     {
-                        interactText.gameObject.SetActive(true);
-                        interactText.text = "Press E to interact";
+                        if (currentObject != interactableObject)
+                        {
+                            ClearAdditionalMaterial();
+                            currentObject = interactableObject;
+                            SetAdditionalMaterial(outlineMaterial);
+                        }
+
+                        if (currentObject.name == "FirstDoor")
+                        {
+                            interactText.gameObject.SetActive(true);
+                            interactText.text = "Press E to interact";
+                        }
                     }
-                    SetAdditionalMaterial(outlineMaterial);
-                    // its either this or on InteractableObject i put a public string for the text that will appear here
-                    // so it would be something like interactText.text = currentObject.interactText;.
+                    else
+                    {
+                        ClearAdditionalMaterial();
+                        interactText.gameObject.SetActive(false);
+                        currentObject = null;
+                    }
                 }
                 else
                 {
                     ClearAdditionalMaterial();
                     interactText.gameObject.SetActive(false);
+                    currentObject = null;
                 }
             }
             else
             {
+                ClearAdditionalMaterial();
                 interactText.gameObject.SetActive(false);
-            //    ClearAdditionalMaterial();
+                currentObject = null;
             }
-        }
-    }
 
-    /// <summary>
-    /// Clears the current object when the player is no longer looking at it.
-    /// </summary>
-    /// <param name="other"></param>
-    public void OnTriggerExit(Collider other)
-    {
-        interactText.gameObject.SetActive(false);
-        ClearAdditionalMaterial();
-        currentObject = null;
+            yield return new WaitForSeconds(checkInterval);
+        }
     }
 
     /// <summary>
