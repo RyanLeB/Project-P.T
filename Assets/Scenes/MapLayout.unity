@@ -36577,6 +36577,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5040684887998215577, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a133ec852ef267488c4ff8fcaf4f06a, type: 2}
     - target: {fileID: 5931085173500231648, guid: 0d6853d1ea1809244bd88ab0d461a45a, type: 3}
       propertyPath: m_Name
       value: Loop5
@@ -59943,7 +59947,7 @@ PrefabInstance:
       objectReference: {fileID: 2019139790}
     - target: {fileID: 5090586425621812437, guid: 5d3194046db8c68469e0c03067bfbf26, type: 3}
       propertyPath: m_VersionIndex
-      value: 172
+      value: 187
       objectReference: {fileID: 0}
     - target: {fileID: 7694510963108686695, guid: 5d3194046db8c68469e0c03067bfbf26, type: 3}
       propertyPath: loop
@@ -59971,7 +59975,7 @@ PrefabInstance:
       objectReference: {fileID: 1581428373}
     - target: {fileID: 8083749191441572294, guid: 5d3194046db8c68469e0c03067bfbf26, type: 3}
       propertyPath: m_VersionIndex
-      value: 23
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 8543775770258402110, guid: 5d3194046db8c68469e0c03067bfbf26, type: 3}
       propertyPath: m_IsActive
