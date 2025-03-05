@@ -28184,7 +28184,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ec6c169349a04c341b4dbf975d2819fd, type: 2}
     - target: {fileID: 2936187695960327307, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_Name
-      value: BlankLoopPrefab Variant
+      value: Loop 10
       objectReference: {fileID: 0}
     - target: {fileID: 3807214505604240169, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -28357,6 +28357,10 @@ PrefabInstance:
     - target: {fileID: 4492954063866034503, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 51.531
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620520874039294982, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.709
       objectReference: {fileID: 0}
     - target: {fileID: 4778621016175034694, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_Materials.Array.data[0]
