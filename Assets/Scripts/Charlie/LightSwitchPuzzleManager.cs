@@ -14,6 +14,8 @@ public class LightSwitchPuzzleManager : MonoBehaviour
 
     public GameObject cageObject;
 
+    public Door doorToOpen;
+
     public void TurnOnLight(int index)
     {
         lights[index].SetActive(true);
@@ -35,7 +37,14 @@ public class LightSwitchPuzzleManager : MonoBehaviour
 
         if (puzzleSolved)
         {
-            cageObject.SetActive(false);
+            if (cageObject != null)
+            {
+                cageObject.SetActive(false);
+            }
+            if (doorToOpen != null)
+            {
+                doorToOpen.UnlockDoor();
+            }
         }
     }
 }
