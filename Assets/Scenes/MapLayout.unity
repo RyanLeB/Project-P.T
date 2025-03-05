@@ -48162,16 +48162,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086949249}
-  m_LocalRotation: {x: -0, y: -0.24758682, z: -0, w: 0.96886575}
-  m_LocalPosition: {x: 0, y: 0, z: 0.573}
+  m_LocalRotation: {x: -0, y: -0.17430834, z: -0, w: 0.98469114}
+  m_LocalPosition: {x: 0, y: 0, z: 283.08}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1264375191}
-  m_LocalEulerAnglesHint: {x: 0, y: -28.67, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -20.077, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -922.401, y: 51.623}
+  m_AnchoredPosition: {x: -1041.4076, y: 51.622997}
   m_SizeDelta: {x: 64.7647, y: 75.6269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &1086949251
@@ -65337,7 +65337,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
