@@ -42,11 +42,11 @@ public class InteractableFinder : MonoBehaviour
                     ClearAdditionalMaterial();
                 }
             }
-            else
-            {
-                //interactText.gameObject.SetActive(false);
-                ClearAdditionalMaterial();
-            }
+            //else
+            //{
+            //    //interactText.gameObject.SetActive(false);
+            //    ClearAdditionalMaterial();
+            //}
         }
     }
 
