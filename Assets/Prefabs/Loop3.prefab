@@ -2596,7 +2596,7 @@ GameObject:
   - component: {fileID: 8868594986588823047}
   - component: {fileID: 6499045555290269715}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: BedroomLockTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2611,8 +2611,8 @@ Transform:
   m_GameObject: {fileID: 1530744261704660441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.061, y: 0.57, z: 14.398}
-  m_LocalScale: {x: 1, y: 1, z: 4}
+  m_LocalPosition: {x: -10.512, y: 0.57, z: 11.947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2379166519551345010}
