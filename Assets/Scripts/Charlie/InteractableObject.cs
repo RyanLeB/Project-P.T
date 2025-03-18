@@ -135,7 +135,14 @@ public class InteractableObject : MonoBehaviour
     public void Door()
     {
         Door door = GetComponent<Door>();
-        door.TryOpen();
+        if (!door.isOpen)
+        {
+            door.TryOpen();
+        }
+        else if (door.isOpen)
+        {
+            door.Close();
+        }
     }
 
     /// <summary>

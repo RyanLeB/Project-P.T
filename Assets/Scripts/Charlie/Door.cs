@@ -10,6 +10,8 @@ public class Door : MonoBehaviour
         Code
     }
 
+    public bool isOpen = false;
+
     public DoorType doorType;
     public bool isLocked = true;
     public int requiredKeyID;
@@ -41,6 +43,7 @@ public class Door : MonoBehaviour
         else if (!isLocked)
         {
             Debug.Log("Door opens");
+            isOpen = true;
             doorAnimator.Play("DoorOpen");
             doorOpenSound.Play();
         }
@@ -58,12 +61,14 @@ public class Door : MonoBehaviour
     public void Open()
     {
         doorAnimator.Play("DoorOpen");
+        isOpen = true;
         doorOpenSound.Play();
     }
 
     public void Close()
     {
         doorAnimator.Play("DoorClose");
+        isOpen = false;
         if (doorCloseSound != null)
         {
             doorCloseSound.Play();

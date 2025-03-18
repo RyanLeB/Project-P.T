@@ -7421,6 +7421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92569636d09bb45419f7306718951734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   doorType: 0
   isLocked: 1
   requiredKeyID: 1
@@ -17448,6 +17449,10 @@ PrefabInstance:
       propertyPath: outlineMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 4ca8d62aabaae9740ac4ada4f8a55b6d, type: 2}
+    - target: {fileID: 2920769100373201170, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3804268483362111214, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_Antialiasing
       value: 3
