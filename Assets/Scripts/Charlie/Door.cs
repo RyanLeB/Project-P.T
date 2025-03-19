@@ -22,7 +22,14 @@ public class Door : MonoBehaviour
     public AudioSource doorCloseSound;
     public AudioSource doorLockSound;
     public AudioSource doorUnlockSound;
-    
+
+    private InteractableObject interactableObject;
+
+    private void Awake()
+    {
+        interactableObject = GetComponent<InteractableObject>();
+    }
+
     /// <summary>
     /// Tries to open the door. If the door is locked, it will check if the player has the required key.
     /// </summary>
@@ -42,10 +49,8 @@ public class Door : MonoBehaviour
         }
         else if (!isLocked)
         {
-            Debug.Log("Door opens");
             isOpen = true;
-            doorAnimator.Play("DoorOpen");
-            doorOpenSound.Play();
+            StartCoroutine(PlayAnimation("DoorOpen", doorOpenSound));
         }
     }
 
@@ -60,19 +65,14 @@ public class Door : MonoBehaviour
 
     public void Open()
     {
-        doorAnimator.Play("DoorOpen");
+        StartCoroutine(PlayAnimation("DoorOpen", doorOpenSound));
         isOpen = true;
-        doorOpenSound.Play();
     }
 
     public void Close()
     {
-        doorAnimator.Play("DoorClose");
+        StartCoroutine(PlayAnimation("DoorClose"));
         isOpen = false;
-        if (doorCloseSound != null)
-        {
-            doorCloseSound.Play();
-        }
     }
 
     public void Lock()
@@ -82,8 +82,7 @@ public class Door : MonoBehaviour
 
     public void Crack()
     {
-        doorAnimator.Play("DoorCrack");
-        doorOpenSound.Play();
+        StartCoroutine(PlayAnimation("DoorCrack", doorOpenSound));
     }
 
     /// <summary>
@@ -103,6 +102,21 @@ public class Door : MonoBehaviour
             Debug.Log("You need the key to open this door!");
             doorLockSound.Play();
         }
+    }
+
+    private IEnumerator PlayAnimation(string animationName, AudioSource sound = null)
+    {
+        interactableObject.isInteractable = false;
+        doorAnimator.Play(animationName);
+        if (sound != null)
+        {
+            sound.Play();
+        }
+
+        // Wait until the animation is done
+        yield return new WaitForSeconds(doorAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        interactableObject.isInteractable = true;
     }
 
     // Start is called before the first frame update
