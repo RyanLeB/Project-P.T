@@ -18653,6 +18653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92569636d09bb45419f7306718951734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   doorType: 0
   isLocked: 1
   requiredKeyID: 1
@@ -40530,11 +40531,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: -221239174573339541, guid: d9bee768f86cdbc47bbfa4a1b6819f58, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9659258
+      value: 0.9396927
       objectReference: {fileID: 0}
     - target: {fileID: -221239174573339541, guid: d9bee768f86cdbc47bbfa4a1b6819f58, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.2588191
+      value: 0.3420201
       objectReference: {fileID: 0}
     - target: {fileID: -221239174573339541, guid: d9bee768f86cdbc47bbfa4a1b6819f58, type: 3}
       propertyPath: m_LocalRotation.z
@@ -40542,7 +40543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -221239174573339541, guid: d9bee768f86cdbc47bbfa4a1b6819f58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d9bee768f86cdbc47bbfa4a1b6819f58, type: 3}
       propertyPath: m_Name
