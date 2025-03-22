@@ -110,7 +110,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _WidthOfOutline: 0.008
+    - _WidthOfOutline: 0.004
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
