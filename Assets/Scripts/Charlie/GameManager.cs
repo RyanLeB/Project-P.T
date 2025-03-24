@@ -33,6 +33,14 @@ public class GameManager : MonoBehaviour
 
     public int currentLevel = 0;
 
+    void OnDestroy()
+    {
+        if (manager == this)
+        {
+            manager = null;
+        }
+    }
+
     void Awake()
     {
         if (manager == null)
@@ -54,6 +62,14 @@ public class GameManager : MonoBehaviour
         //playerInventory = FindObjectOfType<Inventory>();
     }
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    public static void EntryPoint()
+    {
+        if (manager == null)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
