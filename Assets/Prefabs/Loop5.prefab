@@ -13750,6 +13750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92569636d09bb45419f7306718951734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   doorType: 0
   isLocked: 0
   requiredKeyID: 1
@@ -29561,6 +29562,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2947027311212445826}
     m_Modifications:
+    - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0c0194715d1b2442861c21ebe298c88, type: 2}
     - target: {fileID: 5808887843838929146, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_Name
       value: Key
@@ -29609,6 +29614,10 @@ PrefabInstance:
       propertyPath: triggerToActivate
       value: 
       objectReference: {fileID: 6648279170483335801}
+    - target: {fileID: 7816379294873419237, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7555291902203392398, guid: 512f3abaa6c163c47a4115c548abd535, type: 3}
     - target: {fileID: 8885800676916694042, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: keyID
       value: 6

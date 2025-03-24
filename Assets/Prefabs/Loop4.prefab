@@ -22799,6 +22799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92569636d09bb45419f7306718951734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   doorType: 0
   isLocked: 0
   requiredKeyID: 0
