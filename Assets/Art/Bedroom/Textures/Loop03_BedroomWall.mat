@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-825490711390027003
+--- !u!114 &-3962526786430770495
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bathtub_01_bathroom
+  m_Name: Loop03_BedroomWall
   m_Shader: {fileID: -6465566751694194690, guid: 9fdeec3fc8bd23d47bedcdbedae0d917, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 245d6b9bed3be5f4fb68319f4eb59a77, type: 3}
+        m_Texture: {fileID: 2800000, guid: f755a6d86759dae4f8f187e3d6841a93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 245d6b9bed3be5f4fb68319f4eb59a77, type: 3}
+        m_Texture: {fileID: 2800000, guid: f755a6d86759dae4f8f187e3d6841a93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -82,7 +82,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: f44a2a96a980dea4fa128782d3a4f173, type: 3}
+        m_Texture: {fileID: 2800000, guid: f755a6d86759dae4f8f187e3d6841a93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
