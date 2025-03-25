@@ -20241,9 +20241,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2cdcbf5aee623645b52f6dda464d121, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd1cbf01a49f014884df1ea8796d7bf, type: 2}
+      objectReference: {fileID: 2100000, guid: 784a59ad65687c041949b067253a4802, type: 2}
     - target: {fileID: 919132149155446097, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Name
       value: Misc_PuzzleLight_01 (4)
@@ -30868,9 +30872,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 779183687358208058}
     m_Modifications:
     - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c0c0194715d1b2442861c21ebe298c88, type: 2}
+    - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 5808887843838929146, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_Name
       value: Key
@@ -32884,9 +32896,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2cdcbf5aee623645b52f6dda464d121, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd1cbf01a49f014884df1ea8796d7bf, type: 2}
+      objectReference: {fileID: 2100000, guid: 784a59ad65687c041949b067253a4802, type: 2}
     - target: {fileID: 919132149155446097, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Name
       value: Misc_PuzzleLight_01
@@ -34341,7 +34357,7 @@ PrefabInstance:
     - target: {fileID: 8029106800918022278, guid: 0e489d765b4313f40921701183a544f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd1cbf01a49f014884df1ea8796d7bf, type: 2}
+      objectReference: {fileID: 2100000, guid: 784a59ad65687c041949b067253a4802, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42467,9 +42483,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2cdcbf5aee623645b52f6dda464d121, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd1cbf01a49f014884df1ea8796d7bf, type: 2}
+      objectReference: {fileID: 2100000, guid: 784a59ad65687c041949b067253a4802, type: 2}
     - target: {fileID: 919132149155446097, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Name
       value: Misc_PuzzleLight_01 (2)
@@ -46729,9 +46749,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2cdcbf5aee623645b52f6dda464d121, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd1cbf01a49f014884df1ea8796d7bf, type: 2}
+      objectReference: {fileID: 2100000, guid: 784a59ad65687c041949b067253a4802, type: 2}
     - target: {fileID: 919132149155446097, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Name
       value: Misc_PuzzleLight_01 (5)
@@ -51431,9 +51455,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2cdcbf5aee623645b52f6dda464d121, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd1cbf01a49f014884df1ea8796d7bf, type: 2}
+      objectReference: {fileID: 2100000, guid: 784a59ad65687c041949b067253a4802, type: 2}
     - target: {fileID: 919132149155446097, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Name
       value: Misc_PuzzleLight_01 (1)
@@ -54552,9 +54580,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2cdcbf5aee623645b52f6dda464d121, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd1cbf01a49f014884df1ea8796d7bf, type: 2}
+      objectReference: {fileID: 2100000, guid: 784a59ad65687c041949b067253a4802, type: 2}
     - target: {fileID: 919132149155446097, guid: 6af0ba40d3160a647b0c8546f16371af, type: 3}
       propertyPath: m_Name
       value: Misc_PuzzleLight_01 (3)
