@@ -28865,7 +28865,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 007c011eac617a648804a5d8f376d341, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2f54e747d5d593c4aa8053a00cfac794, type: 2}
+      objectReference: {fileID: 2100000, guid: 836be857447f3ea49adaefd58bae9848, type: 2}
     - target: {fileID: 919132149155446097, guid: 007c011eac617a648804a5d8f376d341, type: 3}
       propertyPath: m_Name
       value: Bathtub_bathroom_01
@@ -36038,9 +36038,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 8059359101491155950}
     m_Modifications:
     - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c0c0194715d1b2442861c21ebe298c88, type: 2}
+    - target: {fileID: 5448701097817737519, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d91491913444c534b860be5f4e9afc7c, type: 2}
     - target: {fileID: 5808887843838929146, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_Name
       value: Key
@@ -36051,7 +36059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617617555964752448, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7454391
+      value: 0.765
       objectReference: {fileID: 0}
     - target: {fileID: 6617617555964752448, guid: 559c8c8f7a814664fb373450a197dcdd, type: 3}
       propertyPath: m_LocalPosition.z
