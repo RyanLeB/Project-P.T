@@ -12160,6 +12160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92569636d09bb45419f7306718951734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   doorType: 0
   isLocked: 1
   requiredKeyID: 1
@@ -22071,7 +22072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2482cd7f60586340bb0d8a6cf464832, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1589334
+      value: 0.148
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2482cd7f60586340bb0d8a6cf464832, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31906,7 +31907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2482cd7f60586340bb0d8a6cf464832, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1589334
+      value: 0.148
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2482cd7f60586340bb0d8a6cf464832, type: 3}
       propertyPath: m_LocalPosition.z

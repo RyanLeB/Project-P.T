@@ -6,7 +6,7 @@ public static class GlobalVariables
 {
     // Player Variables
 
-    public const float defaultSpeed = 4f;
+    public const float defaultSpeed = 2.5f;
     public const float defaultHeight = 1.7f;
 
     public const float cameraVerticalRotationLimit = 65f;

@@ -85,7 +85,7 @@ public class Lightswitch : MonoBehaviour
 
         foreach (GameObject light in lights)
         {
-            //light.SetActive(lightOn); // Was causing errors
+            light.SetActive(lightOn); // Was causing errors
         }
 
         switch (lightswitchType)

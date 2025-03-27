@@ -11459,7 +11459,7 @@ MonoBehaviour:
   currentObject: {fileID: 0}
   interactText: {fileID: 2070078830}
   outlineMaterial: {fileID: 2100000, guid: 4ca8d62aabaae9740ac4ada4f8a55b6d, type: 2}
-  rayDistance: 5
+  rayDistance: 1.75
   rayRadius: 0.5
   checkInterval: 0.2
 --- !u!1 &724778908
