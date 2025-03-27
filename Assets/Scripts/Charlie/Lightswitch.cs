@@ -57,7 +57,7 @@ public class Lightswitch : MonoBehaviour
         lastStates.Add(lightOn);
         if (lightswitchType == LightswitchType.Trigger)
         {
-            lightswitchPuzzleManager = FindObjectOfType<LightSwitchPuzzleManager>();
+            //lightswitchPuzzleManager = FindObjectOfType<LightSwitchPuzzleManager>();
         }
     }
 
@@ -83,9 +83,12 @@ public class Lightswitch : MonoBehaviour
             // lightObject.GetComponent<Light>().color = new Color(-1f, -1f, -1f); if this is on the light will remove light from the area. could be used for something cool?
         }
 
-        foreach (GameObject light in lights)
+        if (lights != null)
         {
-            light.SetActive(lightOn); // Was causing errors
+            foreach (GameObject light in lights)
+            {
+                light.SetActive(lightOn);
+            }
         }
 
         switch (lightswitchType)
