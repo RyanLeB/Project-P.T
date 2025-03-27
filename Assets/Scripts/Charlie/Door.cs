@@ -114,7 +114,7 @@ public class Door : MonoBehaviour
         }
 
         // Wait until the animation is done
-        yield return new WaitForSeconds(doorAnimator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(doorAnimator.GetCurrentAnimatorStateInfo(0).length + 1f);
 
         interactableObject.isInteractable = true;
     }
