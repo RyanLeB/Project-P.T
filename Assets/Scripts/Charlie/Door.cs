@@ -23,10 +23,13 @@ public class Door : MonoBehaviour
     public AudioSource doorLockSound;
     public AudioSource doorUnlockSound;
 
+    public ActionSubtitles actionSubtitles;
+
     private InteractableObject interactableObject;
 
     private void Awake()
     {
+        actionSubtitles = FindObjectOfType<ActionSubtitles>();
         interactableObject = GetComponent<InteractableObject>();
     }
 
@@ -50,6 +53,7 @@ public class Door : MonoBehaviour
         else if (!isLocked)
         {
             isOpen = true;
+            StartCoroutine(actionSubtitles.ShowSubtitle("Door opened"));
             StartCoroutine(PlayAnimation("DoorOpen", doorOpenSound));
         }
     }
@@ -72,6 +76,7 @@ public class Door : MonoBehaviour
     public void Close()
     {
         StartCoroutine(PlayAnimation("DoorClose"));
+        StartCoroutine(actionSubtitles.ShowSubtitle("Door closed"));
         isOpen = false;
     }
 
@@ -95,7 +100,7 @@ public class Door : MonoBehaviour
             isLocked = false;
             doorUnlockSound.Play();
             inventory.keyGameObject.SetActive(false);
-            Debug.Log("Door is unlocked");
+            StartCoroutine(actionSubtitles.ShowSubtitle("Door unlocked"));
         }
         else
         {
