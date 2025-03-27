@@ -75,7 +75,7 @@ public class Door : MonoBehaviour
 
     public void Close()
     {
-        StartCoroutine(PlayAnimation("DoorClose"));
+        StartCoroutine(PlayAnimation("DoorClose", doorCloseSound));
         StartCoroutine(actionSubtitles.ShowSubtitle("Door closed"));
         isOpen = false;
     }
