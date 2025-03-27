@@ -12,6 +12,8 @@ public class InteractableObject : MonoBehaviour
 
     public GameObject triggerToActivate;
 
+    public ActionSubtitles actionSubtitles;
+
     /// <summary>
     /// The type of interactable object.
     /// </summary>
@@ -44,9 +46,13 @@ public class InteractableObject : MonoBehaviour
     public InteractableType type;
     public InteractionType interactionType;
 
+    public MeshRenderer rend;
+
     private void Start()
     {
+        rend = GetComponent<MeshRenderer>();
         interaction = FindObjectOfType<Interaction>();
+        actionSubtitles = FindObjectOfType<ActionSubtitles>();
     }
 
     /// <summary>
@@ -99,8 +105,9 @@ public class InteractableObject : MonoBehaviour
     {
         Key key = GetComponent<Key>();
         interaction.inventory.GetKeys().Add(key.keyID);
+        StartCoroutine(actionSubtitles.ShowSubtitle("Key picked up"));
         interaction.inventory.keyGameObject.SetActive(true);
-        DestroyPickup();
+        StartCoroutine(DestroyPickup());
     }
 
     /// <summary>
@@ -116,7 +123,8 @@ public class InteractableObject : MonoBehaviour
         {
             interaction.lighter.AddLighterFluid(lighterPickupIncrease);
         }
-        DestroyPickup();
+        StartCoroutine(actionSubtitles.ShowSubtitle("Lighter picked up"));
+        StartCoroutine(DestroyPickup());
     }
 
     /// <summary>
@@ -125,7 +133,8 @@ public class InteractableObject : MonoBehaviour
     public void LighterFluid()
     {
         interaction.lighter.AddLighterFluid(lighterFluidPickupIncrease);
-        DestroyPickup();
+        StartCoroutine(actionSubtitles.ShowSubtitle("Lighter fluid picked up"));
+        StartCoroutine(DestroyPickup());
     }
 
 
@@ -162,6 +171,7 @@ public class InteractableObject : MonoBehaviour
     public void Lightswitch()
     {
         Lightswitch lightswitch = GetComponent<Lightswitch>();
+        actionSubtitles.ShowSubtitle("Lightswitch flicked");
         lightswitch.ToggleSwitch();
     }
 
@@ -177,15 +187,17 @@ public class InteractableObject : MonoBehaviour
     {
         KeyPiece keyPiece = GetComponent<KeyPiece>();
         interaction.inventory.AddKeyPiece(keyPiece);
-        DestroyPickup();
+        StartCoroutine(DestroyPickup());
     }
     #endregion
 
     /// <summary>
     /// Destroys the pickup object. Disables the object and the interact text.
     /// </summary>
-    void DestroyPickup()
+    public IEnumerator DestroyPickup()
     {
+        rend.enabled = false;
+        yield return new WaitForSeconds(actionSubtitles.subtitleDuration);
         gameObject.SetActive(false);
         //interaction.interactableFinder.interactText.gameObject.SetActive(false);
     }
