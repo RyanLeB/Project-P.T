@@ -171,7 +171,7 @@ public class InteractableObject : MonoBehaviour
     public void Lightswitch()
     {
         Lightswitch lightswitch = GetComponent<Lightswitch>();
-        actionSubtitles.ShowSubtitle("Lightswitch flicked");
+        StartCoroutine(actionSubtitles.ShowSubtitle("Lightswitch flicked"));
         lightswitch.ToggleSwitch();
     }
 

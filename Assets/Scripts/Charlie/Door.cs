@@ -104,7 +104,7 @@ public class Door : MonoBehaviour
         }
         else
         {
-            Debug.Log("You need the key to open this door!");
+            StartCoroutine(actionSubtitles.ShowSubtitle("Door locked. Find the correct key to open the door"));
             doorLockSound.Play();
         }
     }
