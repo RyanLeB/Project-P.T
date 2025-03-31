@@ -55,12 +55,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _Disstortion_Scale: 7
-    - _Disstortion_amount: 0.1
-    - _Power: 1.7
+    - _Disstortion_amount: 0.08
+    - _Power: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: -1
     m_Colors:
-    - _Color: {r: 18.205915, g: 8.316334, b: 0, a: 0}
-    - _Distortion_Speed: {r: 0.05, g: 0.3, b: 0, a: 0}
+    - _Color: {r: 111.55806, g: 6.6495523, b: 0, a: 0}
+    - _Distortion_Speed: {r: -0.21, g: -0.51, b: 0, a: 0}
   m_BuildTextureStacks: []
