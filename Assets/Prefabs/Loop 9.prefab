@@ -4132,8 +4132,10 @@ MonoBehaviour:
   isInteractable: 1
   interaction: {fileID: 0}
   triggerToActivate: {fileID: 0}
+  actionSubtitles: {fileID: 0}
   type: 4
   interactionType: 1
+  rend: {fileID: 0}
 --- !u!64 &5507987955334361968
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9616,6 +9618,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 101014749918531410, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0270804
+      objectReference: {fileID: 0}
     - target: {fileID: 202123052648405788, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: isLocked
       value: 0
@@ -9672,9 +9678,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -6.669
       objectReference: {fileID: 0}
+    - target: {fileID: 4782615171415801206, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0859429
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782615171415801206, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.482
+      objectReference: {fileID: 0}
     - target: {fileID: 4853290630117804972, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292276374341935683, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05222617
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292276374341935683, guid: 510a62801e523f843aab912c42e5baba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1445
       objectReference: {fileID: 0}
     - target: {fileID: 5441599524077956931, guid: 510a62801e523f843aab912c42e5baba, type: 3}
       propertyPath: m_IsActive
@@ -9935,6 +9957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92569636d09bb45419f7306718951734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   doorType: 1
   isLocked: 1
   requiredKeyID: 0
@@ -9944,6 +9967,7 @@ MonoBehaviour:
   doorCloseSound: {fileID: 0}
   doorLockSound: {fileID: 5870150207347748614}
   doorUnlockSound: {fileID: 7659412944418946735}
+  actionSubtitles: {fileID: 0}
 --- !u!95 &5489321059239837355
 Animator:
   serializedVersion: 5
@@ -10007,8 +10031,10 @@ MonoBehaviour:
   isInteractable: 1
   interaction: {fileID: 0}
   triggerToActivate: {fileID: 0}
+  actionSubtitles: {fileID: 0}
   type: 3
   interactionType: 2
+  rend: {fileID: 0}
 --- !u!1 &8447531629326853636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1406628914348651331, guid: 510a62801e523f843aab912c42e5baba, type: 3}
