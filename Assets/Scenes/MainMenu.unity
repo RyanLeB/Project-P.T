@@ -7635,6 +7635,7 @@ MonoBehaviour:
   isOpen: 0
   doorType: 0
   isLocked: 1
+  lockPad: {fileID: 0}
   requiredKeyID: 1
   inventory: {fileID: 0}
   doorAnimator: {fileID: 501365450}
@@ -30660,6 +30661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundTrigger: 0
   doorTrigger: 1
+  lightTrigger: 0
   nextTrigger: {fileID: 0}
   objectToDestroy: {fileID: 0}
   objectToSpawn: {fileID: 0}
@@ -30671,6 +30673,9 @@ MonoBehaviour:
   spacialBlend: 1
   volume: 1
   door: {fileID: 702116577}
+  lightOnOff: 0
+  lights: []
+  lightObjects: []
   actionType: 0
 --- !u!65 &1858431428
 BoxCollider:
@@ -32340,6 +32345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundTrigger: 1
   doorTrigger: 0
+  lightTrigger: 0
   nextTrigger: {fileID: 1858431427}
   objectToDestroy: {fileID: 0}
   objectToSpawn: {fileID: 0}
@@ -32351,6 +32357,9 @@ MonoBehaviour:
   spacialBlend: 1
   volume: 1
   door: {fileID: 0}
+  lightOnOff: 0
+  lights: []
+  lightObjects: []
   actionType: 0
 --- !u!65 &1925683652
 BoxCollider:
@@ -32792,7 +32801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1949313814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35396,7 +35405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -75}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070078830
@@ -35446,8 +35455,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -35724,7 +35733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2081307689
 RectTransform:
   m_ObjectHideFlags: 0
