@@ -7,6 +7,7 @@ public class Trigger : MonoBehaviour
 {
     public bool soundTrigger;
     public bool doorTrigger;
+    public bool lightTrigger;
 
     public Trigger nextTrigger;
 
@@ -37,6 +38,12 @@ public class Trigger : MonoBehaviour
 
     public Door door;
 
+    [Header("Light Trigger Settings")]
+
+    public bool lightOnOff = false; // if true, the lights will turn on, if false, the lights will turn off
+    public GameObject[] lights;
+    public GameObject[] lightObjects;
+
     public enum DoorActionType
     {
         Open,
@@ -63,6 +70,11 @@ public class Trigger : MonoBehaviour
             audioSource.loop = loop;
             audioSource.spatialBlend = spacialBlend;
             audioSource.volume = volume;
+        }
+
+        if (lightTrigger)
+        {
+            
         }
 
         if (nextTrigger != null)
@@ -128,6 +140,36 @@ public class Trigger : MonoBehaviour
 
         Destroy(this);
     }
+
+    private void TriggerLights()
+    {
+        if (lights != null)
+        {
+            foreach (GameObject light in lights)
+            {
+                light.SetActive(lightOnOff);
+            }
+        }
+        foreach (GameObject lightObject in lightObjects)
+        {
+            Renderer renderer = lightObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                Material material = renderer.material;
+                if (lightOnOff)
+                {
+                    material.EnableKeyword("_EMISSION");
+                    //material.SetColor("_EmissionColor", new Color(207, 140, 43));
+                }
+                else
+                {
+                    material.DisableKeyword("_EMISSION");
+                    //material.SetColor("_EmissionColor", Color.black);
+                }
+            }
+            // lightObject.GetComponent<Light>().color = new Color(-1f, -1f, -1f); if this is on the light will remove light from the area. could be used for something cool?
+        }
+    }
 }
 
 #if UNITY_EDITOR
@@ -140,6 +182,7 @@ public class TriggerEditor : Editor
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("soundTrigger"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("doorTrigger"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("lightTrigger"));
 
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("objectToSpawn"));
@@ -160,6 +203,12 @@ public class TriggerEditor : Editor
         {
             EditorGUILayout.PropertyField(serializedObject.FindProperty("door"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("actionType"));
+        }
+
+        if (trigger.lightTrigger)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("lights"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("lightObjects"));
         }
 
         serializedObject.ApplyModifiedProperties();

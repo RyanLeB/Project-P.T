@@ -3755,7 +3755,7 @@ RectTransform:
   m_GameObject: {fileID: 322760770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1109833843}
@@ -9893,8 +9893,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13105,8 +13105,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14392,8 +14392,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15806,8 +15806,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16118,8 +16118,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -17880,13 +17880,14 @@ GameObject:
   - component: {fileID: 1109833842}
   - component: {fileID: 1109833841}
   - component: {fileID: 1109833840}
+  - component: {fileID: 1109833844}
   m_Layer: 5
   m_Name: OpeningScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1109833840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17978,6 +17979,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!320 &1109833844
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109833839}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 7250303926835888670, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+    value: {fileID: 938522103}
+  - key: {fileID: 5306365490671822786, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+    value: {fileID: 1901633427}
+  - key: {fileID: 4380687104922175070, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+    value: {fileID: 495596827}
+  - key: {fileID: 1000700007429248993, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+    value: {fileID: 826543658}
+  - key: {fileID: 4892520627187934576, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+    value: {fileID: 712483124}
+  - key: {fileID: -8560724795002114026, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+    value: {fileID: 1188442976}
+  - key: {fileID: -4265969502159145751, guid: 74c019998ce3d2c4bbd7f0cfd61b3d1d, type: 2}
+    value: {fileID: 929902302}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1115752751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18482,8 +18514,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -28365,8 +28397,10 @@ MonoBehaviour:
   isInteractable: 1
   interaction: {fileID: 0}
   triggerToActivate: {fileID: 0}
+  actionSubtitles: {fileID: 0}
   type: 3
   interactionType: 2
+  rend: {fileID: 0}
 --- !u!114 &1673111903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28389,6 +28423,7 @@ MonoBehaviour:
   doorCloseSound: {fileID: 0}
   doorLockSound: {fileID: 1126662176}
   doorUnlockSound: {fileID: 0}
+  actionSubtitles: {fileID: 0}
 --- !u!95 &1673111904
 Animator:
   serializedVersion: 5
@@ -32283,8 +32318,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -35287,7 +35322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330bff33ea9801e43808b82d35cadcb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxEffect: {fileID: 6537331164405133368}
 --- !u!73398921 &6537331164405133370
 VFXRenderer:
   serializedVersion: 1
