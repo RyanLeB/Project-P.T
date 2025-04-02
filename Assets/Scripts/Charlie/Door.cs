@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
 
     public DoorType doorType;
     public bool isLocked = true;
+    public GameObject lockPad;
     public int requiredKeyID;
     public Inventory inventory;
 
@@ -100,6 +101,7 @@ public class Door : MonoBehaviour
             isLocked = false;
             doorUnlockSound.Play();
             inventory.keyGameObject.SetActive(false);
+            lockPad.SetActive(false);
             StartCoroutine(actionSubtitles.ShowSubtitle("Door unlocked"));
         }
         else
