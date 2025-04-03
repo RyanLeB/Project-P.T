@@ -58,7 +58,9 @@ public class PlayerController : MonoBehaviour
         CheckGround();
         HandleMovementStates();
         HandleMovement();
+        #if UNITY_EDITOR
         ChangeSpeed(5f);
+        #endif
     }
 
     /// <summary>
