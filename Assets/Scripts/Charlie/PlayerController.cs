@@ -252,7 +252,7 @@ public class PlayerController : MonoBehaviour
                 audioSource.clip = footstepSounds[UnityEngine.Random.Range(0, footstepSounds.Length)];
                 audioSource.Play();
             }
-            yield return new WaitForSeconds(.7f);
+            yield return new WaitForSeconds(.6f);
         }
     }
     
