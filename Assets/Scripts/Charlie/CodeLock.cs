@@ -72,6 +72,10 @@ public class CodeLock : MonoBehaviour
             ClearInput();
             currentKeypad.doorToOpen.isLocked = false;
             ExitKeyPad();
+            if (currentKeypad.padLock != null)
+            {
+                Destroy(currentKeypad.padLock);
+            }
         }
         else
         {

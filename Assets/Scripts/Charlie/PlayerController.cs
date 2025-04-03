@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
         CheckGround();
         HandleMovementStates();
         HandleMovement();
+        ChangeSpeed(5f);
     }
 
     /// <summary>
@@ -212,4 +213,22 @@ public class PlayerController : MonoBehaviour
             isOnStairs = false;
         }
     }
+    
+    #if UNITY_EDITOR
+    private void ChangeSpeed(float speed)
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            defaultSpeed = speed;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            defaultSpeed = speed * 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            defaultSpeed = 1.5f;
+        }
+    }
+    #endif 
 }

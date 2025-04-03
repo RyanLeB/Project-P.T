@@ -6,6 +6,7 @@ using static GlobalVariables;
 public class Keypad : MonoBehaviour
 {
     public Door doorToOpen;
+    public Object padLock;
 
     public string password;
 
