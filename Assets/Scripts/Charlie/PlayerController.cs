@@ -44,6 +44,13 @@ public class PlayerController : MonoBehaviour
     //GravityETC
     private bool isGrounded;
 
+    
+    //Footsteps
+    public AudioClip[] footstepSounds;
+    private AudioSource audioSource;
+    private Coroutine footstepCoroutine;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +58,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GetComponentInChildren<Camera>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -78,6 +86,22 @@ public class PlayerController : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
+        
+        if (movementX != 0 || movementY != 0)
+        {
+            if (footstepCoroutine == null)
+            {
+                footstepCoroutine = StartCoroutine(PlayFootstepSounds());
+            }
+        }
+        else
+        {
+            if (footstepCoroutine != null)
+            {
+                StopCoroutine(footstepCoroutine);
+                footstepCoroutine = null;
+            }
+        }
     }
 
     /// <summary>
@@ -215,6 +239,24 @@ public class PlayerController : MonoBehaviour
             isOnStairs = false;
         }
     }
+    
+    private IEnumerator PlayFootstepSounds()
+    {
+        // Initial delay before playing the first footstep sound
+        yield return new WaitForSeconds(0.2f);
+
+        while (true)
+        {
+            if (footstepSounds.Length > 0)
+            {
+                audioSource.clip = footstepSounds[UnityEngine.Random.Range(0, footstepSounds.Length)];
+                audioSource.Play();
+            }
+            yield return new WaitForSeconds(.7f);
+        }
+    }
+    
+    
     
     #if UNITY_EDITOR
     private void ChangeSpeed(float speed)
