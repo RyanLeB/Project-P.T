@@ -41,7 +41,6 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         
-
         float savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 1f);
         float savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 1f);
 

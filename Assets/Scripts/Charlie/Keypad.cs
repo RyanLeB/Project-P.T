@@ -13,5 +13,15 @@ public class Keypad : MonoBehaviour
     public string input;
 
     public int passwordLength = defaultPasswordLength;
+    
+    public AudioSource keypadAudio;
+    public AudioClip keypadEnterAudio;
+    public AudioClip keypadErrorAudio;
+    public AudioClip keypadSuccessAudio;
+    
+    public void Start()
+    {
+        keypadAudio = GetComponent<AudioSource>();
+    }
 
 }

@@ -45,6 +45,12 @@ public class CodeLock : MonoBehaviour
             clickedButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
             currentKeypad.input += clickedButton.GetComponentInChildren<TextMeshProUGUI>().text.Trim();
             inputField.text = currentKeypad.input;
+            if (currentKeypad.GetComponent<AudioSource>() == null)
+            {
+                currentKeypad.keypadAudio = currentKeypad.gameObject.AddComponent<AudioSource>();
+            }
+            currentKeypad.keypadAudio.clip = currentKeypad.keypadEnterAudio;
+            currentKeypad.keypadAudio.Play();
         }
         else
         {
@@ -71,6 +77,9 @@ public class CodeLock : MonoBehaviour
             Debug.Log("Unlocked");
             ClearInput();
             currentKeypad.doorToOpen.isLocked = false;
+            currentKeypad.keypadAudio.clip = currentKeypad.keypadSuccessAudio;
+            currentKeypad.keypadAudio.Play();
+            
             ExitKeyPad();
             if (currentKeypad.padLock != null)
             {
@@ -80,6 +89,8 @@ public class CodeLock : MonoBehaviour
         else
         {
             Debug.Log("Wrong password");
+            currentKeypad.keypadAudio.clip = currentKeypad.keypadErrorAudio;
+            currentKeypad.keypadAudio.Play();
             ClearInput();
         }
     }
