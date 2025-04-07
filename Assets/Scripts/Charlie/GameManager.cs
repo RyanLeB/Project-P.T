@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 using static GlobalVariables;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UIManager uIManager;
 
     bool keyPressed = false;
+    bool gameStateChanged = false;
 
     public enum GameState
     {
@@ -74,7 +76,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleGameState();
+        
+        if (Input.anyKeyDown) 
+        {
+            HandleGameState(); 
+        }
+        
     }
 
     void HandleGameState()
@@ -112,6 +119,7 @@ public class GameManager : MonoBehaviour
     void MainMenu()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         uIManager.MainMenuUI();
         player.SetActive(false);
     }
@@ -132,6 +140,7 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         uIManager.GameOverUI();
         player.SetActive(false);
     }
@@ -149,6 +158,7 @@ public class GameManager : MonoBehaviour
     void Settings()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         uIManager.SettingsUI();
         if (previousGameState == GameState.GamePause)
         {
@@ -183,10 +193,12 @@ public class GameManager : MonoBehaviour
         player.SetActive(false);
         uIManager.IntroUI();
 
-        if (Input.anyKey && !keyPressed)
+        if (Input.anyKeyDown && !keyPressed)
         {
             keyPressed = true;
+            
             ChangeGameState(GameState.MainMenu);
+            
         }
     }
     #endregion
@@ -195,6 +207,8 @@ public class GameManager : MonoBehaviour
     {
         previousGameState = currentGameState;
         currentGameState = newGameState;
+        
+        HandleGameState();
     }
 
     public void ChangeToPreviousGameState()
@@ -202,6 +216,8 @@ public class GameManager : MonoBehaviour
         GameState temp = currentGameState;
         currentGameState = previousGameState;
         previousGameState = temp;
+        
+        HandleGameState();
     }
 
     public void PauseGame()
