@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
     public UIManager uIManager;
+    public AudioManager audioManager;
     
     bool keyPressed = false;
     bool gameStateChanged = false;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         uIManager = FindObjectOfType<UIManager>();
+        audioManager.PlayMusic("MainMenu");
         //playerController = FindObjectOfType<PlayerController>();
         //playerInventory = FindObjectOfType<Inventory>();
     }
@@ -246,6 +248,7 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameState.GamePlay);
         playerController.cameraLocked = false;
         SceneManager.LoadScene(firstLevelSceneName);
+        
     }
 
     public void OpenSettings()
@@ -257,6 +260,7 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.MainMenu);
         SceneManager.LoadScene(mainMenuSceneName);
+        
     }
 
     public void OpenCredits()
