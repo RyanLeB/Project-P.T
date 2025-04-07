@@ -17947,6 +17947,10 @@ PrefabInstance:
       propertyPath: m_Range
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1745990397075278944, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 96
+      objectReference: {fileID: 0}
     - target: {fileID: 2014865887267696242, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_Depth
       value: 0
@@ -17954,6 +17958,10 @@ PrefabInstance:
     - target: {fileID: 2014865887267696242, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_ClearFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014865887267696242, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: far clip plane
+      value: 21.5
       objectReference: {fileID: 0}
     - target: {fileID: 2014865887267696242, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_OcclusionCulling

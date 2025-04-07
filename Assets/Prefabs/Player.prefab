@@ -386,6 +386,7 @@ MonoBehaviour:
   movementLocked: 0
   movementType: 0
   currentSpeed: 0
+  footstepSounds: []
 --- !u!114 &2180943862530277034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +670,10 @@ PrefabInstance:
     - target: {fileID: 2286900530898329916, guid: 5e8bf7436db483844a2555e9728cbfe7, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168978840840486956, guid: 5e8bf7436db483844a2555e9728cbfe7, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 4827131443290069263, guid: 5e8bf7436db483844a2555e9728cbfe7, type: 3}
       propertyPath: NoiseModule.damping
