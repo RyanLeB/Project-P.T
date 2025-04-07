@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
     public UIManager uIManager;
-
+    
     bool keyPressed = false;
     bool gameStateChanged = false;
 
@@ -286,4 +286,7 @@ public class GameManager : MonoBehaviour
         currentLevel = 0;
         playerInventory.GetKeys().Clear();
     }
+
+    
+    
 }

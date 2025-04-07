@@ -41,24 +41,24 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         
-        float savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 1f);
-        float savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 1f);
-
-        // ---- Set the MUSIC sliders to the saved volume values ----
-        if (musicVolumeSlider != null)
-        {
-            musicVolumeSlider.value = savedMusicVolume;
-            musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
-        }
-        SetMusicVolume(savedMusicVolume);
-        
-        // ---- Set the SOUNDFX sliders to the saved volume values ----
-        if (sfxVolumeSlider != null)
-        {
-            sfxVolumeSlider.value = savedSFXVolume;
-            sfxVolumeSlider.onValueChanged.AddListener(SetSFXVolume);
-        }
-        SetSFXVolume(savedSFXVolume);
+        // float savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 1f);
+        // float savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 1f);
+        //
+        // // ---- Set the MUSIC sliders to the saved volume values ----
+        // if (musicVolumeSlider != null)
+        // {
+        //     musicVolumeSlider.value = savedMusicVolume;
+        //     musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        // }
+        // SetMusicVolume(savedMusicVolume);
+        //
+        // // ---- Set the SOUNDFX sliders to the saved volume values ----
+        // if (sfxVolumeSlider != null)
+        // {
+        //     sfxVolumeSlider.value = savedSFXVolume;
+        //     sfxVolumeSlider.onValueChanged.AddListener(SetSFXVolume);
+        // }
+        // SetSFXVolume(savedSFXVolume);
     }
 
     private void InitializeDictionaries()
@@ -141,6 +141,8 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    
+    
     
     public void PauseMusic()
     {
