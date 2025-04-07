@@ -27,6 +27,8 @@ public class Door : MonoBehaviour
     public ActionSubtitles actionSubtitles;
 
     private InteractableObject interactableObject;
+    
+    private bool isInteracting = false;
 
     private void Awake()
     {
@@ -39,6 +41,9 @@ public class Door : MonoBehaviour
     /// </summary>
     public void TryOpen()
     {
+        if (isInteracting) return;
+        isInteracting = true;
+        
         if (isLocked)
         {
             if (doorType == DoorType.Lock)
@@ -113,6 +118,7 @@ public class Door : MonoBehaviour
 
     private IEnumerator PlayAnimation(string animationName, AudioSource sound = null)
     {
+        isInteracting = true;
         interactableObject.isInteractable = false;
         doorAnimator.Play(animationName);
         if (sound != null)
@@ -121,9 +127,10 @@ public class Door : MonoBehaviour
         }
 
         // Wait until the animation is done
-        yield return new WaitForSeconds(doorAnimator.GetCurrentAnimatorStateInfo(0).length + 1f);
+        yield return new WaitForSeconds(doorAnimator.GetCurrentAnimatorStateInfo(0).length);
 
         interactableObject.isInteractable = true;
+        isInteracting = false;
     }
 
     // Start is called before the first frame update

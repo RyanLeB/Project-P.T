@@ -77,7 +77,7 @@ public class InteractableFinder : MonoBehaviour
                                 interactText.text = "Press E to use the key";
                                 Debug.Log($"Checking for key ID 1: {door.inventory.HasKey(1)}"); // To see if the door is using key ID 1
                             }
-                            else if (door.isLocked)
+                            else if (door.isLocked) // This happens for every locked door
                             {
                                 interactText.gameObject.SetActive(true);
                                 interactText.text = "Find the key to unlock the door";

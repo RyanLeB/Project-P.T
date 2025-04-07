@@ -5,7 +5,6 @@ using static GlobalVariables;
 
 public class InteractableObject : MonoBehaviour
 {
-
     public bool isInteractable = true;
 
     [SerializeField] private Interaction interaction;
