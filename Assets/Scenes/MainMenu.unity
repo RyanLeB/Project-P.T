@@ -12309,6 +12309,17 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &747180169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8747295973979559770, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+  m_PrefabInstance: {fileID: 1086524985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c046e53b6d26aa4b82773b3d27b5469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &747920184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18461,6 +18472,10 @@ PrefabInstance:
       propertyPath: lighterIntensityText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7340563680267943260, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: lighter
+      value: 
+      objectReference: {fileID: 747180169}
     - target: {fileID: 7340563680267943260, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: footstepSounds.Array.size
       value: 3

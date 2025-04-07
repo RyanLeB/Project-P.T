@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float movementY;
 
     public CharacterController characterController;
+    public Lighter lighter;
 
     public bool cameraLocked = false;
     public bool movementLocked = false;
@@ -67,7 +68,8 @@ public class PlayerController : MonoBehaviour
         HandleMovementStates();
         HandleMovement();
         #if UNITY_EDITOR
-        ChangeSpeed(5f);
+        ChangeSpeed(5f); // Changes speeds of the player pressing 1, 2 and pressing 3 is normal speed
+        LighterCheat(); // Activates the lighter when pressing L and deactivates it when pressing L again
         #endif
     }
 
@@ -256,8 +258,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    
-    
     #if UNITY_EDITOR
     private void ChangeSpeed(float speed)
     {
@@ -272,6 +272,26 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             defaultSpeed = 1.5f;
+        }
+    }
+
+    // ----------------------------------------------------
+    // Gives Player the lighter
+    // ----------------------------------------------------
+    private void LighterCheat()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (!lighter.hasLighter)
+            {
+                lighter.hasLighter = true;
+                lighter.gameObject.SetActive(true);
+            }
+            else
+            {
+                lighter.hasLighter = false;
+                lighter.gameObject.SetActive(false);
+            }
         }
     }
     #endif 
