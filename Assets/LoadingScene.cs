@@ -32,13 +32,19 @@ public class LoadingScene : MonoBehaviour
             LoadingBarFilled.fillAmount = progress;
 
             // Only manually activate when it reaches 90%
-            if (operation.progress >= 0.9f)
+            if (operation.progress >= 0.8f)
             {
                 LoadingBarFilled.fillAmount = 1f;
                 yield return new WaitForSeconds(13f);
                 operation.allowSceneActivation = true;
             }
 
+            yield return null;
+        }
+        
+        while (LoadingBarFilled.fillAmount < 1f)
+        {
+            LoadingBarFilled.fillAmount += Time.deltaTime;
             yield return null;
         }
         
