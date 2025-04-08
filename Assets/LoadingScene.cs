@@ -8,8 +8,8 @@ using Image = UnityEngine.UI.Image;
 public class LoadingScene : MonoBehaviour
 {
     public GameObject LoadingScreenImage;
-    public Image LoadingBar;
-    public GameObject loadingSlider;
+    public Image LoadingBarFilled;
+    public GameObject loadingBarObject;
     
     public void LoadScene(int sceneId)
     {
@@ -23,20 +23,27 @@ public class LoadingScene : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
         
         LoadingScreenImage.SetActive(true);
-        LoadingBar.gameObject.SetActive(true);
-        loadingSlider.gameObject.SetActive(true);
+        LoadingBarFilled.gameObject.SetActive(true);
+        loadingBarObject.gameObject.SetActive(true);
         
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            LoadingBar.fillAmount = progress;
-            Debug.Log("Loading progress: " + progress);
-            Debug.Log(operation.progress);
+            LoadingBarFilled.fillAmount = progress;
+
+            // Only manually activate when it reaches 90%
+            if (operation.progress >= 0.9f)
+            {
+                LoadingBarFilled.fillAmount = 1f;
+                yield return new WaitForSeconds(13f);
+                operation.allowSceneActivation = true;
+            }
+
             yield return null;
         }
         
         LoadingScreenImage.SetActive(false);
-        LoadingBar.gameObject.SetActive(false);
-        loadingSlider.gameObject.SetActive(false);
+        LoadingBarFilled.gameObject.SetActive(false);
+        loadingBarObject.gameObject.SetActive(false);
     }
 }
