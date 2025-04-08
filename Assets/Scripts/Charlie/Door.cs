@@ -28,7 +28,7 @@ public class Door : MonoBehaviour
 
     private InteractableObject interactableObject;
     
-    private bool isInteracting = false;
+    private bool isInteracting = false; // Indicates if the player is currently interacting with the door
 
     private void Awake()
     {
@@ -108,6 +108,7 @@ public class Door : MonoBehaviour
             inventory.keyGameObject.SetActive(false);
             lockPad.SetActive(false);
             StartCoroutine(actionSubtitles.ShowSubtitle("Door unlocked"));
+            isInteracting = false;
         }
         else
         {
@@ -125,6 +126,8 @@ public class Door : MonoBehaviour
         {
             sound.Play();
         }
+        
+        yield return new WaitUntil(() => doorAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationName));
 
         // Wait until the animation is done
         yield return new WaitForSeconds(doorAnimator.GetCurrentAnimatorStateInfo(0).length);
