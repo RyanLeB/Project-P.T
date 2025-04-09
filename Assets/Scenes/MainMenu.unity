@@ -8216,7 +8216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb0aa1175514645b7de6e9322bd0da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingIsOn: 1
+  settingIsOn: 0
   subtitle: {fileID: 848704207}
   subtitleDuration: 2
   isActive: 0
@@ -8571,7 +8571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &532294436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13422,7 +13422,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!4 &786737991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb1edd3edf432994cb0370a62055372f, type: 3}
