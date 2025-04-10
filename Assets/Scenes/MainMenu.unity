@@ -36823,12 +36823,12 @@ MonoBehaviour:
   gamePlayUI: {fileID: 1949313813}
   gameOverUI: {fileID: 648092282}
   gamePauseUI: {fileID: 1006778971}
-  settingsUI: {fileID: 1954890289}
+  settingsUI: {fileID: 1657793577}
   creditsUI: {fileID: 421166215}
   keyPadUI: {fileID: 0}
   introUI: {fileID: 2081307688}
   controlsUI: {fileID: 1745155406}
-  optionsUI: {fileID: 0}
+  optionsUI: {fileID: 1954890289}
 --- !u!1001 &1894964358
 PrefabInstance:
   m_ObjectHideFlags: 0
