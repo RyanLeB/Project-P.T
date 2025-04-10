@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using static GlobalVariables;
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
     public UIManager uIManager;
     public AudioManager audioManager;
-    
+
+    public PlayableDirector director;
+
     bool keyPressed = false;
     bool gameStateChanged = false;
 
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        director.gameObject.SetActive(true);
         uIManager = FindObjectOfType<UIManager>();
         audioManager.PlayMusic("MainMenu");
         //playerController = FindObjectOfType<PlayerController>();
@@ -82,6 +86,23 @@ public class GameManager : MonoBehaviour
         if (Input.anyKeyDown) 
         {
             HandleGameState(); 
+        }
+
+        if (director != null)
+        {
+            if (director.state == PlayState.Playing)
+            {
+                playerController.cameraLocked = true;
+                playerController.movementLocked = true;
+
+                if (Input.anyKeyDown)
+                {
+                    playerController.cameraLocked = false;
+                    playerController.movementLocked = false;
+                    director.Stop();
+                    director.gameObject.SetActive(false);
+                }
+            }
         }
         
     }
@@ -248,7 +269,8 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameState.GamePlay);
         playerController.cameraLocked = false;
         SceneManager.LoadScene(firstLevelSceneName);
-        
+        director.Play();
+
     }
 
     public void OpenSettings()
@@ -259,6 +281,7 @@ public class GameManager : MonoBehaviour
     public void OpenMainMenu()
     {
         ChangeGameState(GameState.MainMenu);
+        director.gameObject.SetActive(true);
         SceneManager.LoadScene(mainMenuSceneName);
         
     }
