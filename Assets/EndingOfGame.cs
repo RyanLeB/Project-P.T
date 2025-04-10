@@ -35,7 +35,15 @@ public class EndingOfGame : MonoBehaviour
         //UIManager uiManager = GameObject.FindObjectOfType<UIManager>();
         GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
         PlayerController player = GameObject.FindObjectOfType<PlayerController>();
-        player.PlayerResetPosition();
+        CharacterController characterController = player.GetComponent<CharacterController>();
+        if (characterController != null)
+        {
+            characterController.enabled = false;
+        }
+        else
+        {
+            Debug.Log("CharacterController not found on player object");
+        }
         GameManager.manager.playerController.lighter.gameObject.SetActive(false);
         yield return new WaitForSeconds(waitTime);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId);
@@ -44,5 +52,6 @@ public class EndingOfGame : MonoBehaviour
         uiManager.MainMenuUI();
         Cursor.visible = true;
         GameManager.manager.ResetValues(); 
+        player.PlayerResetPosition();
     }
 }
