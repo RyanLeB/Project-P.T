@@ -36,57 +36,67 @@ public class InteractableFinder : MonoBehaviour
     {
         while (true)
         {
-            Ray ray = new Ray(transform.position, transform.forward);
-            RaycastHit hit;
-
-            Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
-
-            if (Physics.Raycast(transform.position, transform.forward, out hit, rayDistance))
+            if (Camera.main != null)
             {
-                if (hit.collider.CompareTag("Interactable"))
-                {
-                    InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
+                Ray ray = new Ray(Camera.main.transform.position, transform.forward);
+                RaycastHit hit;
 
-                    if (interactableObject != null && interactableObject.isInteractable)
+                Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
+
+                if (Physics.Raycast(ray, out hit, rayDistance))
+                {
+                    if (hit.collider.CompareTag("Interactable"))
                     {
-                        if (currentObject != interactableObject)
+                        InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
+
+                        if (interactableObject != null && interactableObject.isInteractable)
+                        {
+                            if (currentObject != interactableObject)
+                            {
+                                ClearAdditionalMaterial();
+                                currentObject = interactableObject;
+                                SetAdditionalMaterial(outlineMaterial);
+                            }
+
+                            if (currentObject.name == "FirstDoor")
+                            {
+                                interactText.gameObject.SetActive(true);
+                                interactText.text = "Press E to interact";
+                            }
+
+                            if (currentObject.name == "FirstKey")
+                            {
+                                interactText.gameObject.SetActive(true);
+                                interactText.text = "Press E to pick up the key";
+                            }
+
+                            if (currentObject.name == "FirstLockDoor") // Shows the player how to use keys
+                            {
+                                Door door = currentObject.GetComponent<Door>();
+                                if (door.isLocked && door.inventory.HasKey(1))
+                                {
+                                    interactText.gameObject.SetActive(true);
+                                    interactText.text = "Press E to use the key";
+                                    Debug.Log(
+                                        $"Checking for key ID 1: {door.inventory.HasKey(1)}"); // To see if the door is using key ID 1
+                                }
+                                else if (door.isLocked) // This happens for every locked door
+                                {
+                                    interactText.gameObject.SetActive(true);
+                                    interactText.text = "Find the key to unlock the door";
+                                }
+                                else
+                                {
+                                    interactText.gameObject.SetActive(true);
+                                    interactText.text = "Press E to open the door";
+                                }
+                            }
+                        }
+                        else
                         {
                             ClearAdditionalMaterial();
-                            currentObject = interactableObject;
-                            SetAdditionalMaterial(outlineMaterial);
-                        }
-
-                        if (currentObject.name == "FirstDoor")
-                        {
-                            interactText.gameObject.SetActive(true);
-                            interactText.text = "Press E to interact";
-                        }
-                        
-                        if (currentObject.name == "FirstKey")
-                        {
-                            interactText.gameObject.SetActive(true);
-                            interactText.text = "Press E to pick up the key";
-                        }
-                        
-                        if (currentObject.name == "FirstLockDoor") // Shows the player how to use keys
-                        {
-                            Door door = currentObject.GetComponent<Door>();
-                            if (door.isLocked && door.inventory.HasKey(1))
-                            {
-                                interactText.gameObject.SetActive(true);
-                                interactText.text = "Press E to use the key";
-                                Debug.Log($"Checking for key ID 1: {door.inventory.HasKey(1)}"); // To see if the door is using key ID 1
-                            }
-                            else if (door.isLocked) // This happens for every locked door
-                            {
-                                interactText.gameObject.SetActive(true);
-                                interactText.text = "Find the key to unlock the door";
-                            }
-                            else
-                            {
-                                interactText.gameObject.SetActive(true);
-                                interactText.text = "Press E to open the door";
-                            }
+                            interactText.gameObject.SetActive(false);
+                            currentObject = null;
                         }
                     }
                     else
@@ -102,15 +112,9 @@ public class InteractableFinder : MonoBehaviour
                     interactText.gameObject.SetActive(false);
                     currentObject = null;
                 }
-            }
-            else
-            {
-                ClearAdditionalMaterial();
-                interactText.gameObject.SetActive(false);
-                currentObject = null;
-            }
 
-            yield return new WaitForSeconds(checkInterval);
+                yield return new WaitForSeconds(checkInterval);
+            }
         }
     }
 

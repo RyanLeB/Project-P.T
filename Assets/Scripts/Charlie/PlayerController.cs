@@ -35,12 +35,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 velocity;
 
-    [SerializeField] private float currentSpeed;
+    [SerializeField] public float currentSpeed;
 
     //Camera
     private float cameraVerticalRotation = 0f;
 
-    private Camera playerCamera;
+    public Camera playerCamera;
 
     //GravityETC
     private bool isGrounded;
@@ -57,9 +57,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        currentSpeed = defaultSpeed;
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GetComponentInChildren<Camera>();
         audioSource = GetComponent<AudioSource>();
+        Debug.Log(characterController.gameObject.transform.position);
     }
 
     void FixedUpdate()
@@ -259,6 +261,13 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    public void PlayerResetPosition()
+    {
+        characterController.enabled = false;
+        characterController.transform.position = new Vector3(0, 5, 0);
+        characterController.enabled = true;
+    }
+    
     #if UNITY_EDITOR
     private void ChangeSpeed(float speed)
     {
@@ -272,7 +281,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            defaultSpeed = 1.5f;
+            defaultSpeed = 2.5f;
         }
     }
 
