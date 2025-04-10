@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
         KeyPad,
         Credits,
         Intro,
-        Controls
+        Controls,
+        Options
     }
 
     public GameState currentGameState;
@@ -144,6 +145,9 @@ public class GameManager : MonoBehaviour
             case GameState.Controls:
                 Controls();
                 break;
+            case GameState.Options:
+                Options();
+                break;
         }
     }
 
@@ -195,6 +199,8 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         uIManager.SettingsUI();
+        Debug.Log(GameState.Settings);
+        Debug.Log(previousGameState);
         if (previousGameState == GameState.GamePause)
         {
             player.SetActive(true);
@@ -203,6 +209,14 @@ public class GameManager : MonoBehaviour
         {
             player.SetActive(false);
         }
+    }
+    
+    void Options()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        uIManager.OptionsUI();
+        player.SetActive(false);
     }
 
     void Controls()
@@ -342,6 +356,11 @@ public class GameManager : MonoBehaviour
         director.gameObject.SetActive(true);
         SceneManager.LoadScene(mainMenuSceneName);
         
+    }
+    
+    public void OpenOptions()
+    {
+        ChangeGameState(GameState.Options);
     }
 
     public void OpenCredits()

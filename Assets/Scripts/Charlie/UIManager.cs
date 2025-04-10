@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject keyPadUI;
     public GameObject introUI;
     public GameObject controlsUI;
+    public GameObject optionsUI;
 
     public void TurnOffUI()
     {
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
         gamePauseUI.SetActive(false);
         settingsUI.SetActive(false);
         controlsUI.SetActive(false);
+        optionsUI.SetActive(false);
         if (creditsUI != null)
         {
             creditsUI.SetActive(false);
@@ -40,6 +42,12 @@ public class UIManager : MonoBehaviour
     {
         TurnOffUI();
         mainMenuUI.SetActive(true);
+    }
+    
+    public void OptionsUI()
+    {
+        TurnOffUI();
+        optionsUI.SetActive(true);
     }
 
     public void GamePlayUI()
