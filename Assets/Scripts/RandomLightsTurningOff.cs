@@ -5,6 +5,7 @@ using UnityEngine;
 public class RandomLightsTurningOff : MonoBehaviour
 {
     public List<Light> lights;
+    public List<GameObject> lightObjects;
     public float timeBetweenLights = 20.0f;
     private bool isTurningOff = false;
     private int currentLightIndex = 0;
@@ -16,6 +17,16 @@ public class RandomLightsTurningOff : MonoBehaviour
         foreach (Light light in lights)
         {
             light.enabled = true;
+        }
+
+        foreach (GameObject lightObject in lightObjects)
+        {
+            Renderer renderer = lightObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                Material material = renderer.material;
+                material.DisableKeyword("_EMISSION");
+            }
         }
     }
     
