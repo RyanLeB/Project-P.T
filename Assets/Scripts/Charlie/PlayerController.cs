@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     //Camera
     private float cameraVerticalRotation = 0f;
 
-    private Camera playerCamera;
+    public Camera playerCamera;
 
     //GravityETC
     private bool isGrounded;

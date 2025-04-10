@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
             playerController.cameraLocked = false;
             playerController.movementLocked = false;
         }
+        
         uIManager.GamePlayUI();
         player.SetActive(true);
     }
@@ -270,7 +271,6 @@ public class GameManager : MonoBehaviour
         playerController.cameraLocked = false;
         SceneManager.LoadScene(firstLevelSceneName);
         director.Play();
-
     }
 
     public void OpenSettings()
