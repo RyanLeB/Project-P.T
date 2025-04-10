@@ -263,9 +263,9 @@ public class PlayerController : MonoBehaviour
     
     public void PlayerResetPosition()
     {
-        characterController.enabled = false;
+        //characterController.enabled = false;
         characterController.transform.position = new Vector3(0, 5, 0);
-        characterController.enabled = true;
+        //characterController.enabled = true;
     }
     
     #if UNITY_EDITOR

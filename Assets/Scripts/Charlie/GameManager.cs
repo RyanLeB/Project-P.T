@@ -155,6 +155,8 @@ public class GameManager : MonoBehaviour
         {
             playerController.cameraLocked = false;
             playerController.movementLocked = false;
+            CharacterController characterController = player.GetComponent<CharacterController>();
+            characterController.enabled = true;
         }
         
         uIManager.GamePlayUI();
@@ -311,7 +313,6 @@ public class GameManager : MonoBehaviour
     public void ResetValues()
     {
         PlayerController playerController = FindObjectOfType<PlayerController>();
-        playerController.transform.position = new Vector3(0,-100,0); // Has to find the player
         playerController.currentSpeed = 0;
         currentLevel = 0;
         playerInventory.GetKeys().Clear();
