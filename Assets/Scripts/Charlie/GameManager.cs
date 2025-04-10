@@ -284,7 +284,11 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameState.GamePlay);
         playerController.cameraLocked = false;
         SceneManager.LoadScene(firstLevelSceneName);
-        director.Play();
+        ResetValues();
+        if (director != null)
+        {
+            director.Play();
+        }
     }
 
     public void OpenSettings()
