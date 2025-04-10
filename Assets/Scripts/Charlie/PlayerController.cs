@@ -76,6 +76,11 @@ public class PlayerController : MonoBehaviour
         #endif
     }
 
+    private void OnEnable()
+    {
+        playerCamera = GetComponentInChildren<Camera>();
+    }
+
     /// <summary>
     /// Gets called when the player moves using the movement keys.
     /// </summary>
