@@ -37,6 +37,8 @@ public class SaveManager : MonoBehaviour
 
                 bf.Serialize(file, data);
 
+                gameManager.playerInventory.GetKeys().Clear();
+
                 Debug.Log("Last player position saved successfully as: " + new Vector3(data.x, data.y, data.z));
             }
         }
@@ -67,7 +69,10 @@ public class SaveManager : MonoBehaviour
                 gameManager.currentLevel = data.savedLevel;
                 foreach (int key in data.Keys)
                 {
-                    gameManager.playerInventory.AddKey(key);
+                    if (!gameManager.playerInventory.HasKey(key))
+                    {
+                        gameManager.playerInventory.AddKey(key);
+                    }
                 }
                 gameManager.playerInventory.lighter.hasLighter = data.hasLighter;
 
