@@ -16898,6 +16898,7 @@ GameObject:
   - component: {fileID: 940168318}
   - component: {fileID: 940168317}
   - component: {fileID: 940168316}
+  - component: {fileID: 940168320}
   m_Layer: 5
   m_Name: OpeningScreen
   m_TagString: Untagged
@@ -17027,6 +17028,36 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: -1
   m_TargetDisplay: 0
+--- !u!114 &940168320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940168314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: e66eb75abe277664ea5db3915be3af62, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 940168314}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &940606063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ddbab9cf810da854091b079731e48b1b, type: 3}
@@ -32980,6 +33011,8 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   objectToSpawn: {fileID: 0}
   objectsToDestroy: []
+  changeLevel: 0
+  levelNum: 0
   soundPosition: {fileID: 388802628}
   sound: {fileID: 8300000, guid: 3e16739e54d5ecb4fa155f6c16f9db66, type: 3}
   playOnStart: 0
@@ -34838,6 +34871,8 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   objectToSpawn: {fileID: 0}
   objectsToDestroy: []
+  changeLevel: 0
+  levelNum: 0
   soundPosition: {fileID: 388802628}
   sound: {fileID: 8300000, guid: 3e16739e54d5ecb4fa155f6c16f9db66, type: 3}
   playOnStart: 0
