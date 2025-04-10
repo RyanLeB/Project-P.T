@@ -109,7 +109,6 @@ public class Lightswitch : MonoBehaviour
     {
         if (lastStates.SequenceEqual(requiredLastStates) && !triggerActivated)
         {
-            
             triggerActivated = true;
         }
     }
