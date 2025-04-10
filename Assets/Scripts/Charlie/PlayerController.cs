@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 velocity;
 
+    public GameManager gameManager;
+
     [SerializeField] public float currentSpeed;
 
     //Camera
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GetComponentInChildren<Camera>();
         audioSource = GetComponent<AudioSource>();
-        Debug.Log(characterController.gameObject.transform.position);
+        //characterController.gameObject.transform.position = gameManager.lastPlayerPosition;
     }
 
     void FixedUpdate()
@@ -269,7 +271,6 @@ public class PlayerController : MonoBehaviour
     public void PlayerResetPosition()
     {
         //characterController.enabled = false;
-        characterController.transform.position = new Vector3(0, 5, 0);
         //characterController.enabled = true;
     }
     

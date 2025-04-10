@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
     public UIManager uIManager;
     public AudioManager audioManager;
+    public SaveManager saveManager;
 
     public PlayableDirector director;
 
@@ -38,7 +39,10 @@ public class GameManager : MonoBehaviour
 
     public Inventory playerInventory;
 
+    public Vector3 lastPlayerPosition;
     public int currentLevel = 0;
+
+    public bool hasLighter;
 
     void OnDestroy()
     {
@@ -64,6 +68,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        saveManager = FindObjectOfType<SaveManager>();
         director.gameObject.SetActive(true);
         uIManager = FindObjectOfType<UIManager>();
         audioManager.PlayMusic("MainMenu");
@@ -86,8 +91,10 @@ public class GameManager : MonoBehaviour
         
         if (Input.anyKeyDown) 
         {
-            HandleGameState(); 
+            HandleGameState();
         }
+
+        Debug.Log(playerController.transform.position);
 
         if (director != null)
         {
@@ -234,7 +241,7 @@ public class GameManager : MonoBehaviour
         if (Input.anyKeyDown && !keyPressed)
         {
             keyPressed = true;
-            
+            saveManager.Load();
             ChangeGameState(GameState.MainMenu);
             
         }
@@ -281,7 +288,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
+        Debug.Log("Play Game");
         ChangeGameState(GameState.GamePlay);
+        Debug.Log(lastPlayerPosition);
+        playerController.transform.position = lastPlayerPosition;
+        Debug.Log(playerController.transform.position);
         playerController.cameraLocked = false;
         SceneManager.LoadScene(firstLevelSceneName);
         director.Play();
@@ -300,6 +311,7 @@ public class GameManager : MonoBehaviour
     public void OpenMainMenu()
     {
         ChangeGameState(GameState.MainMenu);
+        lastPlayerPosition = player.transform.position;
         director.gameObject.SetActive(true);
         SceneManager.LoadScene(mainMenuSceneName);
         

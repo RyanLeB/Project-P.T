@@ -28,11 +28,15 @@ public class SaveManager : MonoBehaviour
             {
                 SaveData data = new SaveData();
                 data.Keys = gameManager.playerInventory.GetKeys();
+                data.x = gameManager.lastPlayerPosition.x;
+                data.y = gameManager.lastPlayerPosition.y;
+                data.z = gameManager.lastPlayerPosition.z;
                 data.savedLevel = gameManager.currentLevel;
                 data.hasLighter = gameManager.playerInventory.lighter.hasLighter;
 
                 bf.Serialize(file, data);
             }
+            Debug.Log("Data saved successfully to: " + savePath);
         }
         catch (System.Exception e)
         {
@@ -52,21 +56,34 @@ public class SaveManager : MonoBehaviour
         try
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(savePath, FileMode.Open);
-
-            if (file.Length > 0)
+            using (FileStream file = File.Open(savePath, FileMode.Open))
             {
-                SaveData data = (SaveData)bf.Deserialize(file);
-
-                gameManager.currentLevel = data.savedLevel;
-                foreach (int key in data.Keys)
+                if (file.Length > 0)
                 {
-                    gameManager.playerInventory.AddKey(key);
-                }
-                gameManager.playerInventory.lighter.hasLighter = data.hasLighter;
-            }
+                    SaveData data = (SaveData)bf.Deserialize(file);
 
-            file.Close();
+                    if (gameManager == null)
+                    {
+                        Debug.LogError("GameManager not found.");
+                    }
+
+                    gameManager.currentLevel = data.savedLevel;
+                    gameManager.lastPlayerPosition = new Vector3(data.x, data.y, data.z);
+                    Debug.Log("Player position loaded: " + gameManager.lastPlayerPosition);
+
+                    if (gameManager.playerInventory == null)
+                    {
+                        Debug.LogError("PlayerInventory not found.");
+                    }
+
+                    foreach (int key in data.Keys)
+                    {
+                        gameManager.playerInventory.AddKey(key);
+                    }
+                    gameManager.playerInventory.lighter.hasLighter = data.hasLighter;
+                }
+            }
+            Debug.Log("Data loaded successfully.");
         }
         catch (System.Exception e)
         {
