@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public UIManager uIManager;
     public AudioManager audioManager;
 
+    public SaveManager saveManager;
+
     public PlayableDirector director;
 
     bool keyPressed = false;
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
 
     public Inventory playerInventory;
+
+    public Vector3 lastPlayerPosition;
 
     public int currentLevel = 0;
 
@@ -64,6 +68,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        saveManager = FindObjectOfType<SaveManager>();
         director.gameObject.SetActive(true);
         uIManager = FindObjectOfType<UIManager>();
         audioManager.PlayMusic("MainMenu");
@@ -234,7 +239,7 @@ public class GameManager : MonoBehaviour
         if (Input.anyKeyDown && !keyPressed)
         {
             keyPressed = true;
-            
+            saveManager.Load();
             ChangeGameState(GameState.MainMenu);
             
         }
@@ -283,11 +288,40 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.GamePlay);
         playerController.cameraLocked = false;
+
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         SceneManager.LoadScene(firstLevelSceneName);
-        ResetValues();
+        //ResetValues();
+
         if (director != null)
         {
             director.Play();
+        }
+    }
+
+    // Callback for when the scene is loaded
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Unsubscribe from the event to avoid duplicate calls
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        StartCoroutine(SetPlayerPositionAfterDelay());
+    }
+
+    private IEnumerator SetPlayerPositionAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f); // Wait for a short duration to ensure all initialization is complete
+        if (playerController != null)
+        {
+            playerController.characterController.enabled = false;
+            playerController.transform.position = lastPlayerPosition;
+            playerController.characterController.enabled = true;
+            Debug.Log("Player moved to last saved position: " + lastPlayerPosition);
+        }
+        else
+        {
+            Debug.LogError("PlayerController is null. Cannot set position.");
         }
     }
 
@@ -304,6 +338,7 @@ public class GameManager : MonoBehaviour
     public void OpenMainMenu()
     {
         ChangeGameState(GameState.MainMenu);
+        lastPlayerPosition = playerController.transform.position;
         director.gameObject.SetActive(true);
         SceneManager.LoadScene(mainMenuSceneName);
         
@@ -338,6 +373,7 @@ public class GameManager : MonoBehaviour
         //playerController.currentSpeed = 0;
         currentLevel = 0;
         playerInventory.GetKeys().Clear();
+        lastPlayerPosition = new Vector3(0, 1.35f, 0);
     }
 
     

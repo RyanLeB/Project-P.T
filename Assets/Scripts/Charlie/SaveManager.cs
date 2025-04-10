@@ -31,7 +31,13 @@ public class SaveManager : MonoBehaviour
                 data.savedLevel = gameManager.currentLevel;
                 data.hasLighter = gameManager.playerInventory.lighter.hasLighter;
 
+                data.x = gameManager.lastPlayerPosition.x;
+                data.y = gameManager.lastPlayerPosition.y;
+                data.z = gameManager.lastPlayerPosition.z;
+
                 bf.Serialize(file, data);
+
+                Debug.Log("Last player position saved successfully as: " + new Vector3(data.x, data.y, data.z));
             }
         }
         catch (System.Exception e)
@@ -64,6 +70,9 @@ public class SaveManager : MonoBehaviour
                     gameManager.playerInventory.AddKey(key);
                 }
                 gameManager.playerInventory.lighter.hasLighter = data.hasLighter;
+
+                gameManager.lastPlayerPosition = new Vector3(data.x, data.y, data.z);
+                Debug.Log("Game loaded successfully from: " + new Vector3(data.x, data.y, data.z));
             }
 
             file.Close();
