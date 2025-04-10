@@ -23,11 +23,11 @@ public class InteractableFinder : MonoBehaviour
     
     // THIS WILL CHANGE TO BE A GLOWING EFFECT SOON
 
-    private void Start()
+    private void FixedUpdate()
     {
         StartCoroutine(CheckForInteractable());
     }
-    
+
     /// <summary>
     /// Checks if the player is looking at an interactable object.
     /// </summary>
@@ -38,7 +38,7 @@ public class InteractableFinder : MonoBehaviour
         {
             if (Camera.main != null)
             {
-                Ray ray = new Ray(Camera.main.transform.position, transform.forward);
+                Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
                 RaycastHit hit;
 
                 Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
