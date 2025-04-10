@@ -18,6 +18,7 @@ public class EndingOfGame : MonoBehaviour
             {
                 player.cameraLocked = true;
                 player.movementLocked = true;
+                player.characterController.enabled = false;
                 player.footstepSounds.ToList().ForEach(footstep => footstep.IsDestroyed()); // Later thing
             }
             else
@@ -34,11 +35,14 @@ public class EndingOfGame : MonoBehaviour
         //UIManager uiManager = GameObject.FindObjectOfType<UIManager>();
         GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
         PlayerController player = GameObject.FindObjectOfType<PlayerController>();
+        player.PlayerResetPosition();
+        GameManager.manager.playerController.lighter.gameObject.SetActive(false);
         yield return new WaitForSeconds(waitTime);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId);
-        //uiManager.MainMenuUI();
-        //player.playerCamera.gameObject.SetActive(false);
         GameManager.manager.currentGameState = GameManager.GameState.MainMenu;
-
+        UIManager uiManager = GameObject.FindObjectOfType<UIManager>();
+        uiManager.MainMenuUI();
+        Cursor.visible = true;
+        GameManager.manager.ResetValues(); 
     }
 }
