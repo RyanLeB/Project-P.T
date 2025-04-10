@@ -20639,7 +20639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5043134114705551583, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5043134114705551583, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36780,7 +36780,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 833660844}
-  audioMixer: {fileID: 24100000, guid: 57f751dc0baabbd47b5840c7dbc86e15, type: 2}
 --- !u!1 &1956093373
 GameObject:
   m_ObjectHideFlags: 0

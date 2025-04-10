@@ -42,7 +42,7 @@ public class Door : MonoBehaviour
     public void TryOpen()
     {
         if (isInteracting) return;
-        isInteracting = true;
+        //isInteracting = true;
         
         if (isLocked)
         {
