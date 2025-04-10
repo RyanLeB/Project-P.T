@@ -382,10 +382,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 0}
+  lighter: {fileID: 0}
   cameraLocked: 0
   movementLocked: 0
   movementType: 0
   currentSpeed: 0
+  playerCamera: {fileID: 0}
   footstepSounds: []
 --- !u!114 &2180943862530277034
 MonoBehaviour:

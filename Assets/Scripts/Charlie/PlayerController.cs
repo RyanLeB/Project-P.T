@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        currentSpeed = defaultSpeed;
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GetComponentInChildren<Camera>();
         audioSource = GetComponent<AudioSource>();
@@ -280,7 +281,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            defaultSpeed = 1.5f;
+            defaultSpeed = 2.5f;
         }
     }
 
