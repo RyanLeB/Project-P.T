@@ -13,6 +13,7 @@ public class LightSwitchPuzzleManager : MonoBehaviour
     public int numberOfLightsTotal;
 
     public GameObject cageObject;
+    public GameObject keySpawnPoint;
 
     public Door doorToOpen;
 
@@ -44,6 +45,10 @@ public class LightSwitchPuzzleManager : MonoBehaviour
             if (doorToOpen != null)
             {
                 doorToOpen.UnlockDoor();
+            }
+            if (keySpawnPoint != null)
+            {
+                keySpawnPoint.SetActive(true);
             }
         }
     }
