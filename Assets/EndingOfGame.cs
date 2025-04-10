@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EndingOfGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject endingObject;
+    
+    public void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+        {
+            endingObject.SetActive(true);
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.cameraLocked = true;
+                player.movementLocked = true;
+            }
+            else
+            {
+                Debug.Log("PlayerController not found on player object");
+            }
+        }
     }
 }

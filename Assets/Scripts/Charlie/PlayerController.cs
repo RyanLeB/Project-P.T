@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         #if UNITY_EDITOR
         ChangeSpeed(5f); // Changes speeds of the player pressing 1, 2 and pressing 3 is normal speed
+        Loop10Teleport();
         LighterCheat(); // Activates the lighter when pressing L and deactivates it when pressing L again
         #endif
     }
@@ -292,6 +293,14 @@ public class PlayerController : MonoBehaviour
                 lighter.hasLighter = false;
                 lighter.gameObject.SetActive(false);
             }
+        }
+    }
+    
+    private void Loop10Teleport()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            transform.position = new Vector3(9.5558939f,-98.0299988f,15.7399998f);
         }
     }
     #endif 
