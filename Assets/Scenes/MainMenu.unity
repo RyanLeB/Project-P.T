@@ -13018,7 +13018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &724778909
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14475,6 +14475,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 96420652}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Select
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &810209546
@@ -20614,6 +20626,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4497911497312897128, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
+      propertyPath: lighter
+      value: 
+      objectReference: {fileID: 747180169}
+    - target: {fileID: 4497911497312897128, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: keyGameObject
       value: 
       objectReference: {fileID: 278540206}
@@ -20623,7 +20639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5043134114705551583, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 5043134114705551583, guid: 85070f39eee2dad4ea4b897e49c52a2d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28979,6 +28995,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 96420652}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Select
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1550151655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32527,7 +32555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1714432480
 Transform:
   m_ObjectHideFlags: 0
@@ -32550,7 +32578,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714432479}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3191356b3a4aa2f4896973240190b111, type: 3}
   m_Name: 
@@ -36784,12 +36812,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIManager: {fileID: 1894938979}
   audioManager: {fileID: 96420652}
+  saveManager: {fileID: 0}
   director: {fileID: 940168316}
   currentGameState: 7
   previousGameState: 7
   player: {fileID: 8662946305988527890}
   playerController: {fileID: 7340563679190070117}
   playerInventory: {fileID: 4497911498390636113}
+  lastPlayerPosition: {x: 0, y: 0, z: 0}
   currentLevel: 0
 --- !u!4 &1956093375
 Transform:
@@ -39831,7 +39861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2081307689
 RectTransform:
   m_ObjectHideFlags: 0

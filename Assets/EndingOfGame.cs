@@ -51,7 +51,7 @@ public class EndingOfGame : MonoBehaviour
         UIManager uiManager = GameObject.FindObjectOfType<UIManager>();
         uiManager.MainMenuUI();
         Cursor.visible = true;
-        GameManager.manager.ResetValues(); 
+        // GameManager.manager.ResetValues(); 
         player.PlayerResetPosition();
     }
 }

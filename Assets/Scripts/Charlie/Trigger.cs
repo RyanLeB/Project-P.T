@@ -72,11 +72,6 @@ public class Trigger : MonoBehaviour
             audioSource.volume = volume;
         }
 
-        if (lightTrigger)
-        {
-            
-        }
-
         if (nextTrigger != null)
         {
             nextTrigger.gameObject.SetActive(false);
@@ -113,6 +108,11 @@ public class Trigger : MonoBehaviour
                     door.Crack();
                     break;
             }
+        }
+
+        if (lightTrigger)
+        {
+            TriggerLights();
         }
 
         if (nextTrigger != null)
