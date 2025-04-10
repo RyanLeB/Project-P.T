@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
         Settings,
         KeyPad,
         Credits,
-        Intro
+        Intro,
+        Controls
     }
 
     public GameState currentGameState;
@@ -135,6 +136,9 @@ public class GameManager : MonoBehaviour
             case GameState.Intro:
                 Intro();
                 break;
+            case GameState.Controls:
+                Controls();
+                break;
         }
     }
 
@@ -192,6 +196,14 @@ public class GameManager : MonoBehaviour
         {
             player.SetActive(false);
         }
+    }
+
+    void Controls()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        uIManager.ControlsUI();
+        player.SetActive(false);
     }
 
     void Keypad()
@@ -278,6 +290,11 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameState.Settings);
     }
 
+    public void OpenControls()
+    {
+        ChangeGameState(GameState.Controls);
+    }
+
     public void OpenMainMenu()
     {
         ChangeGameState(GameState.MainMenu);
@@ -310,9 +327,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetValues()
     {
-        PlayerController playerController = FindObjectOfType<PlayerController>();
-        playerController.transform.position = new Vector3(0,-100,0); // Has to find the player
-        playerController.currentSpeed = 0;
+        //PlayerController playerController = FindObjectOfType<PlayerController>();
+        //playerController.transform.position = new Vector3(0,-100,0); // Has to find the player
+        //playerController.currentSpeed = 0;
         currentLevel = 0;
         playerInventory.GetKeys().Clear();
     }
