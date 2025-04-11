@@ -462,7 +462,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f79c6cf7cac8c3c459daf26bab81af68, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4e93c6f8ad2d05e4388c295a29f2d354, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.297
   m_Pitch: 1
@@ -897,6 +897,7 @@ MonoBehaviour:
   isOpen: 0
   doorType: 0
   isLocked: 0
+  lockPad: {fileID: 0}
   requiredKeyID: 0
   inventory: {fileID: 0}
   doorAnimator: {fileID: 8427317315520683744}
