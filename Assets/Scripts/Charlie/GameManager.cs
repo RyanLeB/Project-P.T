@@ -332,6 +332,16 @@ public class GameManager : MonoBehaviour
             playerController.transform.position = lastPlayerPosition;
             playerController.characterController.enabled = true;
             Debug.Log("Player moved to last saved position: " + lastPlayerPosition);
+
+            Key[] keysInScene = FindObjectsOfType<Key>();
+            foreach (Key keyObject in keysInScene)
+            {
+                if (playerInventory.GetKeys().Contains(keyObject.keyID))
+                {
+                    keyObject.gameObject.SetActive(false); // Disable the key object
+                }
+            }
+
         }
         else
         {
