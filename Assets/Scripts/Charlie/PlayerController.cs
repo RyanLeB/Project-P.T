@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public MovementType movementType;
 
-    private Vector3 velocity;
+    public Vector3 velocity;
 
     [SerializeField] public float currentSpeed;
 
@@ -48,8 +48,8 @@ public class PlayerController : MonoBehaviour
     
     //Footsteps
     public AudioClip[] footstepSounds;
-    private AudioSource audioSource;
-    private Coroutine footstepCoroutine;
+    public AudioSource audioSource;
+    public Coroutine footstepCoroutine;
     
     
 
@@ -110,10 +110,6 @@ public class PlayerController : MonoBehaviour
             {
                 StopCoroutine(footstepCoroutine);
                 footstepCoroutine = null;
-            }
-            if (audioSource.isPlaying)
-            {
-                audioSource.Stop();
             }
         }
     }
@@ -273,7 +269,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerResetPosition()
     {
         //characterController.enabled = false;
-        //characterController.transform.position = new Vector3(0, 5, 0);
+        characterController.transform.position = new Vector3(0, 3, 0);
         //characterController.enabled = true;
     }
     

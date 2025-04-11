@@ -325,7 +325,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SetPlayerPositionAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f); // Wait for a short duration to ensure all initialization is complete
+        yield return new WaitForSeconds(1f); // Wait for a short duration to ensure all initialization is complete
         if (playerController != null)
         {
             playerController.characterController.enabled = false;
@@ -402,7 +402,10 @@ public class GameManager : MonoBehaviour
         //playerController.currentSpeed = 0;
         currentLevel = 0;
         playerInventory.GetKeys().Clear();
-        lastPlayerPosition = new Vector3(0, 1.35f, 0);
+        playerInventory.GetKeyPieces().Clear();
+        playerInventory.lighter.hasLighter = false;
+        lastPlayerPosition = new Vector3(0, 1.4f, 0);
+        playerController.PlayerResetPosition();
     }
 
     
