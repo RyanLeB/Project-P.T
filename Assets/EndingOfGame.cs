@@ -14,18 +14,32 @@ public class EndingOfGame : MonoBehaviour
         {
             endingObject.SetActive(true);
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            Inventory inventory = player.GetComponent<Inventory>();
+            player.cameraLocked = true;
+            player.movementLocked = true;
+            
             if (player != null)
             {
                 player.cameraLocked = true;
                 player.movementLocked = true;
                 player.characterController.enabled = false;
+                inventory.lighter.hasLighter = false;
+                if (player.audioSource.isPlaying)
+                {
+                    player.audioSource.Stop();
+                }
+                if (player.footstepCoroutine != null)
+                {
+                    player.StopCoroutine(player.footstepCoroutine);
+                    player.footstepCoroutine = null;
+                }
             }
             else
             {
                 Debug.Log("PlayerController not found on player object");
             }
             
-            StartCoroutine(WaitAndLoadScene(12f, 0));
+            StartCoroutine(WaitAndLoadScene(33f, 0));
         }
     }
     
@@ -43,10 +57,11 @@ public class EndingOfGame : MonoBehaviour
         {
             Debug.Log("CharacterController not found on player object");
         }
-        GameManager.manager.playerController.lighter.gameObject.SetActive(false);
         yield return new WaitForSeconds(waitTime);
+        endingObject.SetActive(false);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId);
         GameManager.manager.currentGameState = GameManager.GameState.MainMenu;
+        Cursor.lockState = CursorLockMode.None;
         UIManager uiManager = GameObject.FindObjectOfType<UIManager>();
         uiManager.MainMenuUI();
         Cursor.visible = true;
