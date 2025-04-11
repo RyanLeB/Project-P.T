@@ -111,6 +111,10 @@ public class PlayerController : MonoBehaviour
                 StopCoroutine(footstepCoroutine);
                 footstepCoroutine = null;
             }
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
     }
 

@@ -19,14 +19,13 @@ public class EndingOfGame : MonoBehaviour
                 player.cameraLocked = true;
                 player.movementLocked = true;
                 player.characterController.enabled = false;
-                player.footstepSounds.ToList().ForEach(footstep => footstep.IsDestroyed()); // Later thing
             }
             else
             {
                 Debug.Log("PlayerController not found on player object");
             }
             
-            StartCoroutine(WaitAndLoadScene(5f, 0));
+            StartCoroutine(WaitAndLoadScene(12f, 0));
         }
     }
     
