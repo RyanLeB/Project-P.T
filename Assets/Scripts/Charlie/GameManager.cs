@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public Inventory playerInventory;
 
-    public Vector3 lastPlayerPosition;
+    public Vector3 lastPlayerPosition = new Vector3(0, 1.5f, 0);
 
     public int currentLevel = 0;
 
@@ -325,11 +325,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SetPlayerPositionAfterDelay()
     {
-        yield return new WaitForSeconds(1f); // Wait for a short duration to ensure all initialization is complete
+        yield return new WaitForSeconds(2f); // Wait for a short duration to ensure all initialization is complete
         if (playerController != null)
         {
             playerController.characterController.enabled = false;
-            playerController.transform.position = lastPlayerPosition;
             playerController.characterController.enabled = true;
             Debug.Log("Player moved to last saved position: " + lastPlayerPosition);
 
@@ -404,7 +403,7 @@ public class GameManager : MonoBehaviour
         playerInventory.GetKeys().Clear();
         playerInventory.GetKeyPieces().Clear();
         playerInventory.lighter.hasLighter = false;
-        lastPlayerPosition = new Vector3(0, 1.4f, 0);
+        lastPlayerPosition = new Vector3(0, 1.5f, 0);
         playerController.PlayerResetPosition();
     }
 
