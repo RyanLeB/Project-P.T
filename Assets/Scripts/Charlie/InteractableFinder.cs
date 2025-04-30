@@ -12,148 +12,131 @@ public class InteractableFinder : MonoBehaviour
 
     private bool additionalMaterialApplied = false;
 
-    //public InteractableObject firstInteractable;
-
     public Material outlineMaterial;
 
-    // Raycast to check if player is looking at an interactable object
     public float rayDistance = 5f;
     public float rayRadius = 0.5f;
     public float checkInterval = 0.2f;
-    
-    // THIS WILL CHANGE TO BE A GLOWING EFFECT SOON
 
-    private void FixedUpdate()
+    private Coroutine checkForInteractableCoroutine;
+
+    private Renderer currentRenderer;
+    private Material[] originalMaterials;
+
+    private void OnEnable()
     {
-        StartCoroutine(CheckForInteractable());
+        if (checkForInteractableCoroutine == null)
+        {
+            checkForInteractableCoroutine = StartCoroutine(CheckForInteractable());
+        }
     }
 
-    /// <summary>
-    /// Checks if the player is looking at an interactable object.
-    /// </summary>
-    /// <param name="other">The object the player is looking at</param>
+    private void OnDisable()
+    {
+        if (checkForInteractableCoroutine != null)
+        {
+            StopCoroutine(checkForInteractableCoroutine);
+            checkForInteractableCoroutine = null;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (checkForInteractableCoroutine != null)
+        {
+            StopCoroutine(checkForInteractableCoroutine);
+        }
+    }
+
     private IEnumerator CheckForInteractable()
     {
         while (true)
         {
-            if (Camera.main != null)
+            Camera mainCamera = Camera.main; // Dynamically fetch the camera
+            if (mainCamera == null)
             {
-                Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-                RaycastHit hit;
+                yield return null; // Wait for the next frame if the camera is not available
+                continue;
+            }
 
-                Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
+            Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit, rayDistance) && hit.collider.CompareTag("Interactable"))
+            {
+                InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
 
-                if (Physics.Raycast(ray, out hit, rayDistance))
+                if (interactableObject != null && interactableObject.isInteractable)
                 {
-                    if (hit.collider.CompareTag("Interactable"))
-                    {
-                        InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
-
-                        if (interactableObject != null && interactableObject.isInteractable)
-                        {
-                            if (currentObject != interactableObject)
-                            {
-                                ClearAdditionalMaterial();
-                                currentObject = interactableObject;
-                                SetAdditionalMaterial(outlineMaterial);
-                            }
-
-                            if (currentObject.name == "FirstDoor")
-                            {
-                                interactText.gameObject.SetActive(true);
-                                interactText.text = "Press E to interact";
-                            }
-
-                            if (currentObject.name == "FirstKey")
-                            {
-                                interactText.gameObject.SetActive(true);
-                                interactText.text = "Press E to pick up the key";
-                            }
-
-                            if (currentObject.name == "FirstLockDoor") // Shows the player how to use keys
-                            {
-                                Door door = currentObject.GetComponent<Door>();
-                                if (door.isLocked && door.inventory.HasKey(1))
-                                {
-                                    interactText.gameObject.SetActive(true);
-                                    interactText.text = "Press E to use the key";
-                                    Debug.Log(
-                                        $"Checking for key ID 1: {door.inventory.HasKey(1)}"); // To see if the door is using key ID 1
-                                }
-                                else if (door.isLocked) // This happens for every locked door
-                                {
-                                    interactText.gameObject.SetActive(true);
-                                    interactText.text = "Find the key to unlock the door";
-                                }
-                                else
-                                {
-                                    interactText.gameObject.SetActive(true);
-                                    interactText.text = "Press E to open the door";
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ClearAdditionalMaterial();
-                            interactText.gameObject.SetActive(false);
-                            currentObject = null;
-                        }
-                    }
-                    else
+                    if (currentObject != interactableObject)
                     {
                         ClearAdditionalMaterial();
-                        interactText.gameObject.SetActive(false);
-                        currentObject = null;
+                        currentObject = interactableObject;
+                        currentRenderer = currentObject.GetComponent<Renderer>();
+                        originalMaterials = currentRenderer.materials;
+                        SetAdditionalMaterial(outlineMaterial);
                     }
+
+                    interactText.gameObject.SetActive(true);
+                    interactText.text = GetInteractionText(currentObject);
+                }
+            }
+            else
+            {
+                ClearAdditionalMaterial();
+                interactText.gameObject.SetActive(false);
+                currentObject = null;
+            }
+
+            yield return new WaitForSeconds(checkInterval);
+        }
+    }
+
+    private string GetInteractionText(InteractableObject interactable)
+    {
+        switch (interactable.name)
+        {
+            case "FirstDoor":
+                return "Press E to interact";
+            case "FirstKey":
+                return "Press E to pick up the key";
+            case "FirstLockDoor":
+                Door door = interactable.GetComponent<Door>();
+                if (door.isLocked && door.inventory.HasKey(1))
+                {
+                    return "Press E to use the key";
+                }
+                else if (door.isLocked)
+                {
+                    return "Find the key to unlock the door";
                 }
                 else
                 {
-                    ClearAdditionalMaterial();
-                    interactText.gameObject.SetActive(false);
-                    currentObject = null;
+                    return "Press E to open the door";
                 }
-
-                yield return new WaitForSeconds(checkInterval);
-            }
+            default:
+                return string.Empty;
         }
     }
 
-    /// <summary>
-    /// Adds a material onto the current interactable
-    /// </summary>
-    /// <param name="material">The material to be added</param>
     public void SetAdditionalMaterial(Material material)
     {
-        if (additionalMaterialApplied)
+        if (additionalMaterialApplied || currentRenderer == null)
         {
-            //Debug.LogError("Tried to add additional material even though it was already added on " + name);
             return;
         }
-        Material[] materialsArray = new Material[(currentObject.GetComponent<Renderer>().materials.Length + 1)]; // 2 length
-        //Debug.Log(currentObject.GetComponent<Renderer>().materials.Length + 1); // 2
-        Debug.Log("MaterialsArrayLength:" + materialsArray.Length); // 2
-        currentObject.GetComponent<Renderer>().materials.CopyTo(materialsArray, 0);
+        Material[] materialsArray = new Material[originalMaterials.Length + 1];
+        originalMaterials.CopyTo(materialsArray, 0);
         materialsArray[materialsArray.Length - 1] = material;
-        currentObject.GetComponent<Renderer>().materials = materialsArray;
+        currentRenderer.materials = materialsArray;
         additionalMaterialApplied = true;
     }
 
-    /// <summary>
-    /// Removes added material to the current interactable
-    /// </summary>
     public void ClearAdditionalMaterial()
     {
-        if (!additionalMaterialApplied)
+        if (!additionalMaterialApplied || currentRenderer == null)
         {
-            //Debug.LogError("Tried to delete additional material even though none was added before on " + name);
             return;
         }
-        Material[] materialsArray = new Material[(currentObject.GetComponent<Renderer>().materials.Length - 1)];
-        for (int i = 0; i < currentObject.GetComponent<Renderer>().materials.Length - 1; i++)
-        {
-            materialsArray[i] = currentObject.GetComponent<Renderer>().materials[i];
-        }
-        currentObject.GetComponent<Renderer>().materials = materialsArray;
+        currentRenderer.materials = originalMaterials;
         additionalMaterialApplied = false;
     }
 }
