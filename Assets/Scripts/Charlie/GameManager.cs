@@ -279,6 +279,14 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        // Check if the CodeLock UI is active
+        CodeLock codeLock = FindObjectOfType<CodeLock>();
+        if (codeLock != null && codeLock.gameObject.activeSelf)
+        {
+            Debug.Log("Cannot pause the game while the CodeLock UI is active.");
+            return; // Prevent pausing
+        }
+        
         if (currentGameState == GameState.GamePause)
         {
             if (previousGameState == GameState.KeyPad)

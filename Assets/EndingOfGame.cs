@@ -13,6 +13,8 @@ public class EndingOfGame : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             endingObject.SetActive(true);
+            
+            
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
             Inventory inventory = player.GetComponent<Inventory>();
             player.cameraLocked = true;
@@ -39,7 +41,19 @@ public class EndingOfGame : MonoBehaviour
                 Debug.Log("PlayerController not found on player object");
             }
             
+            // Call the Achievement method
+            SteamIntegration steamIntegration = FindObjectOfType<SteamIntegration>();
+            if (steamIntegration != null)
+            {
+                steamIntegration.WinAchievement();
+            }
+            else
+            {
+                Debug.LogWarning("SteamIntegration component not found in the scene.");
+            }
+            
             StartCoroutine(WaitAndLoadScene(33f, 0));
+            
         }
     }
     
@@ -68,4 +82,6 @@ public class EndingOfGame : MonoBehaviour
         // GameManager.manager.ResetValues(); 
         player.PlayerResetPosition();
     }
+    
+    
 }

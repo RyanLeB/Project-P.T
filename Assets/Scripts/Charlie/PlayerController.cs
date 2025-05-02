@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
     public void OnPause()
     {
         GameManager.manager.PauseGame();
+        
     }
 
 
